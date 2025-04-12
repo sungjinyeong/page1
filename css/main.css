@@ -1,0 +1,127 @@
+.event_block{
+  display: flex;
+  /* grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); */
+  justify-content: center;
+  align-items: stretch;
+  gap: 2%;
+  padding: calc(var(--padding)*2.5) 0;
+}
+.eve_b{
+  background-color: #faebef;
+}
+.eve_a, .eve_b{
+  flex: 1;
+  position: relative;
+  padding: 30px;
+  height: 385px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: .3s;
+  cursor: pointer;
+}
+.eve_a:hover .rull{
+  transform: rotate(30deg);
+}
+.eve_a:hover .rull_btn{
+  right: 5%;
+}
+.eve_b:hover .check_btn{
+  right: 5%;
+}
+.eve_a .rull{
+  
+  position: absolute;
+  top: 23%;
+  left: 48%;
+  transition: .3s;
+}
+.eve_a .money{
+  position: absolute;
+  top: 10%;
+  left: 45%;
+}
+.event_bg{
+  position: absolute;
+  top: 0;bottom: 0;left: 0;right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.event_bg img{
+  width: 100%;
+  height: 100%;
+}
+.eve_a .ev_tt, .eve_b .ev_tt{
+  font-size: 1.2em;
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+.eve_a .ev_h2{
+  font-size: 2.5em;
+  line-height: 1.2em;
+  font-weight: 700;
+  word-break: keep-all;
+  color: #FF8A14;
+  width: 40%;
+  padding-bottom: 10px;
+}
+.ev_sub_tt{
+  font-size: 0.85em;
+  font-weight: 500;
+}
+.ev_tip{
+  margin-top: auto;
+  font-size: 0.85em;
+  line-height: 1.3em;
+}
+.rull_btn, .check_btn{
+  position: absolute;
+  top: 8%;
+  right: 8%;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.eve_b .ev_h2{
+  font-size: 1.9em;
+  line-height: 1em;
+  font-weight: 700;
+  color: #FF4375;
+  padding-bottom: 10px;
+}
+.ev_data{
+  text-align: right;
+  font-size: 0.8em;
+}
+
+.point_save{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #F5F5F5;
+  border-radius: 20px;
+  padding: 20px 35px;
+  font-size: 0.85em;
+  margin-bottom: calc(var(--padding)*5);
+}
+.point_save .title{
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  gap: 5px;
+}
+.point_save .wrap li{
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.point_save .wrap li::before{
+  content: '▶';
+  color: var(--grey3);
+  font-size: 0.5em;
+}
