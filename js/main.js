@@ -1,27 +1,40 @@
-// 좋아요 토글
-$('.like_btn').click(function() {
-  $(this).toggleClass('active');
-});  
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.querySelector('.fullpage-container');
+  const sections = document.querySelectorAll('.section');
+  const paginationItems = document.querySelectorAll('.pagination li');
 
-// 회무자랑 모달
-$('.company .company_list li').on('click', function () {
-  $('.company_modal').addClass('active');
-});
-
-// 모달 닫기
-$('.modal_close').on('click', function () {
-  $('.modal').removeClass('active');
-});
-
-
-// 페이지네이션
-$(document).ready(function () {
-  $(".pagination li").on("click", function () {
-    $(".pagination li").removeClass("active");
-    $(this).addClass("active");
+  // 스크롤 시 현재 섹션에 따른 페이지네이션 active 업데이트
+  container.addEventListener('scroll', function() {
+    const index = Math.round(container.scrollTop / window.innerHeight);
+    paginationItems.forEach(item => item.classList.remove('active'));
+    if (paginationItems[index]) {
+      paginationItems[index].classList.add('active');
+    }
   });
 
-  $(".pagination li a").on("click", function (e) {
-    e.preventDefault();
+  // 페이지네이션 클릭 시 해당 섹션으로 부드럽게 스크롤
+  paginationItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      const index = parseInt(this.getAttribute('data-index'));
+      container.scrollTo({
+        top: index * window.innerHeight,
+        behavior: 'smooth'
+      });
+    });
   });
+
+  // IntersectionObserver를 이용하여 화면 내 보이는 섹션에 active 클래스 추가 (scale 효과 적용)
+  const observerOptions = {
+    root: container,
+    threshold: 0.6
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('active', entry.isIntersecting);
+    });
+  }, observerOptions);
+
+  sections.forEach(section => observer.observe(section));
 });

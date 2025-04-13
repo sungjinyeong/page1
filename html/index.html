@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 외부 리소스들 (reset, normalize, 아이콘 등) -->
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/2.7.94/css/materialdesignicons.min.css">
+		<link rel="stylesheet" type="text/css" href="https://unpkg.com/minibarjs@latest/dist/minibar.min.css">
+		<link rel="stylesheet" type="text/css" href="https://unpkg.com/rangeable@latest/dist/rangeable.min.css">
     <!-- reset -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reseter.css/2.0.0/reseter.min.css" integrity="sha512-gCJkkUMGTe73+FMwog6gIBCVJIMXRoc21l6/IPCuzxCex/1sxvO8ctb6Zd4/WWs2UMqmtnDrAdhJht5pEY0LXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- normalize css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- tabler-icons  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.28.1/tabler-icons.min.css" integrity="sha512-UuL1Le1IzormILxFr3ki91VGuPYjsKQkRFUvSrEuwdVCvYt6a1X73cJ8sWb/1E726+rfDRexUn528XRdqrSAOw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- swiper css -->
@@ -28,11 +31,12 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     <!-- imagesLoaded -->
     <script src="https://unpkg.com/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"></script>
-  
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/main.css">
-  
+    <!-- (그 외 필요한 리소스들 생략) -->
+    
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+
     <script defer src="/js/main.js"></script>
     <script defer src="/js/swiper.js"></script>
     <title>ACE PLANET</title>
@@ -42,20 +46,312 @@
       <div class="header_container">
         <h1 class="logo">
           <a href="">
-            <img class="wh_logo" src="imges/logo.svg" alt="ACE PLANET">
-            <img class="rd_logo" src="imges/logo_rd.svg" alt="ACE PLANET">
+            <img class="wh_logo" src="/images/logo.svg" alt="ACE PLANET" />
+            <img class="rd_logo" src="/images/logo_rd.svg" alt="ACE PLANET" />
           </a>
         </h1>
         <ul class="nav">
           <li class="active"><a href="#page-1">Home</a></li>
-          <li><a href="#page-2">옵티바이즈&#40;SSP&#41;</a></li>
-          <li><a href="#page-2">알파엠&#40;DSP&#41;</a></li>
+          <li><a href="#page-2">옵티바이즈(SSP)</a></li>
+          <li><a href="#page-2">알파엠(DSP)</a></li>
           <li><a href="#page-3">Login</a></li>
           <li class="adver"><a href="#page-4">광고문의</a></li>
         </ul>
       </div>
-		</header>
-    <main></main>
+    </header>
+    <main class="fullpage-container scrollBar">
+      <!-- Section 1: 메인 비디오 섹션 -->
+      <section class="section sec1" id="section1">
+        <div class="text">
+          <div class="sec1_vod">
+            <video src="/images/sec1_vod.mp4" autoplay muted loop playsinline></video>
+          </div>
+          <div class="title">
+            <h3 class="h3q">성과는 숫자로, 차이는 기술로! 에이스다운 비전을 증명합니다</h3>
+            <h2 class="h2q">BEYOND VISION!</h2>
+            <div class="scroller">
+              <div class="tip">SCROLL DOWN</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section sec2" id="section2">
+        <div class="text">
+          <div class="d_fx">
+            <div class="del">
+              <div class="title">
+                <h2 class="h2q">ABOUT<br><span>ACEPLANET</span></h2>
+                <h3 class="h3q ahtoer">광고 시장을 움직이는 기술, 그 중심에 에이스플래닛이 있습니다</h3>
+              </div>
+              <p class="textq word_keep">에이스플래닛은 수익 최적화 SSP ‘Optivize’와 성과 중심 DSP ‘AlphaM’ 를 보유한 국내 대표 애드테크 기업입니다 광고 효율과 수익 향상을 위해 필요한 모든 기술을 직접 설계하고, AI 자동화·실시간 입찰·품질 제어까지 광고의 본질에 집중하는 에이스다운 기술력으로 증명합니다.</p>
+            </div>
+            <div class="sel">
+              <div class="img_box"><img src="/images/sec2_img.png" alt=""></div>
+            </div>
+          </div>
+				</div>
+      </section>
+      <section class="section sec3" id="section3">
+        <div class="text">
+          <div class="img_box"><img src="/images/sec3_img.png" alt=""></div>
+          <div class="title">
+            <h2 class="h2q"><span>Our Vision,</span><br> Goals & Values</span></h2>
+            <div class="history">
+              <ul class="his_tt textq">
+                <li>Identity</li>
+                <li>
+                  <span>광고 수익 최대화 실현</span><br>
+                  급변하는 AD TECH 트랜드 반영, 지속적인 연구 개발을 통한 ACE 만의 최고 솔루션 제공
+                </li>
+              </ul>
+              <ul class="his_tt textq">
+                <li>Strength</li>
+                <li>
+                  <span>자동화 기반 최적화 ADX 솔루션</span><br>
+                  국내외 수천 개 매체 군 보유, 최적의 FILL-RATE와 국내 최고의 고품질 광고 SSP 플랫폼
+                </li>
+              </ul>
+              <ul class="his_tt textq">
+                <li>Core Solution</li>
+                <li>
+                  <span><em>Optivize, AlphaM</em></span><br>
+                  ACE만의 수년간 축적해온 진보된 BIG DATA 통한 최적의 광고 송출 솔루션
+                </li>
+              </ul>
+            </div>
+          </div>
+				</div>
+      </section>
+      <section class="section sec4" id="section4">
+        <div class="text">
+          <div class="del">
+            <ul class="over_list">
+              <li>
+                <div class="img_box">
+                  <img src="https://picsum.photos/seed/picsum/400/400" alt="">
+                </div>
+                <div class="title">RTB 실시간 입찰 엔진</div>
+                <div class="sub_tt">찰나의 타이밍에도 <br>최적가 자동 입찰</div>
+              </li>
+              <li>
+                <div class="img_box">
+                  <img src="https://picsum.photos/seed/picsum/400/400" alt="">
+                </div>
+                <div class="title">AI 타겟팅 최적화</div>
+                <div class="sub_tt">전환 기능성이 높은 <br>사용자 자동 예측</div>
+              </li>
+              <li>
+                <div class="img_box">
+                  <img src="https://picsum.photos/seed/picsum/400/400" alt="">
+                </div>
+                <div class="title">Viewabillity &#38; 품질 필터링</div>
+                <div class="sub_tt">프리미엄 광고 유치를 <br>위한 광고 품질 제어</div>
+              </li>
+              <li>
+                <div class="img_box">
+                  <img src="https://picsum.photos/seed/picsum/400/400" alt="">
+                </div>
+                <div class="title">최적화 자동화 시스템</div>
+                <div class="sub_tt">위치ㆍ형식ㆍ시간대별 A/B 테스트 <br>→ 자동 수익 개선</div>
+              </li>
+            </ul>
+          </div>
+          <div class="sel">
+            <h2 class="h2q">OUR<br><span>TECHNOLOGY</span></h2>
+            <h3 class="h3q">성과와 수익, 둘 다 잡는 에이스만의 기술</h3>
+          </div>
+        </div>
+      </section>
+      <section class="section sec5" id="section5">
+        <div class="text">
+          <div class="img_box"><img src="/images/sec3_img.png" alt=""></div>
+          <div class="title">
+            <h2 class="h2q">SOLUTIONS</h2>
+            <h3 class="h3q">광고 성과를 만드는 두 가지 선택</h3>
+            <h4 class="textq">당신의 목표에 가장 ACE다운 솔루션을 제안합니다</h4>
+          </div>
+          <ul class="optivize_list">
+            <li class="SSP">
+              <div class="h3q">Optivize - SSP 솔루션</div>
+              <div class="textq">수익 최적화 SSP <br>eCPM 극대화 + 프리미엄 광고 유치 + 저품질 필터링</div>
+              <div class="tip h4q"><div class="round"><i class="fa-solid fa-chevron-right"></i></div>매체 수익을 설계하는 에이스의 SSP</div>
+              <div class="move_btn"><a href=".sec2">자세히 보기<i class="fa-solid fa-chevron-right"></i></a></div>
+            </li>
+            <li class="DSP">
+              <div class="h3q">Optivize - SSP 솔루션</div>
+              <div class="textq">성과 중심 퍼포먼스 DSP<br>기반 입찰 + AI 타겟팅 + 실시간 리포트 제공</div>
+              <div class="tip h4q"><div class="round"><i class="fa-solid fa-chevron-right"></i></div>광고 효율을 과학으로 설계한 DSP</div>
+              <div class="move_btn"><a href="#sec2">자세히 보기<i class="fa-solid fa-chevron-right"></i></a></div>
+            </li>
+          </ul>
+				</div>
+      </section>
+      <section class="section sec6" id="section6">
+        <div class="text">
+          <div class="img_box"><img src="/images/sec7_img.png" alt=""></div>
+          <div class="title">
+            <h2 class="h2q">TREND &<span> INSIGHT</span></h2>
+            <h3 class="h3q">광고도 트랜드다! 급변하는 AD TECH와<br>광고 집행 계획 수립에 필요한 전방위 데이터 통찰력 제공</h3>
+          </div>
+          <ul class="round_list">
+            <li>
+              <div class="round_box">
+                <img src="/images/round_b.png" alt="">
+              </div>
+              <div class="svg_box">
+                <img src="/images/trend-up.svg" alt="">
+              </div>
+              <p class="textq">DIGITAL <br>TREND & INSIGHT</p>
+            </li>
+            <li>
+              <div class="round_box">
+                <img src="/images/round_b.png" alt="">
+              </div>
+              <div class="svg_box bm">
+                <img src="/images/desktop.svg" alt="">
+              </div>
+              <p class="textq">DIGITAL MEDIA <br>ISSUE</p>
+            </li>
+            <li>
+              <div class="round_box">
+                <img src="/images/round_b.png" alt="">
+              </div>
+              <div class="svg_box">
+                <img src="/images/list-magnifying-glass.svg" alt="">
+              </div>
+              <p class="textq">MARKETING <br>ISSUE</p>
+            </li>
+            <li>
+              <div class="round_box">
+                <img src="/images/round_b.png" alt="">
+              </div>
+              <div class="svg_box sm">
+                <img src="/images/device-mobile.svg" alt="">
+              </div>
+              <p class="textq">MEDIA & MARKET <br>REPORT</p>
+            </li>
+            <li>
+              <div class="round_box">
+                <img src="/images/round_b.png" alt="">
+              </div>
+              <div class="svg_box">
+                <img src="/images/hand-coins.svg" alt="">
+              </div>
+              <p class="textq">AD TECH <br>TREND</p>
+            </li>
+          </ul>
+				</div>
+      </section>
+      <section class="section sec7" id="section7">
+        <div class="text">
+          <div class="sel">
+            <div class="img_box"><img src="/images/sec6_img.png" alt=""></div>
+          </div>
+          <div class="del">
+            <h2 class="h2q"><span>ACE of Service</span></h2>
+            <ul class="service_list h4q">
+              <li><div class="circle-check"></div>최상의 솔루션과 컨설팅, 전문인력의 결합 - 최적의 관리 서비스 제공</li>
+              <li><div class="circle-check"></div>정확하고 전문적인 리포트와 분석 제공</li>
+              <li><div class="circle-check"></div>전담 매니저 배정을 통한 빠른 Feed-back 제공</li>
+              <li><div class="circle-check"></div>업계 가장 빠른 정산주기</li>
+            </ul>
+          </div>
+				</div>
+      </section>
+      <section class="section sec8" id="section8">
+        <div class="text">
+          <div class="flat">
+            <h2 class="fir_title">PARTNERS <br>함께하는 파트너</h2>
+            <h3 class="mid_title">에이스와 함께하는 파트너, 결과로 증명한 신뢰의 기록</h3>
+            <div class="end_title">언론사, 포털, 커뮤니티, 커머스, 앱까지 <br>에이스플래닛은 업계 최고의 파트너들과 함께 합니다.</div>
+          </div>
+          <div class="swiper spon_swiper">
+            <ul class="swiper-wrapper">
+              <li class="swiper-slide"><img src="https://picsum.photos/seed/picsum/250/50" alt=""></li>
+              <li class="swiper-slide"><img src="https://picsum.photos/seed/picsum/250/50" alt=""></li>
+              <li class="swiper-slide"><img src="https://picsum.photos/seed/picsum/250/50" alt=""></li>
+              <li class="swiper-slide"><img src="https://picsum.photos/seed/picsum/250/50" alt=""></li>
+              <li class="swiper-slide"><img src="https://picsum.photos/seed/picsum/250/50" alt=""></li>
+              <li class="swiper-slide"><img src="https://picsum.photos/seed/picsum/250/50" alt=""></li>
+              <li class="swiper-slide"><img src="https://picsum.photos/seed/picsum/250/50" alt=""></li>
+              <li class="swiper-slide"><img src="https://picsum.photos/seed/picsum/250/50" alt=""></li>
+              <li class="swiper-slide"><img src="https://picsum.photos/seed/picsum/250/50" alt=""></li>
+            </ul>
+          </div>          
+				</div>
+      </section>
+      <section class="section sec9" id="section9">
+        <div class="text">
+          <div class="form_data">
+            <div class="del">
+              <div class="img_box"><img src="https://picsum.photos/seed/picsum/2000/2000" alt=""></div>
+              <div class="title">
+                <h3 class="h3q">Contact us</h3>
+                <h2 class="h2_title">지금, 당신의 광고에 <br>에이스를 더하세요</h2>
+                <p class="textq">오른쪽 양식을 작성해 주시면 담당자가 연락 드리겠습니다.</p>
+              </div>
+            </div>
+            <div class="sel">
+              <form action="">
+                <ul class="user_data">
+                  <li class="user_ID">
+                    <div class="h4q">이름 <span>*</span></div>
+                    <input type="text" name="" id="" value="" placeholder="이름을 입력해주세요.">
+                  </li>
+                  <li class="user_Num">
+                    <div class="h4q">연락처 <span>*</span></div>
+                    <input type="text" name="" id="" value="" placeholder="연락처를 입력해주세요.('-'제외)">
+                  </li>
+                  <li class="user_Mail">
+                    <div class="h4q">이메일 <span>*</span></div>
+                    <input type="email" name="" id="" value="" placeholder="답변 받을 이메일을 입력해주세요.">
+                  </li>
+                  <li class="user_service">
+                    <div class="h4q">관심 서비스 <span>*</span></div>
+                    <ul class="choice_list">
+                      <li class="DSP" data-="">DSP</li>
+                      <li class="SSP" data-="">SSP</li>
+                      <li class="기타" data-="">기타</li>
+                    </ul>
+                  </li>
+                  <li class="user_text">
+                    <div class="h4q">문의사항 <span>*</span></div>
+                    <textarea class="" name="" id="" placeholder="문의사항을 입력해주세요." rows="4"></textarea>
+                  </li>
+                  <li class="sub_mit"><a href="">광고 상담 신청하기</a></li>
+                </ul>
+              </form>
+            </div>
+          </div>
+          <div class="dummy_foonter">
+            <h1>
+              <a href="">
+                <img class="logo" src="/images/logo.svg" alt="ACE PLANET">
+              </a>
+            </h1>
+            <ul class="company_info">
+              <li>서울 강남구 역삼로15길 3 에이빌딩</li>
+              <li>사업자등록번호 : 519-81-01569</li>
+              <li><a href="">02-6949-0070</a> / <a href="">bd@aceplanner.co.kr</a></li>
+              <li class="copy">Copyright &copy; ACE PLANET 2000-2025,All rights reserved.</li>
+            </ul>
+          </div>
+				</div>
+      </section>
+
+      <!-- 수정된 pagination (data-index 값 순차적: 0~8) -->
+      <ul class="pagination">
+        <li data-index="0" class="active"></li>
+        <li data-index="1"></li>
+        <li data-index="2"></li>
+        <li data-index="3"></li>
+        <li data-index="4"></li>
+        <li data-index="5"></li>
+        <li data-index="6"></li>
+        <li data-index="7"></li>
+        <li data-index="8"></li>
+      </ul>
+    </main>
     <footer></footer>
   </body>
 </html>

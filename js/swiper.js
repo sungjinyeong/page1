@@ -1,46 +1,35 @@
-// 포인트 상품 이미지 스와이퍼
-// new Swiper(".winner_img", {
-//   effect: "fade",
-//   fadeEffect: {
-//     crossFade: true
-//   },
-//   loop: true,
-//   autoplay: {
-//     delay: 3000, // 자동 재생 간격
-//     disableOnInteraction: false
-//   },
-//   speed: 1500, // ← 전환 시간 (ms) 부드럽게 천천히
-//   allowTouchMove: true,
-//   navigation: false,
-//   pagination: false
-// });
-
-// 콘테스트 모달
-var swiper = new Swiper('.modal_swiper', {
-  loop: true,
-  navigation: {
-    nextEl: '.modal_next',
-    prevEl: '.modal_prev'
-  },
-  pagination: {
-    el: '.modal_pagination',
-    clickable: false,
-    type: 'custom',
-    renderCustom: function (swiper, current, total) {
-      return current + ' / ' + total;
-    }
+// 스폰서 슬라이더 등 다른 Swiper 인스턴스들
+new Swiper(".spon_swiper", {
+  slidesPerView: 6,
+  slidesPerGroup: 1,
+  loop: false,
+  navigation: false,
+  pagination: false,
+  allowTouchMove: true,
+  breakpoints: {
+    1000: { slidesPerView: 5 },
+    700: { slidesPerView: 4 },
+    500: { slidesPerView: 3 },
+    0: { slidesPerView: 2 }
   }
 });
 
-// 프리미엄 뷰 슬라이드
-$(function () {
-  let swiperSingle = new Swiper('.swiper_single', {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    }
-  });
+new Swiper(".keySwiper", {
+  loop: true,
+  spaceBetween: 20,
+  centeredSlides: false,
+  slidesPerView: 4,
+  slidesPerGroup: 1,
+  breakpoints: {
+    1000: { slidesPerView: 4, slidesPerGroup: 1, centeredSlides: false },
+    750: { slidesPerView: 3, slidesPerGroup: 1, centeredSlides: true },
+    500: { slidesPerView: 2, slidesPerGroup: 1, centeredSlides: true },
+    0: { slidesPerView: 1.5, slidesPerGroup: 1, centeredSlides: true }
+  }
 });
+
+console.log("터치 대상:", evt.target, evt.target.closest('form, input, textarea, select, button'));
+document.querySelector('.form_data .sel form')
+  .addEventListener('touchstart', function(e) {
+    e.stopPropagation(); // 터치 이벤트가 부모로 전파되지 않도록
+  });
