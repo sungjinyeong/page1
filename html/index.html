@@ -34,9 +34,9 @@
     <script src="https://unpkg.com/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"></script>
     <!-- (그 외 필요한 리소스들 생략) -->
     
-    <link rel="stylesheet" href="../css/reset.css" />
-    <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
 
     <script defer src="../js/main.js"></script>
     <script defer src="../js/swiper.js"></script>
@@ -56,10 +56,28 @@
           <li><a href="#page-2">옵티바이즈(SSP)</a></li>
           <li><a href="#page-2">알파엠(DSP)</a></li>
           <li><a href="#page-3">Login</a></li>
-          <li class="adver"><a href="#page-4">광고문의</a></li>
         </ul>
+        <div class="adver"><a href="#page-4">광고문의</a></div>
+        <a href="#" class="hamburger-button">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+      <!-- nav 외부 어디든 body 끝에 삽입 -->
+      <div class="modal_menu">
+        <div class="menu_inner">
+          <ul>
+            <li class="active"><a href="#page-1">Home</a></li>
+            <li><a href="#page-2">옵티바이즈(SSP)</a></li>
+            <li><a href="#page-2">알파엠(DSP)</a></li>
+            <li><a href="#page-3">Login</a></li>
+          </ul>
+        </div>
       </div>
     </header>
+    
     <main class="fullpage-container scrollBar">
       <!-- Section 1: 메인 비디오 섹션 -->
       <section class="section sec1" id="section1">
@@ -94,7 +112,7 @@
       </section>
       <section class="section sec3" id="section3">
         <div class="text">
-          <div class="img_box"><img src="..images/sec3_img.png" alt=""></div>
+          <div class="img_box"><img src="../images/sec3_img.png" alt=""></div>
           <div class="title">
             <h2 class="h2q"><span>Our Vision,</span><br> Goals & Values</span></h2>
             <div class="history">

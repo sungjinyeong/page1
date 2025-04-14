@@ -87,3 +87,11 @@ $(document).ready(function(){
   // 리사이즈 시 처리
   $(window).on('resize', adjustTextareaRows);
 });
+
+
+// header btn
+let toggleBtn = document.querySelector('.hamburger-button');
+toggleBtn.addEventListener('click',(e)=>{
+  e.preventDefault();
+  toggleBtn.classList.toggle('active');
+})
