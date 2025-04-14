@@ -74,26 +74,68 @@ html, body {
 /* 페이지네이션 스타일 */
 .pagination {
   position: fixed;
-  right: 20px;
+  right: 1.5%;
   top: 50%;
   transform: translateY(-50%);
   list-style: none;
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 }
 .pagination li {
-  width: 12px;
-  height: 12px;
+  position: relative;
+  width: 10px;
+  height: 10px;
   background-color: #ccc;
   border-radius: 50%;
   cursor: pointer;
+  /* overflow: hidden; */
   transition: background-color 0.3s;
 }
-.pagination li.active {
-  background-color: #333;
+
+.pagination li::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(181, 197, 204, 0.342); /* 반투명 붉은 원 */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
 }
+.pagination li::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(95, 107, 122, 0.945); /* 반투명 붉은 원 */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+}
+
+.pagination li.active {
+  background-color: #616161ce;
+}
+
+.pagination li.active::after {
+  width: 16px;
+  height: 16px;
+  opacity: 1;
+}
+.pagination li.active::before{
+  width: 6px;
+  height: 6px;
+  opacity: 1;
+}
+
 
 
 .pg-wrapper.pg-vertical{
