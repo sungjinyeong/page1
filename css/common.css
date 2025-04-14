@@ -685,7 +685,7 @@ section, .text{
   height: 100%;
 }
 .form_data .sel .choice_list{
-  font-size: clamp(14px, 2vw, 20px);
+  font-size: clamp(14px, 2vw, 18px);
   display: flex;
   justify-content: space-between;
   align-items: stretch;
@@ -697,7 +697,7 @@ section, .text{
   align-items: center;
   background-color: white;
   width: 100%;
-  padding: 10px 0;
+  padding: 11px 0;
   border-radius: 6px;
   cursor: pointer;
 }
@@ -744,4 +744,18 @@ section, .text{
   .form_data .sel .sub_mit{
     margin-top: auto;
   }
+  .dummy_foonter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 10px;
+    padding-left: 2%;
+  }
+  .dummy_foonter .company_info li.copy{
+    padding-top: 10px;
+  }
+  .dummy_foonter .company_info li{
+    padding-bottom: 5px;
+  }  
 }

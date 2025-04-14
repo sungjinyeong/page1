@@ -500,7 +500,7 @@ section .text{
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
+  left: 30%;
   right: 0;
   width: 100%;
   height: 100%;
@@ -508,7 +508,6 @@ section .text{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 25%;
 }
 .sec1 .sec1_vod video{
   width: 100%;
@@ -917,11 +916,13 @@ section .text{
   align-items: center;
   gap: 4%;
   padding-bottom: 3%;
+  width: 100%;
 }
 .sec7 .h2q{
   line-height: 1.1em;
   border-bottom: 1px solid var(--border);
   margin-bottom: 5%;
+  display: inline-block;
 }
 .sec7 .sel{
   width: 40%;
@@ -965,73 +966,14 @@ section .text{
 .service_list li{
   padding-bottom: 1.5%;
 }
-/* .sec8 .text{
-  padding: 0;
-}
-.sec8 .h2_title{
-  font-size: clamp(25px, 4vw, 50px);
-  line-height: 1.2;
-  font-family: 'Gmarket Sans';
-  font-weight: 700;
-  padding-bottom: 5%;
-  width: 100%;
-  padding-left: 4%;
-  box-sizing: border-box;
-} */
 
 .sec8 .text{
   padding: 0;
 }
-/* .sec7 .fir_title{
-  position: relative;
-  font-size: clamp(25px, 3vw, 40px);
-  line-height: 1.1;
-  font-weight: 700;
-  text-align: right;
-  width: 100%;
-  padding: 0 3% 3% 0;
-}
-.sec7 .mid_title{
-  position: relative;
-  font-size: clamp(20px, 2.5vw, 32px);
-  line-height: 1;
-  text-align: center;
-  width: 100%;
-  padding: 1.5% 0;
-  background-color: #3B3B3B;
-  color: white;
-  margin-bottom: 4%;
-  font-weight: 300;
-}
-.sec7 .end_title{
-  position: relative;
-  font-size: clamp(30px, 3vw, 50px);
-  line-height: 1.25;
-  font-weight: 600;
-  text-align: left;
-  width: 100%;
-  padding: 0 0 5% 3%;
-}
-.sec7 .flat{
+.sec8 .back_bg{
+  padding-top: 4%;
   width: 100%;
 }
-.sec7 .spon_swiper{
-  width: 94%;
-  overflow: hidden;
-}
-.sec7 .spon_swiper .swiper-wrapper{
-  gap: 2%;
-}
-.sec7 .spon_swiper .swiper-slide{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 250px;
-}
-.sec7 .spon_swiper .swiper-slide img{
-  width: 100%;
-} */
- /*  */
 .sec8 .fir_title{
   position: relative;
   font-size: clamp(25px, 3vw, 40px);
@@ -1050,7 +992,6 @@ section .text{
   padding: 1.5% 0;
   background-color: #3B3B3B;
   color: white;
-  margin-bottom: 4%;
   font-weight: 300;
 }
 .sec8 .end_title{
@@ -1124,6 +1065,7 @@ section .text{
     display: none;
   }
   .sec1 .sec1_vod{
+    left: 0;
     padding: 0;
     padding-top: 50%;
   }
@@ -1318,21 +1260,7 @@ section .text{
   section, .text, .form_data{
     pointer-events: auto !important; /* ← 반드시 있어야 함 */
   }
-  .dummy_foonter{
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    gap: 10px;
-    padding-left: 2%;
-  }
-  .dummy_foonter .company_info li.copy{
-    padding-top: 10px;
-  }
   .form_data .del .textq{
     display: none;
   }
-  .dummy_foonter .company_info li{
-    padding-bottom: 5px;
-  }  
 }
