@@ -746,4 +746,17 @@ section, .text{
   .circle-check img{
     width: 15px;
   }
+  .form_data .sel .user_data li input{
+    padding: 6px 14px;
+  }
+  .form_data .sel .choice_list li{
+    padding: 8px 0;
+  }
+  .dummy_foonter h1{
+    width: 30%;
+    max-width: 250px;
+  }
+  .dummy_foonter h1 img{
+    width: 100%;
+  }
 }

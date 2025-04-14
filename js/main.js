@@ -69,3 +69,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+
+// textarea rows 조절
+$(document).ready(function(){
+  function adjustTextareaRows() {
+    if (window.innerWidth <= 768) {
+      $('textarea[placeholder="문의사항을 입력해주세요."]').attr('rows', 3);
+    } else {
+      $('textarea[placeholder="문의사항을 입력해주세요."]').attr('rows', 4);
+    }
+  }
+
+  // 최초 실행
+  adjustTextareaRows();
+
+  // 리사이즈 시 처리
+  $(window).on('resize', adjustTextareaRows);
+});
