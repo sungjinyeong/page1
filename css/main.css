@@ -64,7 +64,7 @@ html, body {
   justify-content: center;
   align-items: center;
   font-family: Arial, sans-serif;
-  transform: scale(0.95);
+  transform: scale(0.98);
   transition: transform 0.5s ease-in-out;
   overflow: hidden;
 }
@@ -102,7 +102,7 @@ html, body {
   top: 50%;
   width: 0;
   height: 0;
-  background: rgba(181, 197, 204, 0.342); /* 반투명 붉은 원 */
+  background: rgba(255, 166, 166, 0.377); /* 반투명 붉은 원 */
   border-radius: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -115,7 +115,7 @@ html, body {
   top: 50%;
   width: 0;
   height: 0;
-  background: rgba(95, 107, 122, 0.945); /* 반투명 붉은 원 */
+  background: #ffb9b948; /* 반투명 붉은 원 */
   border-radius: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -123,7 +123,7 @@ html, body {
 }
 
 .pagination li.active {
-  background-color: #616161ce;
+  background-color: #D70000;
 }
 
 .pagination li.active::after {
@@ -216,222 +216,6 @@ section{
   flex-flow: column;
   position: relative;
 }
-
-.pg-pips{
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  z-index: 100;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pg-pips ul li a span{
-  background: #fff;
-}
-
-.pg-pips li{
-  display: block;
-  width: 10px;
-  height: 10px;
-  margin: 16px;
-  position: relative;
-}
-
-.pg-pips span:after{
-  background: rgba(255, 255, 255, 0.15);
-  position: absolute;
-  content: "";
-  display: block;
-  top: 4px;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
-  border-radius: 100%;
-  transition: 0.3s;
-}
-
-.pg-pips li .active span{
-  background: #fff;
-  position: absolute;
-}
-
-.pg-pips li .active span:after {
-  top: -6px;
-  left: -6px;
-  bottom: -6px;
-  right: -6px;
-}
-
-.pg-pips ul{
-  margin: 0;
-  padding: 0;
-}
-
-.pg-pips ul li{
-  display: block;
-  width: 14px;
-  height: 13px;
-  margin: 7px;
-  position: relative;
-}
-
-.pg-pips ul li a{
-  display: block;
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.pg-pips ul li a.active span,
-.pg-pips ul li:hover a.active span{
-  height: 12px;
-  width: 12px;
-  margin: -6px 0 0 -6px;
-  border-radius: 100%;
-}
-
-.pg-pips ul li a span{
-  border-radius: 50%;
-  position: absolute;
-  z-index: 1;
-  height: 4px;
-  width: 4px;
-  border: 0;
-  background: #fff;
-  left: 50%;
-  top: 50%;
-  margin: -2px 0 0 -2px;
-  transition: all 0.1s ease-in-out;
-}
-
-.pg-pips ul li:hover a span{
-  width: 10px;
-  height: 10px;
-  margin: -5px 0px 0px -5px;
-}
-
-#settings-open {
-  color: #fff;
-  font-size: 35px;
-  position: absolute;
-  right: -60px;
-  top: 10px;
-  width: 35px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#settings-open span {
-  line-height: 0;
-}
-#settings-open span::before {
-  content: "\F8BA";
-}
-
-#settings {
-  position: fixed;
-  left: 10px;
-  top: 10px;
-  width: 250px;
-  font-family: "Inconsolata";
-  font-size: 14px;
-  -webkit-transform: translate3d(-265px, 0, 0);
-          transform: translate3d(-265px, 0, 0);
-  transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-#settings.active {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-}
-#settings.active #settings-open span::before {
-  content: "\F5AD";
-}
-#settings .settings-inner {
-  border: 3px solid #fff;
-  border-radius: 4px;
-  padding: 15px;
-}
-#settings h4 {
-  margin: 10px 0 5px 0;
-  padding: 6px 15px;
-  color: #fff;
-  text-transform: uppercase;
-}
-#settings button, #settings select {
-  border: 3px solid #fff;
-  border-radius: 4px;
-  background-color: transparent;
-  padding: 6px 12px;
-  font-family: "Inconsolata";
-  font-weight: bold;
-  color: #fff;
-  cursor: pointer;
-  width: 125px;
-}
-#settings button:hover, #settings select:hover {
-  background-color: #fff;
-  color: #000;
-}
-#settings button {
-  float: left;
-  width: 75px;
-  margin: 0 10px 15px 0;
-}
-#settings select {
-  display: block;
-  margin-top: 5px;
-}
-#settings label {
-  color: #fff;
-  font-weight: bold;
-}
-#settings .setting {
-  padding: 6px 12px;
-}
-#settings .output {
-  float: right;
-}
-
-.mb-bar {
-  background-color: #fff;
-}
-
-.mb-track-y {
-  width: 5px;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-#scroll {
-  height: 90vh;
-}
-
-#listeners {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-flow: column;
-}
-#listeners li {
-  list-style: none;
-  border: 3px solid #fff;
-  border-radius: 3px;
-  color: #fff;
-  padding: 6px 12px;
-  margin: 0 10px 10px 0;
-  font-weight: bold;
-}
-#listeners li.active {
-  background-color: #fff;
-  color: #000;
-}
-
 .scroller{
   position: relative;
   left: 0%;
@@ -965,6 +749,10 @@ section .text{
 }
 .service_list li{
   padding-bottom: 1.5%;
+  display: flex;
+  gap: 5px;
+  justify-content: start;
+  align-items: start;
 }
 
 .sec8 .text{
@@ -1203,6 +991,7 @@ section .text{
   }
   .sec7 .text{
     flex-direction: column;
+    justify-content: end;
   }
   .sec7 .sel{
     order: 2;
@@ -1217,6 +1006,11 @@ section .text{
     margin: 0;
     border: none;
   }
+  .sec7 .text .top{
+    flex-direction: column;
+    justify-content: end;
+    height: 100%;
+  }
   .service_list{
     font-size: clamp(13px, 1.5vw, 16px);
   }
@@ -1230,9 +1024,11 @@ section .text{
   .sec9 .text{
     display: flex;
     justify-content: space-between;
+    height: 100%;
   }
   .form_data{
     display: block;
+    height: 100%;
   }
   .form_data .del{
     height: 20vh;
@@ -1244,8 +1040,6 @@ section .text{
   }
   .form_data .sel form{
     width: 90%;
-    margin: auto auto 0;
-    padding-bottom: calc(var(--padding)*3);
   }
   .form_data .del .title{
     gap: 0;
@@ -1262,5 +1056,8 @@ section .text{
   }
   .form_data .del .textq{
     display: none;
+  }
+  .sec9{
+    justify-content: end;
   }
 }

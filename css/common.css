@@ -431,26 +431,10 @@ section, .text{
 .circle-check{
   width: 20px;
   height: 20px;
-  border: 1px solid #333;
-  border-radius: 50%;
-  position: relative;
-  box-sizing: border-box;
-  display: inline-block;
 }
-
-.circle-check::after{
-  content: '';
-  position: absolute;
-  left: 6px;
-  top: 2px;
-  width: 7px;
-  height: 11px;
-  border-right: 2px solid #333;
-  border-bottom: 2px solid #333;
-  transform: rotate(45deg);
+.circle-check img{
+  width: 20px
 }
-
-
 
 /* all */
 .header{
@@ -582,7 +566,7 @@ section, .text{
 .form_data{
   display: flex;
   width: 100%;
-  height: 75%;
+  overflow: hidden;
 }
 .form_data .del, .form_data .sel{
   height: 100%;
@@ -630,12 +614,14 @@ section, .text{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 3% 0;
 }
 .form_data .sel form{
   display: block;
-  width: 80%;
+  width: 90%;
   margin: auto;
-  padding-top: 2.5%;
+  overflow-y: auto;
+  padding: 0 5%;
 }
 .form_data .sel .h3q span{
   font-size: 0.3em;
@@ -719,8 +705,7 @@ section, .text{
 }
 .dummy_foonter{
   width: 100%;
-  height: 25%;
-  padding: 20px 0;
+  padding: 25px 0;
   background-color: #2E2E2E;
   display: flex;
   justify-content: center;
@@ -757,5 +742,8 @@ section, .text{
   }
   .dummy_foonter .company_info li{
     padding-bottom: 5px;
-  }  
+  }
+  .circle-check img{
+    width: 15px;
+  }
 }
