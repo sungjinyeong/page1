@@ -1,18 +1,4 @@
-// 스폰서 슬라이더 등 다른 Swiper 인스턴스들
-new Swiper(".spon_swiper", {
-  slidesPerView: 6,
-  slidesPerGroup: 1,
-  loop: false,
-  navigation: false,
-  pagination: false,
-  allowTouchMove: true,
-  breakpoints: {
-    1000: { slidesPerView: 5 },
-    700: { slidesPerView: 4 },
-    500: { slidesPerView: 3 },
-    0: { slidesPerView: 2 }
-  }
-});
+
 
 new Swiper(".keySwiper", {
   loop: true,
