@@ -343,7 +343,7 @@ section .text{
   max-width: 700px;
 }
 .sec2 .sel .img_box img{
-  width: 100%;
+  max-height: 100%;
 }
 
 .sec3 .img_box{
@@ -432,7 +432,7 @@ section .text{
 .sec4 .text{
   color: var(--black);
   flex-flow: row;
-  gap: 5%;
+  gap: 2%;
   box-sizing: border-box;
 }
 .sec4 .h2q{
@@ -442,19 +442,40 @@ section .text{
 }
 .sec4 .h2q span{
   color: #D90000;
+  font-size: 0.8em;
 }
 .sec4 .h3q{
   font-size: clamp(12px, 2.5vw, 22px);
   text-align: right;
 }
+.sec4 .del{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .sec4 .over_list{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3%;
+  gap: 15px;
+  max-width: 700px;
 }
+/* @media screen and (max-width:1000px){
+  .sec4 .text{
+    flex-direction: column;
+  }
+  .sec4 .sel{
+    order: 1;
+  }
+  .sec4 .del{
+    order: 2;
+  }
+  .sec4 .over_list{
+    grid-template-columns: auto;
+  }
+} */
 .sec4 .over_list li{
-  max-width: auto;
-  max-height: auto;
+  max-width: 400px;
+  max-height: 400px;
   position: relative;
   color: white;
   transition: .3s;
@@ -922,18 +943,20 @@ section .text{
   }
   .sec4 .text{
     flex-direction: column;
+    justify-content: end;
     gap: 0;
   }
   .sec4 .over_list{
     gap: 15px;
+    padding-bottom: 5px;
   }
   .sec4 .over_list li::after{
     opacity: 1;
     visibility: visible;
   }
   .sec4 .over_list li .title{
-    font-size: clamp(20px, 2vw, 25px);
-    bottom: 20%;
+    font-size: clamp(16px, 2vw, 25px);
+    bottom: 21%;
     word-break: keep-all;
   }
   .sec4 .over_list li .sub_tt{
@@ -959,6 +982,7 @@ section .text{
     flex-direction: column;
     align-items: start;
     justify-content: end;
+    padding-bottom: 3%;
   }
   .sec4 .sel .h2q{
     padding-bottom: 2%;
@@ -1066,5 +1090,10 @@ section .text{
   }
   .h2q{
     font-size: clamp(35px, 6vw, 45px);
+  }
+}
+@media screen and (max-width:480px){
+  .sec4 .over_list li .title {
+    font-size: clamp(13px, 1.5vw, 20px);
   }
 }

@@ -1,5 +1,3 @@
-
-
 new Swiper(".keySwiper", {
   loop: true,
   spaceBetween: 20,
@@ -19,3 +17,25 @@ document.querySelector('.form_data .sel form')
   .addEventListener('touchstart', function(e) {
     e.stopPropagation(); // 터치 이벤트가 부모로 전파되지 않도록
   });
+
+
+
+
+new Swiper(".over_list", {
+  slidesPerView: 2,
+  spaceBetween: 20,
+  loop: true,
+  slidesPerGroup: 1,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1
+    },
+    1000: {
+      slidesPerView: 2
+    }
+  }
+});

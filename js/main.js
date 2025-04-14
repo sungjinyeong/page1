@@ -88,8 +88,41 @@ $(document).ready(function(){
   $(window).on('resize', adjustTextareaRows);
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const headerLogoWhite = document.querySelector(".wh_logo");
+  const headerLogoRed = document.querySelector(".rd_logo");
+  const navLinks = document.querySelectorAll(".header .nav li a");
 
-// header btn
+  // 각 섹션별 폰트 컬러 (sec1 ~ sec9)
+  const fontColors = ["white", "black", "white", "black", "white", "white", "black", "black", "black"];
+
+  // 스크롤 감지
+  const container = document.querySelector('.fullpage-container');
+  container.addEventListener("scroll", () => {
+    const scrollTop = container.scrollTop;
+    const index = Math.round(scrollTop / window.innerHeight);
+    const currentFont = fontColors[index] || "black";
+
+    // 로고 투명도
+    if (currentFont === "white") {
+      headerLogoWhite.style.opacity = "1";
+      headerLogoRed.style.opacity = "0";
+    } else {
+      headerLogoWhite.style.opacity = "0";
+      headerLogoRed.style.opacity = "1";
+    }
+
+    // nav a 폰트 색상도 같이 변경
+    navLinks.forEach(link => {
+      link.style.color = currentFont;
+    });
+  });
+});
+
+
+
+
+// header Mobile btn
 let toggleBtn = document.querySelector('.hamburger-button');
 toggleBtn.addEventListener('click',(e)=>{
   e.preventDefault();
