@@ -893,6 +893,7 @@ section .text{
   }
   .sec2 .textq{
     font-size: 14px;
+    padding-right: 5%;
   }
   .sec3 .history{
     width: 100%;
