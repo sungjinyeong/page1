@@ -321,11 +321,11 @@ section .text{
   padding: 0 2%;
 }
 .sec2 .title h3.ahtoer{
-  font-size: clamp(12px, 2.2vw, 20px);
+  font-size: clamp(14px, 2.2vw, 20px);
   padding-bottom: 2%;
 }
 .sec2 .title h2{
-
+  font-size: clamp(35px, 6vw, 45px);
 }
 .sec2 .text .h2q span{
   color: #D90000;
@@ -890,10 +890,11 @@ section .text{
   }
   .sec2 .title h3.ahtoer{
     font-size: clamp(16px, 2.2vw, 20px);
+    word-break: keep-all;
   }
   .sec2 .textq{
-    font-size: 14px;
-    padding-right: 5%;
+    font-size: clamp(10px, 1.7vw, 14px);;
+    padding-right: 10%;
   }
   .sec3 .history{
     width: 100%;
@@ -901,12 +902,13 @@ section .text{
   }
   .sec3 .title h2{
     padding-bottom: 5%;
+    font-size: clamp(35px, 6vw, 45px);
   }
   .sec3 .img_box{
     align-items: end;
   }
   .sec3 .history .his_tt{
-    font-size: clamp(14px, 2vw, 16px);
+    font-size: clamp(12px, 2vw, 16px);
     display: block;
     padding-bottom: 4%;
   }
@@ -960,6 +962,7 @@ section .text{
   }
   .sec4 .sel .h2q{
     padding-bottom: 2%;
+    font-size: clamp(35px, 6vw, 45px);
   }
   .sec4 .sel .h2q, .sec4 .h3q{
     text-align: left;
@@ -1060,5 +1063,8 @@ section .text{
   }
   .sec9{
     justify-content: end;
+  }
+  .h2q{
+    font-size: clamp(35px, 6vw, 45px);
   }
 }
