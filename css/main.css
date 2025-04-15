@@ -270,6 +270,42 @@ section{
     opacity: 0;
   }
 }
+.char-fade {
+  opacity: 0;
+  display: inline-block;
+  animation: fadeInChar 0.6s forwards ease;
+}
+
+@keyframes fadeInChar {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(174, 198, 243, 0.3);
+  pointer-events: none;
+  transform: scale(0);
+  animation: rippleEffect 0.6s ease-out;
+  z-index: 9999;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+.sec2 .text {
+  position: relative;
+  z-index: 1;
+}
+
 body {
   margin: 0;
   overflow: hidden;
@@ -304,10 +340,14 @@ section .text{
   z-index: 2;
 }
 .sec1 .title h3{
-  padding-bottom: 2%;
+  padding-bottom: calc(var(--padding)*1.5);
+  font-weight: 400;
 }
 .sec1 .title h2{
   line-height: 1.2em;
+}
+.sec1 .title h2 span{
+  color: #fff !important;
 }
 .sec2 .text{
   color: var(--black);
@@ -341,9 +381,14 @@ section .text{
 .sec2 .sel .img_box{
   width: 100%;
   max-width: 700px;
+  overflow: hidden;
 }
 .sec2 .sel .img_box img{
   max-height: 100%;
+  transition: 1s;
+}
+.sec2 .sel .img_box:hover img{
+  transform: scale(1.1);
 }
 
 .sec3 .img_box{
@@ -378,13 +423,13 @@ section .text{
 }
 .sec3 .history{
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  width: 70%;
-  margin: auto;
-  padding-left: 10%;
+  display: block;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: stretch; */
+  width: 100%;
+  margin: 0 auto;
+  /* padding-left: 10%; */
 }
 .sec3 .history::before{
   content: '';
@@ -395,14 +440,13 @@ section .text{
   display: block;
   width: 1px;
   height: 100%;
-  /* background-color: white; */
 }
 .sec3 .history .his_tt{
-  display: flex;
-  justify-content: start;
-  gap: 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   line-height: 1.6em;
   width: 100%;
+  gap: 2.5%;
 }
 .sec3 .history .his_tt li{
   padding-bottom: 5%;
@@ -415,11 +459,13 @@ section .text{
 }
 .sec3 .history .his_tt li:first-child{
   font-size: 1.4em;
-  flex: 1;
   border-right: 1px solid white;
+  padding-right: 5%;
+  text-align: right;
+  /* flex: 1; */
 }
 .sec3 .history .his_tt li:last-child{
-  flex: 3;
+  /* flex: 4; */
 }
 .sec3 .history .his_tt li:last-child span{
   font-size: 1.2em;
@@ -452,6 +498,9 @@ section .text{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.sec4 .sel{
+  padding-right: 2%;
 }
 .sec4 .over_list{
   display: grid;
@@ -554,7 +603,7 @@ section .text{
 }
 .sec5 .img_box img{
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
 }
 .sec5 .title{
   text-align: center;
@@ -652,8 +701,9 @@ section .text{
   z-index: 1;
 }
 .sec6 .img_box img{
-  /* max-width: 100%; */
-  max-height: 100%;
+  animation: kenburns-loop 20s ease-in-out infinite;
+  will-change: transform;
+  max-height: 150%;
 }
 .sec6 .title, .sec7 .round_list{
   position: relative;
@@ -718,7 +768,7 @@ section .text{
 }
 .sec7 .text .top{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 4%;
   padding-bottom: 3%;
@@ -726,16 +776,13 @@ section .text{
 }
 .sec7 .h2q{
   line-height: 1.1em;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 5%;
-  display: inline-block;
 }
 .sec7 .sel{
-  width: 40%;
+  width: 50%;
   max-width: 650px;
 }
 .sec7 .del{
-  width: 60%;
+  width: 50%;
 }
 .sec7 .sel .img_box{
   width: 100%;
@@ -768,9 +815,10 @@ section .text{
 }
 .service_list{
   font-weight: normal;
+  padding-right: 4%;
 }
 .service_list li{
-  padding-bottom: 1.5%;
+  padding-bottom: calc(var(--padding)*1.2);
   display: flex;
   gap: 5px;
   justify-content: start;
@@ -786,7 +834,7 @@ section .text{
 }
 .sec8 .fir_title{
   position: relative;
-  font-size: clamp(25px, 3vw, 40px);
+  font-size: clamp(30px, 3vw, 40px);
   line-height: 1.1;
   font-weight: 700;
   text-align: right;
@@ -920,8 +968,8 @@ section .text{
     word-break: keep-all;
   }
   .sec2 .textq{
-    font-size: clamp(10px, 1.7vw, 14px);;
-    padding-right: 10%;
+    font-size: clamp(12px, 1.7vw, 14px);;
+    padding-right: 15%;
   }
   .sec3 .history{
     width: 100%;
@@ -946,6 +994,7 @@ section .text{
     border: none;
     border-bottom: 1px solid var(--border);
     margin-bottom: 2%;
+    text-align: left;
   }
   .sec4 .text{
     flex-direction: column;
@@ -1098,8 +1147,21 @@ section .text{
     font-size: clamp(35px, 6vw, 45px);
   }
 }
-@media screen and (max-width:480px){
+@media screen and (max-width:600px){
+  .sec4 .over_list{
+    gap: 10px;
+  }
   .sec4 .over_list li .title {
-    font-size: clamp(13px, 1.5vw, 20px);
+    font-size: clamp(18px, 2vw, 24px);
+    bottom: 30%;
+  }
+  .sec4 .over_list li .sub_tt{
+    font-size: clamp(11px, 1.5vw, 18px);
+    top: 73%;
+  }
+}
+@media screen and (max-width:480px){
+  .sec4 .over_list{
+    gap: 5px;
   }
 }

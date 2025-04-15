@@ -131,7 +131,22 @@ body{
 .pagination li a i{
   font-size: 0.85em;
 } */
-
+.text-focus-in{-webkit-animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both;animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both}
+@-webkit-keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}
+@keyframes kenburns-loop {
+  0% {
+    transform: scale(1) translate(0, 0);
+    transform-origin: 16% 50%;
+  }
+  50% {
+    transform: scale(1.25) translate(-20px, 15px);
+    transform-origin: left;
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+    transform-origin: 16% 50%;
+  }
+}
 .margin_xl{
   padding-bottom: calc(var(--padding)*5);
 }
@@ -400,21 +415,21 @@ body{
 
 
 .h2q{
-  font-size: clamp(45px, 6vw, 70px);
+  font-size: clamp(45px, 6.5vw, 70px);
   line-height: 1.2;
   font-family: 'Gmarket Sans';
   font-weight: 800;
-  padding-bottom: 3%;
+  padding-bottom: calc(var(--padding)*2);
   
 }
 .h2q span{
   color: #D90000;
 }
 .h3q{
-  font-size: clamp(18px, 3vw, 26px);
+  font-size: clamp(18px, 2.8vw, 26px);
   line-height: 1.2;
   font-weight: 600;
-  padding-bottom: 1%;
+  padding-bottom: calc(var(--padding)*1.5);
   word-break: keep-all;
 }
 .h4q{
@@ -438,7 +453,7 @@ section, .text{
   height: 20px; */
 }
 .circle-check img{
-  width: 20px
+  width: 15px
 }
 
 /* all */
@@ -450,7 +465,7 @@ section, .text{
   right: 0;
   width: 100%;
   z-index: 100;
-  padding-top: 4vh;
+  padding-top: calc(var(--padding)*1.5);
 }
 .header_container{
   width: 94%;
@@ -665,10 +680,12 @@ section, .text{
 }
 .form_data .del .img_box{
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .form_data .del .img_box img{
-  width: 100%;
-  height: 100%;
+  max-width: 175%;
 }
 .form_data .del .title{
   position: absolute;
@@ -823,6 +840,9 @@ section, .text{
   .header h1 img{
     width: 100%
   }
+  .header .adver a{
+    padding: 6px 16px;
+  }
   .header .nav{
     display: none;
     position: fixed;
@@ -849,7 +869,7 @@ section, .text{
   }
   .header .adver{
     margin-left: auto;
-    padding-right: 2%;
+    padding-right: 20px;
   }
   .header .hamburger-button{
     display: flex;
@@ -872,7 +892,8 @@ section, .text{
     padding-bottom: 5px;
   }
   .circle-check img{
-    width: 15px;
+    margin-top: 2px;
+    width: 10px;
   }
   .form_data .sel .user_data li input{
     padding: 8px 14px;

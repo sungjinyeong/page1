@@ -1,3 +1,4 @@
+// 화면 스크롤 scale 조절절
 document.addEventListener('DOMContentLoaded', function() {
   const container = document.querySelector('.fullpage-container');
   const sections = document.querySelectorAll('.section');
@@ -81,13 +82,12 @@ $(document).ready(function(){
     }
   }
 
-  // 최초 실행
   adjustTextareaRows();
-
-  // 리사이즈 시 처리
   $(window).on('resize', adjustTextareaRows);
 });
 
+
+// section별 헤드 폰트$로고 컬러 조절
 document.addEventListener("DOMContentLoaded", function () {
   const headerLogoWhite = document.querySelector(".wh_logo");
   const headerLogoRed = document.querySelector(".rd_logo");
@@ -119,10 +119,125 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// sec6 배경이미지 컨트롤
+function adjustSec6Image() {
+  const img = document.querySelector('.sec6 .img_box img');
+  const winW = window.innerWidth;
+  const winH = window.innerHeight;
+
+  if (winW >= winH) {
+    img.style.maxWidth = '100%';
+    img.style.maxHeight = 'none';
+  } else {
+    img.style.maxWidth = 'none';
+    img.style.maxHeight = '100%';
+  }
+}
+window.addEventListener('load', adjustSec6Image);
+window.addEventListener('resize', adjustSec6Image);
+
+
+// sec1 title 애니메이션
+function animateTextByChar(el) {
+  const text = el.textContent;
+  el.innerHTML = ''; // 초기화
+
+  [...text].forEach((char, i) => {
+    const span = document.createElement('span');
+    span.textContent = char;
+    span.classList.add('char-fade');
+    span.style.animationDelay = `${i * 0.05}s`;
+    el.appendChild(span);
+  });
+}
+
+// h2, h3 타겟 초기 분리
+const targetSelectors = ['.sec1 .title h2'];
+const animatedFlags = {}; // 각 요소별 애니메이션 완료 여부 저장
+
+document.addEventListener('DOMContentLoaded', () => {
+  // 초기 텍스트 저장 및 초기화
+  targetSelectors.forEach((selector) => {
+    const el = document.querySelector(selector);
+    if (!el) return;
+
+    const originalText = el.textContent;
+    animatedFlags[selector] = false;
+    el.setAttribute('data-text', originalText);
+    el.textContent = ''; // 초기화
+  });
+
+  // Observer 설정
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const el = entry.target;
+      const selector = targetSelectors.find(sel => el.matches(sel));
+      if (!selector) return;
+
+      if (entry.isIntersecting && !animatedFlags[selector]) {
+        const text = el.getAttribute('data-text');
+        el.innerHTML = '';
+
+        [...text].forEach((char, i) => {
+          const span = document.createElement('span');
+          span.textContent = (char === ' ') ? '\u00A0' : char; // 공백 표시 처리
+          span.classList.add('char-fade');
+          span.style.animationDelay = `${i * 0.05}s`;
+          el.appendChild(span);
+        });
+
+        animatedFlags[selector] = true;
+      }
+
+      if (!entry.isIntersecting) {
+        animatedFlags[selector] = false;
+        el.innerHTML = ''; // 벗어나면 초기화
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  // 타겟 감시 시작
+  targetSelectors.forEach((selector) => {
+    const el = document.querySelector(selector);
+    if (el) observer.observe(el);
+  });
+});
 
 
 
-// header Mobile btn
+
+// 클릭효과
+document.addEventListener('DOMContentLoaded', () => {
+  function createRipple(x, y) {
+    const ripple = document.createElement('div');
+    ripple.className = 'ripple';
+    ripple.style.left = `${x - 50}px`;
+    ripple.style.top = `${y - 50}px`;
+    ripple.style.width = '100px';
+    ripple.style.height = '100px';
+
+    document.body.appendChild(ripple);
+
+    setTimeout(() => {
+      ripple.remove();
+    }, 600); // 애니메이션 시간과 일치
+  }
+
+  function handleEvent(e) {
+    const x = (e.touches ? e.touches[0].clientX : e.clientX);
+    const y = (e.touches ? e.touches[0].clientY : e.clientY);
+    createRipple(x, y);
+  }
+
+  document.addEventListener('click', handleEvent);
+  document.addEventListener('touchstart', handleEvent);
+});
+
+
+
+// header Mobile btn햄버거
 let toggleBtn = document.querySelector('.hamburger-button');
 toggleBtn.addEventListener('click',(e)=>{
   e.preventDefault();
