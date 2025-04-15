@@ -505,6 +505,7 @@ section .text{
   opacity: 0;
   transition: .5s;
   padding-left: 10px;
+  padding-right: 5px;
 }
 .sec4 .over_list li .sub_tt::before{
   content: ":";
@@ -897,7 +898,7 @@ section .text{
     padding: 0 2%;
   }
   .sec2 .sel{
-    height: 50vh;
+    max-height: 50vh;
     overflow: hidden;
   }
   .sec2 .sel .img_box{
@@ -905,6 +906,11 @@ section .text{
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: 100%;
+  }
+  .sec2 .sel .img_box img{
+    max-height: none;
+    width: 100%;
   }
   .sec2 .del, .sec2 .sel{
     width: 100%;
@@ -955,12 +961,12 @@ section .text{
     visibility: visible;
   }
   .sec4 .over_list li .title{
-    font-size: clamp(16px, 2vw, 25px);
-    bottom: 21%;
+    font-size: clamp(20px, 3vw, 25px);
+    bottom: 15%;
     word-break: keep-all;
   }
   .sec4 .over_list li .sub_tt{
-    font-size: clamp(12px, 1vw, 16px);
+    font-size: clamp(14px, 1.5vw, 16px);
     opacity: 1;
     bottom: 5%;
     word-break: keep-all;

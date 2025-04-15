@@ -431,6 +431,7 @@ body{
 }
 section, .text{
   pointer-events: auto;
+  font-family: "Pretendard", "sans-serif";
 }
 .circle-check{
   /* width: 20px;
@@ -442,6 +443,7 @@ section, .text{
 
 /* all */
 .header{
+  font-family: "Pretendard", "sans-serif";
   position: fixed;
   top: 0;
   left: 0;
@@ -500,6 +502,7 @@ section, .text{
 .header .adver{
   white-space: nowrap;
   font-size: clamp(0.75em, 2vw, 1em);
+  line-height: 1.1em;
 }
 .header .adver a{
   background-color: #D90000;
