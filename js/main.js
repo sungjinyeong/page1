@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const container = document.querySelector('.fullpage-container');
   const sections = document.querySelectorAll('.section');
   const paginationItems = document.querySelectorAll('.pagination li');
+  const header = document.querySelector('.header');
 
   // 스크롤 시 현재 섹션에 따른 페이지네이션 active 업데이트
   container.addEventListener('scroll', function() {
@@ -24,15 +25,15 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+
   paginationItems.forEach(item => {
     item.addEventListener('click', () => {
       paginationItems.forEach(el => el.classList.remove('active'));
       item.classList.add('active');
     });
   });
-  
 
-  // IntersectionObserver를 이용하여 화면 내 보이는 섹션에 active 클래스 추가 (scale 효과 적용)
+  // IntersectionObserver: section 활성화 (scale) + header 배경색 연동
   const observerOptions = {
     root: container,
     threshold: 0.6
@@ -40,12 +41,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      entry.target.classList.toggle('active', entry.isIntersecting);
+      const section = entry.target;
+      section.classList.toggle('active', entry.isIntersecting);
+
+      if (entry.isIntersecting) {
+        const textEl = section.querySelector('.text');
+        if (textEl) {
+          const bgColor = window.getComputedStyle(textEl).backgroundColor;
+          header.style.backgroundColor = bgColor;
+        }
+      }
     });
   }, observerOptions);
 
   sections.forEach(section => observer.observe(section));
 });
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
