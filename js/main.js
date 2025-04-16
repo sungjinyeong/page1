@@ -131,11 +131,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // header Mobile btn햄버거
-let toggleBtn = document.querySelector('.hamburger-button');
-toggleBtn.addEventListener('click',(e)=>{
-  e.preventDefault();
-  toggleBtn.classList.toggle('active');
-})
+document.addEventListener('DOMContentLoaded', function () {
+  const toggleBtn = document.querySelector('.hamburger-button');
+  const nav = document.querySelector('.header .nav');
+
+  toggleBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    toggleBtn.classList.toggle('active');
+    nav.classList.toggle('active');
+  });
+});
+
+
 
 
 // sec6 배경이미지 컨트롤
@@ -162,12 +169,12 @@ window.addEventListener('resize', adjustSec6Image);
 document.addEventListener('DOMContentLoaded', () => {
   const h2Targets = [
     { selector: '.sec1 .title h2', textRaw: 'BEYOND VISION!', textMobile: 'BEYOND<br>VISION!' },
-    // { selector: '.sec2 .title h2', textRaw: 'TEXT HERE', textMobile: 'TEXT<br>HERE' },
+    { selector: '.sec5 .title h2', textRaw: 'SOLUTIONS', textMobile: 'SOLUTIONS' },
   ];
 
   const h3Targets = [
     { selector: '.sec1 .title h3' },
-    // { selector: '.sec5 .title h3' },
+    { selector: '.sec5 .title h2' },
   ];
 
   h2Targets.forEach(target => {
@@ -363,4 +370,36 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { threshold: 0.4 });
 
   sec6Items.forEach(item => observerSec6.observe(item));
+});
+
+
+// spon 슬라이드
+$(document).ready(function() {
+  imagesLoaded('.row1 .track', function() {
+    $('.row1 .track').addClass('slider1').bxSlider({
+      slideSelector: 'img',
+      minSlides: 5,
+      maxSlides: 8,
+      moveSlides: 1,
+      slideWidth: 300,
+      slideMargin: 20,
+      ticker: true,
+      speed: 60000,
+      useCSS: false
+    });
+  });
+
+  imagesLoaded('.row2 .track', function() {
+    $('.row2 .track').addClass('slider2').bxSlider({
+      slideSelector: 'img',
+      minSlides: 5,
+      maxSlides: 8,
+      moveSlides: 1,
+      slideWidth: 300,
+      slideMargin: 20,
+      ticker: true,
+      speed: 80000,
+      useCSS: false
+    });
+  });
 });

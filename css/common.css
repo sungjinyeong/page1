@@ -99,38 +99,6 @@ body{
   clear: both;
   content: ' ';
 }
-
-/* .pagination{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1%;
-  padding-bottom: calc(var(--padding)*5);
-}
-.pagination li{
-  position: relative;
-  font-size: 0.95em;
-  line-height: 1em;
-  border-radius: 50%;
-  padding: 5px 8px;
-  color: var(--grey3);
-  cursor: pointer;
-}
-.pagination li.active{
-  color: var(--point_main);
-  font-weight: 600;
-}
-.pagination li a{
-  display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-}
-.pagination li a i{
-  font-size: 0.85em;
-} */
 .text-focus-in{-webkit-animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both;animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both}
 @-webkit-keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}
 @keyframes kenburns-loop {
@@ -712,6 +680,12 @@ section, .text{
 .form_data .del .img_box img{
   max-width: 175%;
 }
+@media screen and (max-width:1000px){
+  .form_data .del .img_box img{
+    max-width: auto;
+    max-height: 110%;
+  } 
+}
 .form_data .del .title{
   position: absolute;
   top: 0;
@@ -877,13 +851,16 @@ section, .text{
     bottom: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
     z-index: 1000;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 30px;
     transition: 0.3s ease;
+  }
+  .header .nav.active {
+    display: flex;
   }
   .header .nav.on{
     display: flex;
@@ -891,6 +868,8 @@ section, .text{
   .header .nav li a{
     color: #fff;
     font-size: 1.5rem;
+    line-height: 1em;
+    padding: 10px 0;
   }
   .header .adver{
     margin-left: auto;
@@ -898,6 +877,7 @@ section, .text{
   }
   .header .hamburger-button{
     display: flex;
+    z-index: 10000;
   }
   .form_data .sel .sub_mit{
     margin-top: auto;

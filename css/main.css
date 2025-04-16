@@ -10,7 +10,6 @@ html, body {
   scroll-behavior: smooth;
 }
 section .text{
-  max-width: 1400px;
   width: 100%;
 }
 .sec1{
@@ -177,7 +176,6 @@ section{
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-flow: column;
   position: relative;
 }
 .scroller{
@@ -263,6 +261,7 @@ section{
   }
 }
 .sec2 .text {
+  max-width: 1920px;
   position: relative;
   z-index: 1;
 }
@@ -339,10 +338,10 @@ section .text{
   font-weight: 700;
 }
 .sec2 .del{
-  width: 50%;
+
 }
 .sec2 .sel{
-  width: 45%;
+
 }
 .sec2 .sel .img_box{
   width: 100%;
@@ -443,7 +442,6 @@ section .text{
 
 .sec4 .text{
   color: var(--black);
-  flex-flow: row;
   gap: 2%;
   box-sizing: border-box;
 }
@@ -465,6 +463,7 @@ section .text{
 }
 .sec4 .sel{
   padding-right: 2%;
+  order: 1;
 }
 .sec4 .over_list{
   display: grid;
@@ -472,20 +471,7 @@ section .text{
   gap: 15px;
   max-width: 700px;
 }
-/* @media screen and (max-width:1000px){
-  .sec4 .text{
-    flex-direction: column;
-  }
-  .sec4 .sel{
-    order: 1;
-  }
-  .sec4 .del{
-    order: 2;
-  }
-  .sec4 .over_list{
-    grid-template-columns: auto;
-  }
-} */
+
 .sec4 .over_list li{
   max-width: 400px;
   max-height: 400px;
@@ -551,7 +537,12 @@ section .text{
   opacity: 1;
   visibility: visible;
 }
-
+.sec5 .text{
+  flex-direction: column;
+}
+.sec5 .text .h2q span{
+  color: white !important;
+}
 .sec5 .img_box{
   position: absolute;
   top: 0;
@@ -651,6 +642,9 @@ section .text{
 .optivize_list li .move_btn a i{
   font-size: 0.8em;
 }
+.sec6 .text{
+  flex-direction: column;
+}
 .sec6 .img_box{
   position: absolute;
   top: 0;
@@ -725,6 +719,7 @@ section .text{
   font-size: clamp(10px, 1.3vw, 16px);
 }
 .sec7 .text{
+  max-width: 1920px;
   color: black;
   flex-flow: row;
   flex-direction: column;
@@ -792,9 +787,10 @@ section .text{
 
 .sec8 .text{
   padding: 0;
+  flex-direction: column;
 }
 .sec8 .back_bg{
-  padding-top: 4%;
+  padding-top: calc(var(--padding)*5);
   width: 100%;
 }
 .sec8 .fir_title{
@@ -824,7 +820,8 @@ section .text{
   font-weight: 600;
   text-align: left;
   width: 100%;
-  padding: 0 0 5% 3%;
+  padding: 0 0 calc(var(--padding)*4) 2%;
+  z-index: 3;
 }
 .sec8 .flat{
   width: 100%;
@@ -879,13 +876,90 @@ section .text{
   transform: translateY(0);
 }
 
-
+.sec8 .del{
+  height: 100%;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.sec8 .del .img_box{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sec8 .del .img_box img{
+  max-width: 175%;
+}
+.sec8 .del .title{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 3%;
+  padding-left: 4%;
+}
+.sec8 .del .h3q{
+  padding-bottom: 5%;
+}
+.sec8 .del .h2_title{
+  font-size: clamp(25px, 4.5vw, 45px);
+  line-height: 1.2;
+  font-weight: 700;
+  padding-bottom: 3%;
+}
 
 /*  */
 .sec9 .text{
+  flex-direction: column;
   padding: 0;
 }
 
+@media screen and (max-width:1000px){
+  .sec4 .text{
+    flex-direction: column;
+    justify-content: end;
+    gap: 0;
+  }
+  .sec4 .del{
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .sec4 .sel{
+    order: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    padding-bottom: calc(var(--padding)*2.5);
+  }
+  .sec4 .sel .h2q{
+    padding-bottom: calc(var(--padding)*1.5);
+  }
+  .sec4 .sel .h2q, .sec4 .h3q{
+    text-align: left;
+    margin-bottom: 0;
+    border: none;
+    padding-bottom: 0;
+  }
+  .sec4 .over_list{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    max-width: none;
+    padding-bottom: calc(var(--padding));
+  }
+}
 @media screen and (max-width:768px){
   .h2q{
     line-height: 1.1;
@@ -974,12 +1048,9 @@ section .text{
     margin-bottom: 2%;
     text-align: left;
   }
-  .sec4 .text{
-    flex-direction: column;
-    justify-content: end;
-    gap: 0;
-  }
   .sec4 .over_list{
+    grid-template-columns: 1fr 1fr;
+    max-width: 600px;
     gap: 15px;
     padding-bottom: 5px;
   }
@@ -1000,30 +1071,6 @@ section .text{
   }
   .sec4 .over_list li:hover .title{
     transform: none;
-  }
-  .sec4 .del{
-    order: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .sec4 .sel{
-    order: 1;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: end;
-    padding-bottom: 3%;
-  }
-  .sec4 .sel .h2q{
-    padding-bottom: calc(var(--padding)*1.5);
-  }
-  .sec4 .sel .h2q, .sec4 .h3q{
-    text-align: left;
-    margin-bottom: 0;
-    border: none;
   }
   .optivize_list{
     flex-direction: column;
@@ -1081,8 +1128,20 @@ section .text{
   .sec8 .end_title{
     display: none;
   }
+  .bx_wrap{
+    position: relative;
+    z-index: 2;
+  }
+  .sec8 .text{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: stretch;
+    height: 100%;
+  }
   .sec8 .del{
     display: block;
+    max-height: 50vh;
   }
   .sec9 .text{
     display: flex;
@@ -1132,16 +1191,25 @@ section .text{
     gap: 10px;
   }
   .sec4 .over_list li .title {
-    font-size: clamp(18px, 2vw, 24px);
+    font-size: 20px;
     bottom: 30%;
   }
   .sec4 .over_list li .sub_tt{
-    font-size: clamp(11px, 1.5vw, 18px);
+    font-size: 16px;
     top: 73%;
   }
 }
-@media screen and (max-width:480px){
+@media screen and (max-width:500px){
   .sec4 .over_list{
     gap: 5px;
+  }
+  .sec4 .over_list li .title {
+    font-size: 14px;
+    bottom: 50%;
+  }
+  .sec4 .over_list li .sub_tt{
+    font-size: 10px;
+    top: 60%;
+    line-height: 1.3;
   }
 }

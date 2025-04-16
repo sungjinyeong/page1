@@ -40,3 +40,33 @@ new Swiper(".over_list", {
     }
   }
 });
+
+$(document).ready(function() {
+  imagesLoaded('.row1 .track', function() {
+    $('.row1 .track').addClass('slider1').bxSlider({
+      slideSelector: 'img',
+      minSlides: 5,
+      maxSlides: 8,
+      moveSlides: 1,
+      slideWidth: 300,
+      slideMargin: 20,
+      ticker: true,
+      speed: 60000,
+      useCSS: false
+    });
+  });
+
+  imagesLoaded('.row2 .track', function() {
+    $('.row2 .track').addClass('slider2').bxSlider({
+      slideSelector: 'img',
+      minSlides: 5,
+      maxSlides: 8,
+      moveSlides: 1,
+      slideWidth: 300,
+      slideMargin: 20,
+      ticker: true,
+      speed: 80000,
+      useCSS: false
+    });
+  });
+});
