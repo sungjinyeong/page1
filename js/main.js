@@ -160,77 +160,84 @@ window.addEventListener('resize', adjustSec6Image);
 // 수정: span 생성 시 <br>도 유지하면서 동작하도록
 // BEYOND VISION! 텍스트 줄바꿈 & char 애니메이션
 document.addEventListener('DOMContentLoaded', () => {
-  const h2El = document.querySelector('.sec1 .title h2');
-  const h3El = document.querySelector('.sec1 .title h3');
-  const textRaw = 'BEYOND VISION!';
-  const textMobile = 'BEYOND<br>VISION!';
-  let animatedH2 = false;
-  let animatedH3 = false;
+  const h2Targets = [
+    { selector: '.sec1 .title h2', textRaw: 'BEYOND VISION!', textMobile: 'BEYOND<br>VISION!' },
+    // { selector: '.sec2 .title h2', textRaw: 'TEXT HERE', textMobile: 'TEXT<br>HERE' },
+  ];
 
-  // h2 텍스트 span 애니메이션 + 줄바꿈
-  function setCharAnimationText(html) {
-    h2El.innerHTML = '';
-    html.split(/(<br\s*\/?>)/gi).forEach((seg, i) => {
-      if (seg.toLowerCase().includes('<br')) {
-        h2El.appendChild(document.createElement('br'));
-      } else {
-        [...seg].forEach((char, j) => {
-          const span = document.createElement('span');
-          span.textContent = (char === ' ') ? '\u00A0' : char;
-          span.classList.add('char-fade');
-          span.style.animationDelay = `${(i + j) * 0.15}s`;
-          h2El.appendChild(span);
-        });
-      }
-    });
-  }
+  const h3Targets = [
+    { selector: '.sec1 .title h3' },
+    // { selector: '.sec5 .title h3' },
+  ];
 
-  // 반응형 텍스트 반환
-  function getResponsiveText() {
-    return window.innerWidth <= 768 ? textMobile : textRaw;
-  }
+  h2Targets.forEach(target => {
+    const el = document.querySelector(target.selector);
+    if (!el) return;
 
-  // h3 초기 스타일 지정
-  h3El.style.opacity = '0';
-  h3El.style.filter = 'blur(20px)';
-  h3El.style.transition = 'opacity 1.4s ease, filter 1.4s ease';
+    let animated = false;
 
-  // Observer
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // h2 처리
-        if (!animatedH2) {
-          setCharAnimationText(getResponsiveText());
-          animatedH2 = true;
+    function setCharAnimationText(html) {
+      el.innerHTML = '';
+      html.split(/(<br\s*\/?>)/gi).forEach((seg, i) => {
+        if (seg.toLowerCase().includes('<br')) {
+          el.appendChild(document.createElement('br'));
+        } else {
+          [...seg].forEach((char, j) => {
+            const span = document.createElement('span');
+            span.textContent = (char === ' ') ? '\u00A0' : char;
+            span.classList.add('char-fade');
+            span.style.animationDelay = `${(i + j) * 0.15}s`;
+            el.appendChild(span);
+          });
         }
-        // h3 처리
-        if (!animatedH3) {
-          h3El.style.opacity = '1';
-          h3El.style.filter = 'blur(0)';
-          animatedH3 = true;
-        }
-      } else {
-        // 나가면 초기화
-        h2El.innerHTML = '';
-        h3El.style.opacity = '0';
-        h3El.style.filter = 'blur(20px)';
-        animatedH2 = false;
-        animatedH3 = false;
-      }
-    });
-  }, { threshold: 0.5 });
-
-  if (h2El) observer.observe(h2El);
-  if (h3El) observer.observe(h3El);
-
-  // 리사이즈 시 텍스트 갱신
-  window.addEventListener('resize', () => {
-    if (animatedH2) {
-      setCharAnimationText(getResponsiveText());
+      });
     }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !animated) {
+          setCharAnimationText(window.innerWidth <= 768 ? target.textMobile : target.textRaw);
+          animated = true;
+        } else if (!entry.isIntersecting) {
+          el.innerHTML = '';
+          animated = false;
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(el);
+
+    window.addEventListener('resize', () => {
+      if (animated) {
+        setCharAnimationText(window.innerWidth <= 768 ? target.textMobile : target.textRaw);
+      }
+    });
+  });
+
+  h3Targets.forEach(target => {
+    const el = document.querySelector(target.selector);
+    if (!el) return;
+
+    el.style.opacity = '0';
+    el.style.filter = 'blur(20px)';
+    el.style.transition = 'opacity 1.4s ease, filter 1.4s ease';
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          el.style.opacity = '1';
+          el.style.filter = 'blur(0)';
+        } else {
+          el.style.opacity = '0';
+          el.style.filter = 'blur(20px)';
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(el);
   });
 });
+
 
 
 

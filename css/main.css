@@ -9,36 +9,39 @@ html, body {
   height: 100%;
   scroll-behavior: smooth;
 }
-
-.sec1 .text{
+section .text{
+  max-width: 1400px;
+  width: 100%;
+}
+.sec1{
   background-color: #000;
 }
-.sec2 .text{
+.sec2{
   background-color: #fff;
   color: #000;
 }
-.sec3 .text{
+.sec3{
   background-color: #000;
 }
-.sec4 .text{
+.sec4{
   background-color: #fff;
   color: #000;
 }
-.sec5 .text{
+.sec5{
   background-color: #000;
 }
-.sec6 .text{
+.sec6{
   background-color: #000;
 }
-.sec7 .text{
+.sec7{
   background-color: #fff;
   color: #000;
 }
-.sec8 .text{
+.sec8{
   background-color: #fff;
   color: #000;
 }
-.sec9 .text{
+.sec9{
   background-color: #fff;
   color: #000;
 }
@@ -166,46 +169,7 @@ section{
   color: #fff;
   position: relative;
 }
-#page-1 .text, #page-1-clone .text{
-  background-color: #000;
-}
-#page-1 .text{
-  align-items: start;
-}
-#page-2 .text{
-  background-color: #fff;
-}
-#page-3 .text{
-  background-color: #000;
-}
-#page-4 .text{
-  background-color: #fff;
-}
-#page-5 .text{
-  background-color: #000;
-}
-#page-6 .text, #page-6-clone .text{
-  background-color: #000;
-}
-#page-7 .text{
-  background-color: #fff;
-}
-#page-8 .text, #page-8-clone .text{
-  background-color: #fff;
-  color: #000;
-}
-#page-9 .text{
-  background-color: #fff;
-  color: #000;
-}
-#page-10 .text, #page-10-clone .text{
-  background-color: #fff;
-  color: #000;
-}
-#page-11 .text, #page-11-clone .text{
-  background-color: #fff;
-  color: #000;
-}
+
 
 .text{
   width: 100%;
@@ -364,11 +328,10 @@ section .text{
   padding: 0 2%;
 }
 .sec2 .title h3.ahtoer{
-  font-size: clamp(14px, 2.2vw, 20px);
-  padding-bottom: 2%;
-}
-.sec2 .title h2{
-  font-size: clamp(35px, 6vw, 45px);
+  font-size: clamp(18px, 4vw, 24px);
+  word-break: keep-all;
+  padding-right: 4%;
+  padding-bottom: calc(var(--padding)*1);
 }
 .sec2 .text .h2q span{
   color: #D90000;
@@ -485,13 +448,11 @@ section .text{
   box-sizing: border-box;
 }
 .sec4 .h2q{
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 5%;
   text-align: right;
 }
 .sec4 .h2q span{
+  font-size: 0.9em;
   color: #D90000;
-  font-size: 0.8em;
 }
 .sec4 .h3q{
   font-size: clamp(12px, 2.5vw, 22px);
@@ -868,6 +829,9 @@ section .text{
 .sec8 .flat{
   width: 100%;
 }
+.sec8 .del{
+  display: none;
+}
 .spon_slider_wrap {
   max-width: 1200px;
   margin: 0 auto;
@@ -981,13 +945,9 @@ section .text{
   .sec2 .del, .sec2 .sel{
     width: 100%;
   }
-  .sec2 .title h3.ahtoer{
-    font-size: clamp(16px, 2.2vw, 20px);
-    word-break: keep-all;
-  }
   .sec2 .textq{
-    font-size: clamp(12px, 1.7vw, 14px);;
-    padding-right: 15%;
+    font-size: clamp(18px, 1.7vw, 22px);;
+    padding-right: 4%;
   }
   .sec3 .history{
     width: 100%;
@@ -1029,7 +989,7 @@ section .text{
   }
   .sec4 .over_list li .title{
     font-size: clamp(20px, 3vw, 25px);
-    bottom: 15%;
+    bottom: 16.5%;
     word-break: keep-all;
   }
   .sec4 .over_list li .sub_tt{
@@ -1058,8 +1018,7 @@ section .text{
     padding-bottom: 3%;
   }
   .sec4 .sel .h2q{
-    padding-bottom: 2%;
-    font-size: clamp(35px, 6vw, 45px);
+    padding-bottom: calc(var(--padding)*1.5);
   }
   .sec4 .sel .h2q, .sec4 .h3q{
     text-align: left;
@@ -1121,6 +1080,9 @@ section .text{
   }
   .sec8 .end_title{
     display: none;
+  }
+  .sec8 .del{
+    display: block;
   }
   .sec9 .text{
     display: flex;
