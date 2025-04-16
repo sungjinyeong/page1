@@ -138,68 +138,87 @@ window.addEventListener('resize', adjustSec6Image);
 
 
 // sec1 title 애니메이션
-function animateTextByChar(el) {
-  const text = el.textContent;
-  el.innerHTML = ''; // 초기화
+const animatedTargets = [
+  {
+    selector: '.sec1 .title h2',
+    type: 'char',
+  },
+  {
+    selector: '.sec1 .title h3',
+    type: 'fade',
+  }
+];
 
-  [...text].forEach((char, i) => {
-    const span = document.createElement('span');
-    span.textContent = char;
-    span.classList.add('char-fade');
-    span.style.animationDelay = `${i * 0.05}s`;
-    el.appendChild(span);
-  });
-}
-
-// h2, h3 타겟 초기 분리
-const targetSelectors = ['.sec1 .title h2'];
-const animatedFlags = {}; // 각 요소별 애니메이션 완료 여부 저장
+const animatedFlags = {};
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 초기 텍스트 저장 및 초기화
-  targetSelectors.forEach((selector) => {
+  animatedTargets.forEach(({ selector, type }) => {
     const el = document.querySelector(selector);
     if (!el) return;
 
-    const originalText = el.textContent;
     animatedFlags[selector] = false;
-    el.setAttribute('data-text', originalText);
-    el.textContent = ''; // 초기화
+
+    if (type === 'char') {
+      const originalText = el.textContent;
+      el.setAttribute('data-text', originalText);
+      el.textContent = '';
+    } else if (type === 'fade') {
+      // 초기 스타일 적용 (transition 적용되기 전)
+      el.style.opacity = '0';
+      el.style.filter = 'blur(20px)';
+      el.style.transition = 'opacity 0.8s ease, filter 0.8s ease';
+
+      // 한 프레임 뒤에 클래스 적용하여 부드러운 시작 유도
+      requestAnimationFrame(() => {
+        el.classList.add('fade-prep');
+      });
+    }
   });
 
-  // Observer 설정
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       const el = entry.target;
-      const selector = targetSelectors.find(sel => el.matches(sel));
-      if (!selector) return;
+      const target = animatedTargets.find(t => el.matches(t.selector));
+      if (!target) return;
+
+      const { selector, type } = target;
 
       if (entry.isIntersecting && !animatedFlags[selector]) {
-        const text = el.getAttribute('data-text');
-        el.innerHTML = '';
-
-        [...text].forEach((char, i) => {
-          const span = document.createElement('span');
-          span.textContent = (char === ' ') ? '\u00A0' : char; // 공백 표시 처리
-          span.classList.add('char-fade');
-          span.style.animationDelay = `${i * 0.05}s`;
-          el.appendChild(span);
-        });
+        if (type === 'char') {
+          const text = el.getAttribute('data-text');
+          el.innerHTML = '';
+          [...text].forEach((char, i) => {
+            const span = document.createElement('span');
+            span.textContent = (char === ' ') ? '\u00A0' : char;
+            span.classList.add('char-fade');
+            span.style.animationDelay = `${i * 0.15}s`;
+            el.appendChild(span);
+          });
+        } else if (type === 'fade') {
+          // 애니메이션 트리거
+          el.style.opacity = '1';
+          el.style.filter = 'blur(0)';
+        }
 
         animatedFlags[selector] = true;
       }
 
       if (!entry.isIntersecting) {
+        if (type === 'char') {
+          el.innerHTML = '';
+        } else if (type === 'fade') {
+          el.style.opacity = '0';
+          el.style.filter = 'blur(20px)';
+        }
+
         animatedFlags[selector] = false;
-        el.innerHTML = ''; // 벗어나면 초기화
       }
     });
   }, {
     threshold: 0.5
   });
 
-  // 타겟 감시 시작
-  targetSelectors.forEach((selector) => {
+  animatedTargets.forEach(({ selector }) => {
     const el = document.querySelector(selector);
     if (el) observer.observe(el);
   });
@@ -208,6 +227,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+
+
+// scroll 1
+$(document).ready(function () {
+  const trackingInterval = setInterval(function () {
+    TrackingTime('StayTime');
+  }, 1000);
+});
+const $counters = $(".scroll_on");
+const exposurePercentage = 100;
+const loop = true;
+
+$(window).on('scroll', function () {
+  $counters.each(function () {
+    const $el = $(this);
+    const rect = $el[0].getBoundingClientRect();
+    const winHeight = window.innerHeight;
+    const contentHeight = rect.bottom - rect.top;
+    
+    if (rect.top <= winHeight - (contentHeight * exposurePercentage / 100) && rect.bottom >= (contentHeight * exposurePercentage / 100)) {
+      $el.addClass('active');
+    }
+    
+    if (loop && (rect.bottom <= 0 || rect.top >= window.innerHeight)) {
+        $el.removeClass('active');
+      }
+    });
+}).scroll();
+
+
+    
+    
 // 클릭효과
 document.addEventListener('DOMContentLoaded', () => {
   function createRipple(x, y) {

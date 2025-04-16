@@ -143,7 +143,7 @@ html, body {
   overflow-x: hidden;
 }
 main{
-  background-color: black;
+  /* background-color: black; */
 }
 pre {
   padding: 20px;
@@ -345,9 +345,15 @@ section .text{
 }
 .sec1 .title h2{
   line-height: 1.2em;
+  cursor: ;
 }
 .sec1 .title h2 span{
   color: #fff !important;
+  transition: 1s;
+}
+.sec1 .title h2 span:hover{
+  color: #D70000 !important;
+  transition: .3s;
 }
 .sec2 .text{
   color: var(--black);
@@ -429,7 +435,7 @@ section .text{
   /* align-items: stretch; */
   width: 100%;
   margin: 0 auto;
-  /* padding-left: 10%; */
+  padding-right: 5%;
 }
 .sec3 .history::before{
   content: '';
