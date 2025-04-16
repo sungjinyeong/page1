@@ -440,7 +440,7 @@ body{
 
 
 .h2q{
-  font-size: clamp(45px, 6.5vw, 70px);
+  font-size: clamp(45px, 8vw, 70px);
   line-height: 1.2;
   font-family: 'Gmarket Sans';
   font-weight: 800;
@@ -860,7 +860,7 @@ section, .text{
 @media screen and (max-width:768px){
   .header h1{
     max-width: 250px;
-    width: 50%;
+    width: 35%;
   }
   .header h1 img{
     width: 100%

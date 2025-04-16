@@ -1,0 +1,25 @@
+<svg id="wiki_logoB" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="172.075" height="60.612" viewBox="0 0 172.075 60.612">
+  <defs>
+    <linearGradient id="linear-gradient" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#0082fa"/>
+      <stop offset="0.85" stop-color="#f927f8"/>
+    </linearGradient>
+  </defs>
+  <g id="그룹_15" data-name="그룹 15" transform="translate(83.276 18.733)">
+    <path id="패스_28" data-name="패스 28" d="M587.019,278.926v-2.312H574.063v-3.736h12.485v-2.314H574.063v-3.62h12.667V264.63H571.145v14.3h15.874Z" transform="translate(-521.94 -263.925)" fill="#050055"/>
+    <rect id="사각형_43" data-name="사각형 43" width="20.471" height="2.311" transform="translate(46.785 18.881)" fill="#050055"/>
+    <path id="패스_29" data-name="패스 29" d="M655.548,263.1v15.056H642.96v-5.221h8.251v-9.364H640.3v2.315h7.993v4.735h-8.228v.053h-.024v9.794h15.506v5.544h2.917V263.1Z" transform="translate(-569.666 -262.862)" fill="#050055"/>
+    <rect id="사각형_44" data-name="사각형 44" width="2.918" height="22.913" transform="translate(39.841 0.234)" fill="#050055"/>
+    <path id="패스_30" data-name="패스 30" d="M498.8,264.629H488.562v2.315h8.11c.026.335.042.665.042.957a13.951,13.951,0,0,1-.369,3.2h-7.669v2.313h6.9a13.489,13.489,0,0,1-7.859,7.056l1.521,1.912a15.941,15.941,0,0,0,10.7-15.055,19.273,19.273,0,0,0-.193-2.694H498.8Z" transform="translate(-464.145 -263.924)" fill="#050055"/>
+    <path id="패스_31" data-name="패스 31" d="M427.882,276.852h-16.87v2.313h5.961v6.728h2.872v-6.728h8.038v6.844H430.8V263.1h-2.917Z" transform="translate(-411.012 -262.862)" fill="#050055"/>
+    <path id="패스_32" data-name="패스 32" d="M419.733,274.72c3.788,0,6.856-2.771,6.856-6.191s-3.068-6.193-6.856-6.193-6.86,2.773-6.86,6.193S415.947,274.72,419.733,274.72Zm0-10.149a3.957,3.957,0,1,1-4,3.958A3.977,3.977,0,0,1,419.733,264.57Z" transform="translate(-412.301 -262.335)" fill="#050055"/>
+  </g>
+  <g id="그룹_17" data-name="그룹 17" transform="translate(0 0)">
+    <path id="패스_33" data-name="패스 33" d="M232.118,201.372l27.9,60.612,27.9-60.612Z" transform="translate(-203.812 -201.372)" fill="url(#linear-gradient)"/>
+    <g id="그룹_16" data-name="그룹 16" transform="translate(0 2.017)">
+      <path id="패스_34" data-name="패스 34" d="M140,207.935l26.969,58.6,3.756-8.155-23.217-50.441Z" transform="translate(-140 -207.935)" fill="#050055"/>
+      <path id="패스_35" data-name="패스 35" d="M173.734,207.935l21.789,47.337,3.288-7.145-18.5-40.192Z" transform="translate(-163.368 -207.935)" fill="#050055"/>
+      <path id="패스_36" data-name="패스 36" d="M211.017,207.935h-6.579l17.073,37.088,3.289-7.147Z" transform="translate(-184.638 -207.935)" fill="#050055"/>
+    </g>
+  </g>
+</svg>

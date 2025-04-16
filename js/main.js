@@ -119,6 +119,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// header Mobile btn햄버거
+let toggleBtn = document.querySelector('.hamburger-button');
+toggleBtn.addEventListener('click',(e)=>{
+  e.preventDefault();
+  toggleBtn.classList.toggle('active');
+})
+
+
 // sec6 배경이미지 컨트롤
 function adjustSec6Image() {
   const img = document.querySelector('.sec6 .img_box img');
@@ -137,94 +145,81 @@ window.addEventListener('load', adjustSec6Image);
 window.addEventListener('resize', adjustSec6Image);
 
 
-// sec1 title 애니메이션
-const animatedTargets = [
-  {
-    selector: '.sec1 .title h2',
-    type: 'char',
-  },
-  {
-    selector: '.sec1 .title h3',
-    type: 'fade',
-  }
-];
-
-const animatedFlags = {};
-
+// title 애니메이션
+// 수정: span 생성 시 <br>도 유지하면서 동작하도록
+// BEYOND VISION! 텍스트 줄바꿈 & char 애니메이션
 document.addEventListener('DOMContentLoaded', () => {
-  animatedTargets.forEach(({ selector, type }) => {
-    const el = document.querySelector(selector);
-    if (!el) return;
+  const h2El = document.querySelector('.sec1 .title h2');
+  const h3El = document.querySelector('.sec1 .title h3');
+  const textRaw = 'BEYOND VISION!';
+  const textMobile = 'BEYOND<br>VISION!';
+  let animatedH2 = false;
+  let animatedH3 = false;
 
-    animatedFlags[selector] = false;
-
-    if (type === 'char') {
-      const originalText = el.textContent;
-      el.setAttribute('data-text', originalText);
-      el.textContent = '';
-    } else if (type === 'fade') {
-      // 초기 스타일 적용 (transition 적용되기 전)
-      el.style.opacity = '0';
-      el.style.filter = 'blur(20px)';
-      el.style.transition = 'opacity 0.8s ease, filter 0.8s ease';
-
-      // 한 프레임 뒤에 클래스 적용하여 부드러운 시작 유도
-      requestAnimationFrame(() => {
-        el.classList.add('fade-prep');
-      });
-    }
-  });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const el = entry.target;
-      const target = animatedTargets.find(t => el.matches(t.selector));
-      if (!target) return;
-
-      const { selector, type } = target;
-
-      if (entry.isIntersecting && !animatedFlags[selector]) {
-        if (type === 'char') {
-          const text = el.getAttribute('data-text');
-          el.innerHTML = '';
-          [...text].forEach((char, i) => {
-            const span = document.createElement('span');
-            span.textContent = (char === ' ') ? '\u00A0' : char;
-            span.classList.add('char-fade');
-            span.style.animationDelay = `${i * 0.15}s`;
-            el.appendChild(span);
-          });
-        } else if (type === 'fade') {
-          // 애니메이션 트리거
-          el.style.opacity = '1';
-          el.style.filter = 'blur(0)';
-        }
-
-        animatedFlags[selector] = true;
-      }
-
-      if (!entry.isIntersecting) {
-        if (type === 'char') {
-          el.innerHTML = '';
-        } else if (type === 'fade') {
-          el.style.opacity = '0';
-          el.style.filter = 'blur(20px)';
-        }
-
-        animatedFlags[selector] = false;
+  // h2 텍스트 span 애니메이션 + 줄바꿈
+  function setCharAnimationText(html) {
+    h2El.innerHTML = '';
+    html.split(/(<br\s*\/?>)/gi).forEach((seg, i) => {
+      if (seg.toLowerCase().includes('<br')) {
+        h2El.appendChild(document.createElement('br'));
+      } else {
+        [...seg].forEach((char, j) => {
+          const span = document.createElement('span');
+          span.textContent = (char === ' ') ? '\u00A0' : char;
+          span.classList.add('char-fade');
+          span.style.animationDelay = `${(i + j) * 0.15}s`;
+          h2El.appendChild(span);
+        });
       }
     });
-  }, {
-    threshold: 0.5
-  });
+  }
 
-  animatedTargets.forEach(({ selector }) => {
-    const el = document.querySelector(selector);
-    if (el) observer.observe(el);
+  // 반응형 텍스트 반환
+  function getResponsiveText() {
+    return window.innerWidth <= 768 ? textMobile : textRaw;
+  }
+
+  // h3 초기 스타일 지정
+  h3El.style.opacity = '0';
+  h3El.style.filter = 'blur(20px)';
+  h3El.style.transition = 'opacity 1.4s ease, filter 1.4s ease';
+
+  // Observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // h2 처리
+        if (!animatedH2) {
+          setCharAnimationText(getResponsiveText());
+          animatedH2 = true;
+        }
+        // h3 처리
+        if (!animatedH3) {
+          h3El.style.opacity = '1';
+          h3El.style.filter = 'blur(0)';
+          animatedH3 = true;
+        }
+      } else {
+        // 나가면 초기화
+        h2El.innerHTML = '';
+        h3El.style.opacity = '0';
+        h3El.style.filter = 'blur(20px)';
+        animatedH2 = false;
+        animatedH3 = false;
+      }
+    });
+  }, { threshold: 0.5 });
+
+  if (h2El) observer.observe(h2El);
+  if (h3El) observer.observe(h3El);
+
+  // 리사이즈 시 텍스트 갱신
+  window.addEventListener('resize', () => {
+    if (animatedH2) {
+      setCharAnimationText(getResponsiveText());
+    }
   });
 });
-
-
 
 
 
@@ -290,9 +285,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// header Mobile btn햄버거
-let toggleBtn = document.querySelector('.hamburger-button');
-toggleBtn.addEventListener('click',(e)=>{
-  e.preventDefault();
-  toggleBtn.classList.toggle('active');
-})
+document.addEventListener('DOMContentLoaded', function () {
+  const el = document.querySelector('.sec7 .h2q');
+  const textRaw = 'ACE, 이렇게 다릅니다';
+  const textMobile = 'ACE,<br>이렇게 다릅니다';
+
+  function updateH2Text() {
+    if (window.innerWidth <= 768) {
+      el.innerHTML = textMobile;
+    } else {
+      el.innerHTML = textRaw;
+    }
+  }
+
+  updateH2Text(); // 초기 실행
+  window.addEventListener('resize', updateH2Text); // 리사이즈 반영
+});
+
+
+// sec6라운드 등장효과
+document.addEventListener('DOMContentLoaded', function () {
+  const items = document.querySelectorAll('.sec6 .round_list li');
+  let hasAnimated = false;
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasAnimated) {
+        items.forEach((el, i) => {
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, i * 350); // li 딜레이
+        });
+        hasAnimated = true;
+      }
+    });
+  }, { threshold: 0.4 });
+
+  if (items.length) observer.observe(items[0]);
+});
+
+// sec3 등장효과
+document.addEventListener('DOMContentLoaded', function () {
+  const hisItems = document.querySelectorAll('.sec3 .history .his_tt');
+
+  const observerHis = new IntersectionObserver(function (entries) {
+    entries.forEach(entry => {
+      const target = entry.target;
+
+      if (entry.isIntersecting) {
+        // 순차적으로 visible 추가
+        hisItems.forEach((el, i) => {
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, i * 950);
+        });
+      } else {
+        // 뷰포트 벗어나면 초기화
+        hisItems.forEach(el => el.classList.remove('visible'));
+      }
+    });
+  }, { threshold: 0.4 });
+
+  hisItems.forEach(item => observerHis.observe(item));
+});

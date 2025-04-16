@@ -273,17 +273,14 @@ section{
 .char-fade {
   opacity: 0;
   display: inline-block;
-  animation: fadeInChar 0.6s forwards ease;
+  animation: fadeInChar 0.5s forwards ease;
 }
 
 @keyframes fadeInChar {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+
 
 .ripple {
   position: absolute;
@@ -345,7 +342,7 @@ section .text{
 }
 .sec1 .title h2{
   line-height: 1.2em;
-  cursor: ;
+  cursor: default;
 }
 .sec1 .title h2 span{
   color: #fff !important;
@@ -782,6 +779,7 @@ section .text{
 }
 .sec7 .h2q{
   line-height: 1.1em;
+  color: #D70000;
 }
 .sec7 .sel{
   width: 50%;
@@ -840,7 +838,7 @@ section .text{
 }
 .sec8 .fir_title{
   position: relative;
-  font-size: clamp(30px, 3vw, 40px);
+  font-size: clamp(35px, 7vw, 54px);
   line-height: 1.1;
   font-weight: 700;
   text-align: right;
@@ -881,29 +879,40 @@ section .text{
 .slide_row {
   white-space: nowrap;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   pointer-events: none;
   user-select: none;
 }
-.track {
-  display: inline-block;
-  white-space: nowrap;
-  animation: scroll-left 30s linear infinite;
+.bx_wrap .track{
+  display: flex;
+  align-items: center;
 }
-.row2 .track {
-  animation-duration: 35s;
+.bx-wrapper {
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
-.track img {
-  display: inline-block;
-  margin-right: 20px;
-  vertical-align: middle;
-  width: 300px;
-  height: 80px;
+.sec6 .round_list li {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-@keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.sec6 .round_list li.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sec3 .history .his_tt {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.sec3 .history .his_tt.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 
@@ -920,8 +929,11 @@ section .text{
   .sec1 .title{
     text-align: center;
   }
+  .sec1 .title .h2q{
+    width: 95%;
+  }
   .sec1 .title h3{
-    width: 70%;
+    width: 85%;
     margin: 0 auto;
     font-weight: 300;
   }
@@ -931,7 +943,7 @@ section .text{
   .sec1 .sec1_vod{
     left: 0;
     padding: 0;
-    padding-top: 50%;
+    top: 45%;
   }
   .sec1 .sec1_vod video{
     width: 150%;
@@ -979,7 +991,7 @@ section .text{
   }
   .sec3 .history{
     width: 100%;
-    padding: 0 4%;
+    padding: 0 10%;
   }
   .sec3 .title h2{
     padding-bottom: 5%;
@@ -998,7 +1010,7 @@ section .text{
   }
   .sec3 .history .his_tt li:first-child{
     border: none;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.185);
     margin-bottom: 2%;
     text-align: left;
   }
@@ -1150,7 +1162,7 @@ section .text{
     justify-content: end;
   }
   .h2q{
-    font-size: clamp(35px, 6vw, 45px);
+    font-size: clamp(42px, 8vw, 60px);
   }
 }
 @media screen and (max-width:600px){
