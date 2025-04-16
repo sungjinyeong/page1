@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const container = document.querySelector('.fullpage-container');
   const sections = document.querySelectorAll('.section');
   const paginationItems = document.querySelectorAll('.pagination li');
-  const header = document.querySelector('.header');
+  // const header = document.querySelector('.header');
 
   // 스크롤 시 현재 섹션에 따른 페이지네이션 active 업데이트
   container.addEventListener('scroll', function() {
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const textEl = section.querySelector('.text');
         if (textEl) {
           const bgColor = window.getComputedStyle(textEl).backgroundColor;
-          header.style.backgroundColor = bgColor;
+          // header.style.backgroundColor = bgColor;
         }
       }
     });
@@ -238,11 +238,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // scroll 1
-$(document).ready(function () {
-  const trackingInterval = setInterval(function () {
-    TrackingTime('StayTime');
-  }, 1000);
-});
 const $counters = $(".scroll_on");
 const exposurePercentage = 100;
 const loop = true;
@@ -314,27 +309,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// sec6라운드 등장효과
-document.addEventListener('DOMContentLoaded', function () {
-  const items = document.querySelectorAll('.sec6 .round_list li');
-  let hasAnimated = false;
-
-  const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !hasAnimated) {
-        items.forEach((el, i) => {
-          setTimeout(() => {
-            el.classList.add('visible');
-          }, i * 350); // li 딜레이
-        });
-        hasAnimated = true;
-      }
-    });
-  }, { threshold: 0.4 });
-
-  if (items.length) observer.observe(items[0]);
-});
-
 // sec3 등장효과
 document.addEventListener('DOMContentLoaded', function () {
   const hisItems = document.querySelectorAll('.sec3 .history .his_tt');
@@ -358,4 +332,28 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { threshold: 0.4 });
 
   hisItems.forEach(item => observerHis.observe(item));
+});
+
+
+// sec6라운드 등장효과
+document.addEventListener('DOMContentLoaded', function () {
+  const sec6Items = document.querySelectorAll('.sec6 .round_list li');
+
+  const observerSec6 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // 순차 등장
+        sec6Items.forEach((el, i) => {
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, i * 200);
+        });
+      } else {
+        // 뷰포트 벗어나면 초기화
+        sec6Items.forEach(el => el.classList.remove('visible'));
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sec6Items.forEach(item => observerSec6.observe(item));
 });

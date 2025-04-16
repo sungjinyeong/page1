@@ -490,7 +490,7 @@ section, .text{
   right: 0;
   width: 100%;
   z-index: 100;
-  padding: calc(var(--padding)*1.5) 0 calc(var(--padding)*.5);
+  padding: calc(var(--padding)*.5) 0 calc(var(--padding)*.5);
 }
 .header_container{
   width: 94%;
