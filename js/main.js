@@ -168,13 +168,15 @@ window.addEventListener('resize', adjustSec6Image);
 // BEYOND VISION! 텍스트 줄바꿈 & char 애니메이션
 document.addEventListener('DOMContentLoaded', () => {
   const h2Targets = [
-    { selector: '.sec1 .title h2', textRaw: 'BEYOND VISION!', textMobile: 'BEYOND<br>VISION!' },
-    { selector: '.sec5 .title h2', textRaw: 'SOLUTIONS', textMobile: 'SOLUTIONS' },
+    { selector: '.sec1 .title h2', textRaw: 'BEYOND VISION!', textMobile: 'BEYOND<br>VISION!' },    
+    { selector: '.sec8 .fir_title', textRaw: 'PARTNERS<br>함께하는 파트너', textMobile: 'PARTNERS<br>함께하는 파트너' },    
   ];
 
   const h3Targets = [
     { selector: '.sec1 .title h3' },
-    { selector: '.sec5 .title h2' },
+,
+    // { selector: '.sec2 .title h3.ahtoer' },
+    
   ];
 
   h2Targets.forEach(target => {
@@ -347,6 +349,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   hisItems.forEach(item => observerHis.observe(item));
 });
+
+
 
 
 // sec6라운드 등장효과
