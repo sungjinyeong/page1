@@ -832,6 +832,9 @@ section, .text{
 }
 
 @media screen and (max-width:768px){
+  .header{
+    padding: calc(var(--padding)*1.5) 0 calc(var(--padding)*.5);
+  }
   .header h1{
     max-width: 250px;
     width: 35%;
