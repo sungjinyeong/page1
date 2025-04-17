@@ -412,7 +412,7 @@ body{
   line-height: 1.2;
   font-family: 'Gmarket Sans';
   font-weight: 800;
-  padding-bottom: calc(var(--padding)*2);
+  padding-bottom: calc(var(--padding)*1.5);
   
 }
 .h2q span{
@@ -422,7 +422,7 @@ body{
   font-size: clamp(18px, 2.8vw, 26px);
   line-height: 1.2;
   font-weight: 600;
-  padding-bottom: calc(var(--padding)*1.5);
+  padding-bottom: calc(var(--padding)*1);
   word-break: keep-all;
 }
 .h4q{
@@ -469,9 +469,11 @@ section, .text{
 }
 .header h1{
   position: relative;
+  max-width: 210px;
 }
 .header h1 a img{
   transition: .2s;
+  width: 100%;
 }
 .header h1 a img.wh_logo{
   position: relative;
@@ -494,7 +496,7 @@ section, .text{
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 2%;
+  gap: 4%;
   font-size: clamp(0.75em, 2vw, 1em);
   line-height: 1em;
   width: 100%;
@@ -506,6 +508,9 @@ section, .text{
   padding: 2px 4px;
   display: block;
   white-space: nowrap;
+}
+.header .nav li:hover a{
+  color: #686868 !important;
 }
 .header .adver{
   white-space: nowrap;
@@ -536,7 +541,7 @@ section, .text{
   height: 3px;
   border-radius:4px;
   background: #fff;
-  transition:0.3s;
+  transition: .3s;
 }
 .hamburger-button span:nth-child(1){
   top: 0;
@@ -557,6 +562,19 @@ section, .text{
 }
 .hamburger-button.active span:nth-child(3){
   transform:rotate(-45deg);
+}
+.hamburger-button span {
+  display: block;
+  /* height: 2px;
+  margin: 4px 0; */
+  background-color: #fff; /* 기본 흰색 */
+  transition: background-color 0.3s;
+}
+.hamburger-dark span {
+  background-color: #000;
+}
+.hamburger-light span {
+  background-color: #fff;
 }
 
 .header .modal_menu {
@@ -719,7 +737,7 @@ section, .text{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3% 0;
+  padding: 15px 0;
 }
 .form_data .sel form{
   display: block;
@@ -810,7 +828,7 @@ section, .text{
 }
 .dummy_foonter{
   width: 100%;
-  padding: 25px 0;
+  padding: 45px 0;
   background-color: #2E2E2E;
   display: flex;
   justify-content: center;
@@ -881,6 +899,9 @@ section, .text{
   .header .hamburger-button{
     display: flex;
     z-index: 10000;
+  }
+  .header .hamburger-button.active span{
+    background: white !important;
   }
   .form_data .sel .sub_mit{
     margin-top: auto;

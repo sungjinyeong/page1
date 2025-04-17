@@ -142,6 +142,35 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// 햄버거
+document.addEventListener('DOMContentLoaded', function () {
+  const sections = document.querySelectorAll('.sec1, .sec2, .sec3, .sec4, .sec5, .sec6, .sec7, .sec8, .sec9');
+  const hamburger = document.querySelector('.hamburger-button');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bg = window.getComputedStyle(entry.target).backgroundColor;
+        const isLight = isLightColor(bg);
+        hamburger.classList.toggle('hamburger-light', !isLight);
+        hamburger.classList.toggle('hamburger-dark', isLight);
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  sections.forEach(section => observer.observe(section));
+
+  // 배경이 밝은 색인지 판별하는 함수
+  function isLightColor(rgb) {
+    const [r, g, b] = rgb.match(/\d+/g).map(Number);
+    const luminance = (0.299*r + 0.587*g + 0.114*b) / 255;
+    return luminance > 0.5;
+  }
+});
+
+
 
 
 
@@ -249,12 +278,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const animatedH2List = [
     { selector: '.sec3 .title h2',          durationClass: 'show2000' },
     { selector: '.sec4 .h2q',          durationClass: 'show1500' },
-    { selector: '.sec4 .h3q',          durationClass: 'show2500' },
+    // { selector: '.sec4 .h3q',          durationClass: 'show2500' },
     { selector: '.sec5 .h2q',          durationClass: 'show1500' },
-    { selector: '.sec5 .h3q',          durationClass: 'show2000' },
-    { selector: '.sec5 .textq',          durationClass: 'show2500' },
+    // { selector: '.sec5 .h3q',          durationClass: 'show2000' },
+    // { selector: '.sec5 .textq',          durationClass: 'show2500' },
     { selector: '.sec6 .h2q',          durationClass: 'show1500' },
-    { selector: '.sec6 .h3q',          durationClass: 'show2500' },
+    // { selector: '.sec6 .h3q',          durationClass: 'show2500' },
+    { selector: '.sec3 .history',          durationClass: 'show1500' },
   ];
 
   animatedH2List.forEach(target => {
@@ -307,6 +337,27 @@ $(window).on('scroll', function () {
     });
 }).scroll();
 
+// sec8 header delet
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('.header');
+  const targetSection = document.querySelector('.sec9');
+
+  if (header && targetSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          header.style.display = 'none';
+        } else {
+          header.style.display = 'flex'; // 또는 원래 display값
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+
+    observer.observe(targetSection);
+  }
+});
 
     
     
@@ -357,33 +408,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// sec3 등장효과
-document.addEventListener('DOMContentLoaded', function () {
-  const hisItems = document.querySelectorAll('.sec3 .history .his_tt');
-
-  const observerHis = new IntersectionObserver(function (entries) {
-    entries.forEach(entry => {
-      const target = entry.target;
-
-      if (entry.isIntersecting) {
-        // 순차적으로 visible 추가
-        hisItems.forEach((el, i) => {
-          setTimeout(() => {
-            el.classList.add('visible');
-          }, i * 950);
-        });
-      } else {
-        // 뷰포트 벗어나면 초기화
-        hisItems.forEach(el => el.classList.remove('visible'));
-      }
-    });
-  }, { threshold: 0.4 });
-
-  hisItems.forEach(item => observerHis.observe(item));
-});
-
-
-
 
 // sec6라운드 등장효과
 document.addEventListener('DOMContentLoaded', function () {
@@ -415,12 +439,12 @@ $(document).ready(function() {
     $('.row1 .track').addClass('slider1').bxSlider({
       slideSelector: 'img',
       minSlides: 5,
-      maxSlides: 8,
+      maxSlides: 20,
       moveSlides: 1,
-      slideWidth: 300,
+      slideWidth: 150,
       slideMargin: 20,
       ticker: true,
-      speed: 60000,
+      speed: 85000,
       useCSS: false
     });
   });
@@ -429,12 +453,12 @@ $(document).ready(function() {
     $('.row2 .track').addClass('slider2').bxSlider({
       slideSelector: 'img',
       minSlides: 5,
-      maxSlides: 8,
+      maxSlides: 20,
       moveSlides: 1,
-      slideWidth: 300,
+      slideWidth: 150,
       slideMargin: 20,
       ticker: true,
-      speed: 80000,
+      speed: 60000,
       useCSS: false
     });
   });
