@@ -30,32 +30,49 @@
     <!-- imagesLoaded -->
     <script src="https://unpkg.com/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"></script>
   
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/sub_style.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/sub_style.css">
   
-    <script defer src="js/main.js"></script>
+    <script defer src="../js/main.js"></script>
     <title>ACE PLANET</title>
   </head>
   <body>
-    <header class="header sub_head anchors">
+    <header class="header anchors">
       <div class="header_container">
         <h1 class="logo">
           <a href="">
-            <img class="wh_logo" src="imges/logo.svg" alt="ACE PLANET">
-            <img class="rd_logo" src="imges/logo_rd.svg" alt="ACE PLANET">
+            <img class="wh_logo" src="../images/logo.svg" alt="ACE PLANET" />
+            <img class="rd_logo" src="../images/logo_rd.svg" alt="ACE PLANET" />
           </a>
         </h1>
         <ul class="nav">
           <li class="active"><a href="#page-1">Home</a></li>
-          <li><a href="#page-2">옵티바이즈&#40;SSP&#41;</a></li>
-          <li><a href="#page-2">알파엠&#40;DSP&#41;</a></li>
+          <li><a href="#page-2">옵티바이즈(SSP)</a></li>
+          <li><a href="#page-2">알파엠(DSP)</a></li>
           <li><a href="#page-3">Login</a></li>
-          <li class="adver"><a href="#page-4">광고문의</a></li>
         </ul>
+        <div class="adver"><a href="#page-4">광고문의</a></div>
+        <a href="#" class="hamburger-button">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
       </div>
-		</header>
-    <main>
+      <!-- nav 외부 어디든 body 끝에 삽입 -->
+      <div class="modal_menu">
+        <div class="menu_inner">
+          <ul>
+            <li class="active"><a href="#page-1">Home</a></li>
+            <li><a href="#page-2">옵티바이즈(SSP)</a></li>
+            <li><a href="#page-2">알파엠(DSP)</a></li>
+            <li><a href="#page-3">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main class="ssp">
       <section class="step_1">
         <h3 class="h3q">수익을 최적화(Optimize)하고, 비전(Vision)을 설계하다</h3>
         <h2 class="h2q">옵티바이즈(OPTIVIZE)</h2>
@@ -64,7 +81,7 @@
       <section class="step_2">
         <div class="depth_a">
           <div class="del">
-            <div class="img_box"><img src="imges/OPTIVIZE.png" alt=""></div>
+            <div class="img_box"><img src="../images/OPTIVIZE.png" alt=""></div>
             <div class="tip">옵티바이즈(OPTIVIZE)</div>
           </div>
           <div class="sel">
@@ -75,32 +92,32 @@
         </div>
         <div class="depth_b">
           <div class="img_box">
-            <img src="imges/depth_grape.png" alt="">
+            <img src="../images/depth_grape.png" alt="">
           </div>
           <div class="title">
             <h2 class="h2q"><span>OPTIVIZE KEY FEATURES</span><br>핵심 기능</h2>
             <p class="h3q word_keep">단가, 품질, 효율까지 — 수익을 위한 모든 기술</p>
           </div>
           
-          <div class="swiper keySwiper">
-            <ul class="swiper-wrapper key_list">
-              <li class="swiper-slide">
-                <div class="icon"><img src="imges/bx_icon_a.svg" alt=""></div>
+          <div class="keySwiper">
+            <ul class="key_list">
+              <li class="">
+                <div class="icon"><img src="../images/bx_icon_a.svg" alt=""></div>
                 <div class="bx_title">단가 최적화 엔진</div>
                 <div class="bx_tip">저단가 광고 자동 필터링 + 고효율 입찰 구조로 eCPM 극대화</div>
               </li>
-              <li class="swiper-slide">
-                <div class="icon"><img src="imges/bx_icon_b.svg" alt=""></div>
+              <li class="">
+                <div class="icon"><img src="../images/bx_icon_b.svg" alt=""></div>
                 <div class="bx_title">글로벌 네트워크 연동</div>
                 <div class="bx_tip">국내외 DSP/SSP와의 동시 입찰을 통해 최고 단가 확보</div>
               </li>
-              <li class="swiper-slide">
-                <div class="icon"><img src="imges/bx_icon_c.svg" alt=""></div>
+              <li class="">
+                <div class="icon"><img src="../images/bx_icon_c.svg" alt=""></div>
                 <div class="bx_title">AI 자동 최적화</div>
                 <div class="bx_tip">광고 위치·크기·형식별 테스트 → 최고 수익 슬롯 자동 제안</div>
               </li>
-              <li class="swiper-slide">
-                <div class="icon"><img src="imges/bx_icon_d.svg" alt=""></div>
+              <li class="">
+                <div class="icon"><img src="../images/bx_icon_d.svg" alt=""></div>
                 <div class="bx_title">품질 보호 & Viewability 최적화</div>
                 <div class="bx_tip">Google 기준 충족 → 프리미엄 광고 유치 가능</div>
               </li>
@@ -110,7 +127,7 @@
         </div>
         <div class="depth_c">
           <div class="del">
-            <div class="img_box"><img src="imges/OPTIVIZE.png" alt=""></div>
+            <div class="img_box"><img src="../images/OPTIVIZE.png" alt=""></div>
           </div>
           <div class="sel">
             <h2 class="h2q"><span>WHY OPTIVIZE</span><br>옵티바이즈를 선택하는 이유</h2>
@@ -131,100 +148,51 @@
               <p class="textq word_keep">AI 최적화, 품질 필터링, 글로벌 연동, 직접 판매 채널까지 <br>옵티바이즈는 수익을 위한 모든 기능과 운영 체계를 한 번에 제공합니다.</p>
           </div>
           
-          <div class="swiper inside_swiper">
-            <ul class="swiper-wrapper">
-              <li class="swiper-slide">
-                <div class="tem">
-                  <div class="del"></div>
-                  <div class="sel">
-                    <div class="bx_title">광고 품질 필터링</div>
-                    <div class="bx_tip">사용자가 이탈하지 않도록 저품질 광고 자동 차단</div>
-                  </div>
-                </div>
-                <div class="tem">
-                  <div class="del"></div>
-                  <div class="sel">
-                    <div class="bx_title">eCPM 최적화 구조</div>
-                    <div class="bx_tip">단가 낮은 광고는 자동 필터링, 높은 단가 입찰만 노출</div>
-                  </div>
-                </div>
-              </li>
-              <li class="swiper-slide">
-                <div class="tem">
-                  <div class="del"></div>
-                  <div class="sel">
-                    <div class="bx_title">프리미엄 광고 유치력</div>
-                    <div class="bx_tip">Google Active View 기준 충족 → 고가 광고 확보</div>
-                  </div>
-                </div>
-                <div class="tem">
-                  <div class="del"></div>
-                  <div class="sel">
-                    <div class="bx_title">글로벌 동시 입찰</div>
-                    <div class="bx_tip">국내외 DSP/SSP 연결 → 입찰 경쟁으로 단가 상승</div>
-                  </div>
-                </div>
-              </li>
-              <li class="swiper-slide">
-                <div class="tem">
-                  <div class="del"></div>
-                  <div class="sel">
-                    <div class="bx_title">AI 자동 최적화</div>
-                    <div class="bx_tip">광고 위치/크기/형식 테스트 → 수익률 높은 슬롯 자동 추천</div>
-                  </div>
-                </div>
-                <div class="tem">
-                  <div class="del"></div>
-                  <div class="sel">
-                    <div class="bx_title">직접 판매 연계</div>
-                    <div class="bx_tip">PMP, Direct Deal 통한 브랜드 광고 확보 가능</div>
-                  </div>
-                </div>
-              </li>
-              <!-- <li class="swiper-slide">
-                <div class="del"></div>
-                <div class="sel">
-                  <div class="bx_title">eCPM 최적화 구조</div>
-                  <div class="bx_tip">단가 낮은 광고는 자동 필터링, 높은 단가 입찰만 노출</div>
-                </div>
-              </li>
-              <li class="swiper-slide">
-                <div class="del"></div>
-                <div class="sel">
-                  <div class="bx_title">광고 품질 필터링</div>
-                  <div class="bx_tip">사용자가 이탈하지 않도록 저품질 광고 자동 차단</div>
-                </div>
-              </li>
-              <li class="swiper-slide">
-                <div class="del"></div>
-                <div class="sel">
-                  <div class="bx_title">프리미엄 광고 유치력</div>
-                  <div class="bx_tip">Google Active View 기준 충족 → 고가 광고 확보</div>
-                </div>
-              </li>
-              <li class="swiper-slide">
-                <div class="del"></div>
-                <div class="sel">
-                  <div class="bx_title">글로벌 동시 입찰</div>
-                  <div class="bx_tip">국내외 DSP/SSP 연결 → 입찰 경쟁으로 단가 상승</div>
-                </div>
-              </li>
-              <li class="swiper-slide">
-                <div class="del"></div>
-                <div class="sel">
-                  <div class="bx_title">AI 자동 최적화</div>
-                  <div class="bx_tip">광고 위치/크기/형식 테스트 → 수익률 높은 슬롯 자동 추천</div>
-                </div>
-              </li>
-              <li class="swiper-slide">
-                <div class="del"></div>
-                <div class="sel">
-                  <div class="bx_title">직접 판매 연계</div>
-                  <div class="bx_tip">PMP, Direct Deal 통한 브랜드 광고 확보 가능</div>
-                </div>
-              </li> -->
-            </ul>
-          </div>    
+
+          <ul class="inside_swiper">
+            <li class="">
+              <div class="del"><img src="../images/ssp_check.svg" alt=""></div>
+              <div class="sel">
+                <div class="bx_title">eCPM 최적화 구조</div>
+                <div class="bx_tip">단가 낮은 광고는 자동 필터링, 높은 단가 입찰만 노출</div>
+              </div>
+            </li>
+            <li class="">
+              <div class="del"><img src="../images/ssp_check.svg" alt=""></div>
+              <div class="sel">
+                <div class="bx_title">광고 품질 필터링</div>
+                <div class="bx_tip">사용자가 이탈하지 않도록 저품질 광고 자동 차단</div>
+              </div>
+            </li>
+            <li class="">
+              <div class="del"><img src="../images/ssp_check.svg" alt=""></div>
+              <div class="sel">
+                <div class="bx_title">프리미엄 광고 유치력</div>
+                <div class="bx_tip">Google Active View 기준 충족 → 고가 광고 확보</div>
+              </div>
+            </li>
+            <li class="">
+              <div class="del"><img src="../images/ssp_check.svg" alt=""></div>
+              <div class="sel">
+                <div class="bx_title">글로벌 동시 입찰</div>
+                <div class="bx_tip">국내외 DSP/SSP 연결 → 입찰 경쟁으로 단가 상승</div>
+              </div>
+            </li>
+            <li class="">
+              <div class="del"><img src="../images/ssp_check.svg" alt=""></div>
+              <div class="sel">
+                <div class="bx_title">AI 자동 최적화</div>
+                <div class="bx_tip">광고 위치/크기/형식 테스트 → 수익률 높은 슬롯 자동 추천</div>
+              </div>
+            </li>
+            <li class="">
+              <div class="del"><img src="../images/ssp_check.svg" alt=""></div>
+              <div class="sel">
+                <div class="bx_title">직접 판매 연계</div>
+                <div class="bx_tip">PMP, Direct Deal 통한 브랜드 광고 확보 가능</div>
+              </div>
+            </li>
+          </ul>
         </div>
         <div class="depth_e">
           <h2 class="h2_title">결과로 증명하는 ACE, <br>가장 빠르고 확실한 성장의 길로 안내합니다.</h2>
@@ -287,7 +255,7 @@
         <div class="dummy_foonter">
           <h1>
             <a href="">
-              <img class="logo" src="imges/logo.svg" alt="ACE PLANET">
+              <img class="logo" src="../images/logo.svg" alt="ACE PLANET">
             </a>
           </h1>
           <ul class="company_info">

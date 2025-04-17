@@ -332,7 +332,7 @@ section .text{
 .sec2 .title h3.ahtoer{
   font-size: clamp(16px, 4vw, 20px);
   word-break: keep-all;
-  padding-right: 4%;
+  padding-right: 15%;
   padding-bottom: calc(var(--padding)*1);
 }
 .sec2 .text .h2q span{
@@ -852,14 +852,14 @@ section .text{
 .slide_row {
   white-space: nowrap;
   overflow: hidden;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   pointer-events: none;
   user-select: none;
 }
 .bx_wrap .track{
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 80px;
 }
 .bx_wrap .track img{
   max-width: 120px;
