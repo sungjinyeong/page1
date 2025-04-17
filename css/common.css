@@ -413,6 +413,7 @@ body{
   font-family: 'Gmarket Sans';
   font-weight: 800;
   padding-bottom: calc(var(--padding)*1.5);
+  word-break: keep-all;
   
 }
 .h2q span{
@@ -625,7 +626,7 @@ section, .text{
   padding-bottom: 1%;
 }
 .ace_title{
-  font-size: clamp(25px, 3vw, 50px);
+  font-size: 50px;
   line-height: 1.2;
   font-weight: 700;
   padding-bottom: 3%;
@@ -639,7 +640,7 @@ section, .text{
 }
 .ace_a{
   position: absolute;
-  width: 30%;
+  width: 35%;
   background-color: #6c6c6cf5;
   top: 0%;
   left: 0%;
@@ -648,11 +649,11 @@ section, .text{
 }
 .ace_b{
   position: absolute;
-  width: 20%;
+  width: 250px;
   aspect-ratio: 1 / 1;
   background-color: #ec373af5;
   top: 0%;
-  left: 25%;
+  left: 28%;
   z-index: 3;
   border-radius: 1000px;
 }
@@ -661,9 +662,9 @@ section, .text{
   width: 40%;
   background-color: #363636ef;
   top: 0%;
-  right: 25%;
   z-index: 2;
   border-radius: 1000px;
+  left: 35%;
 }
 .ace_d{
   position: absolute;
