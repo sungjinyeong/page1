@@ -917,6 +917,35 @@ section .text{
   font-weight: 700;
   padding-bottom: 3%;
 }
+.h2q-animate {
+  opacity: 0;
+  transform: scale(1.5);
+  filter: blur(20px);
+  transition-property: opacity, transform, filter;
+  transition-timing-function: ease;
+}
+
+.h2q-animate.show1500 {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+  transition-duration: 1.5s;
+}
+
+.h2q-animate.show2000 {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+  transition-duration: 2s;
+}
+
+.h2q-animate.show2500 {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+  transition-duration: 2.5s;
+}
+
 
 /*  */
 .sec9 .text{

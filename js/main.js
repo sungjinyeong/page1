@@ -168,17 +168,15 @@ window.addEventListener('resize', adjustSec6Image);
 // BEYOND VISION! 텍스트 줄바꿈 & char 애니메이션
 document.addEventListener('DOMContentLoaded', () => {
   const h2Targets = [
-    { selector: '.sec1 .title h2', textRaw: 'BEYOND VISION!', textMobile: 'BEYOND<br>VISION!' },    
-    { selector: '.sec8 .fir_title', textRaw: 'PARTNERS<br>함께하는 파트너', textMobile: 'PARTNERS<br>함께하는 파트너' },    
+    { selector: '.sec1 .title h2', textRaw: 'BEYOND VISION!', textMobile: 'BEYOND<br>VISION!' },
+    { selector: '.sec8 .fir_title', textRaw: 'PARTNERS<br>함께하는 파트너', textMobile: 'PARTNERS<br>함께하는 파트너' }
   ];
 
   const h3Targets = [
-    { selector: '.sec1 .title h3' },
-,
-    // { selector: '.sec2 .title h3.ahtoer' },
-    
+    // { selector: '.sec1 .title h3' },
   ];
 
+  // h2 문자 단위 애니메이션
   h2Targets.forEach(target => {
     const el = document.querySelector(target.selector);
     if (!el) return;
@@ -223,6 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // h3 페이드/블러 애니메이션
   h3Targets.forEach(target => {
     const el = document.querySelector(target.selector);
     if (!el) return;
@@ -245,7 +244,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     observer.observe(el);
   });
+
+  // ✅ scale + blur 애니메이션 대상 정의 (직접 selector/durationClass 지정)
+  const animatedH2List = [
+    { selector: '.sec3 .title h2',          durationClass: 'show2000' },
+    { selector: '.sec4 .h2q',          durationClass: 'show1500' },
+    { selector: '.sec4 .h3q',          durationClass: 'show2500' },
+    { selector: '.sec5 .h2q',          durationClass: 'show1500' },
+    { selector: '.sec5 .h3q',          durationClass: 'show2000' },
+    { selector: '.sec5 .textq',          durationClass: 'show2500' },
+    { selector: '.sec6 .h2q',          durationClass: 'show1500' },
+    { selector: '.sec6 .h3q',          durationClass: 'show2500' },
+  ];
+
+  animatedH2List.forEach(target => {
+    const el = document.querySelector(target.selector);
+    if (!el) return;
+
+    el.classList.add('h2q-animate');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          el.classList.remove('show1500', 'show2000', 'show2500');
+          el.classList.add(target.durationClass);
+        } else {
+          el.classList.remove('show1500', 'show2000', 'show2500');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(el);
+  });
 });
+
 
 
 
