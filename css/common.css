@@ -696,11 +696,11 @@ section, .text{
   align-items: center;
 }
 .form_data .del .img_box img{
-  max-width: 175%;
+  max-width: 205%;
 }
 @media screen and (max-width:1000px){
   .form_data .del .img_box img{
-    max-width: auto;
+    max-width: none;
     max-height: 110%;
   } 
 }
