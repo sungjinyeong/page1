@@ -975,4 +975,7 @@ section, .text{
   .bx_wrap{
     padding: calc(var(--padding)*2.5) 0;
   }
+  .bx_wrap .track{
+    gap: 40px;
+  }
 }
