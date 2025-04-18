@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="../css/sub_style.css">
   
     <script defer src="../js/main.js"></script>
+    <script defer src="../js/swiper.js"></script>
     <title>ACE PLANET</title>
   </head>
   <body>
@@ -209,35 +210,63 @@
             <h2 class="h2q"><span>USE CASES</span><br>이런 광고주에게 추천합니다</h2>
             <h3 class="h3q">성과가 중요한 광고주라면, AlphaM이 답입니다</h3>
           </div>
-          <ul class="porer_list">
-            <li>
-              <div class="img_box"><img src="../images/CASES_a.png" alt=""></div>
-              <div class="por_icon"><img src="../images/por_a.svg" alt=""></div>
-              <div class="por_title">앱 설치 광고</div>
-            </li>
-            <li>
-              <div class="img_box"><img src="../images/CASES_a.png" alt=""></div>
-              <div class="por_icon"><img src="../images/por_a.svg" alt=""></div>
-              <div class="por_title">앱 설치 광고</div>
-            </li>
-            <li>
-              <div class="img_box"><img src="../images/CASES_a.png" alt=""></div>
-              <div class="por_icon"><img src="../images/por_a.svg" alt=""></div>
-              <div class="por_title">앱 설치 광고</div>
-            </li>
-            <li>
-              <div class="img_box"><img src="../images/CASES_a.png" alt=""></div>
-              <div class="por_icon"><img src="../images/por_a.svg" alt=""></div>
-              <div class="por_title">앱 설치 광고</div>
-            </li>
-            <li>
-              <div class="img_box"><img src="../images/CASES_a.png" alt=""></div>
-              <div class="por_icon"><img src="../images/por_a.svg" alt=""></div>
-              <div class="por_title">앱 설치 광고</div>
-            </li>
-          </ul>
+          <div class="swiper porerSwiper">
+            <ul class="porer_list swiper-wrapper">
+              <li class="swiper-slide">
+                <div class="img_box"><img src="../images/CASES_a.png" alt=""></div>
+                <div class="por_icon"><img src="../images/por_b.svg" alt=""></div>
+                <div class="por_title">앱 설치 광고</div>
+              </li>
+              <li class="swiper-slide">
+                <div class="img_box"><img src="../images/CASES_b.png" alt=""></div>
+                <div class="por_icon"><img src="../images/por_a.svg" alt=""></div>
+                <div class="por_title">회원가입, 견적/상담 유도형 랜딩 페이지</div>
+              </li>
+              <li class="swiper-slide">
+                <div class="img_box"><img src="../images/CASES_c.png" alt=""></div>
+                <div class="por_icon"><img src="../images/por_c.svg" alt=""></div>
+                <div class="por_title">전환 기반 쇼핑몰 캠페인</div>
+              </li>
+              <li class="swiper-slide">
+                <div class="img_box"><img src="../images/CASES_d.png" alt=""></div>
+                <div class="por_icon"><img src="../images/por_d.svg" alt=""></div>
+                <div class="por_title">리마케팅 중심 캠페인</div>
+              </li>
+              <li class="swiper-slide">
+                <div class="img_box"><img src="../images/CASES_e.png" alt=""></div>
+                <div class="por_icon"><img src="../images/por_e.svg" alt=""></div>
+                <div class="por_title">신규 브랜드 런칭 & 브랜드 인지 확대</div>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
+      <script>
+        let swiperInitialized = false;
+      
+        function initPorerSwiperIfMobile() {
+          if (swiperInitialized) return;
+      
+          if (window.innerWidth <= 768) {
+            new Swiper(".porerSwiper", {
+              loop: true,
+              centeredSlides: true,
+              slidesPerView: 'auto',
+              spaceBetween: 20,
+              initialSlide: 1
+            });
+            swiperInitialized = true;
+          }
+        }
+      
+        window.addEventListener("DOMContentLoaded", initPorerSwiperIfMobile);
+        window.addEventListener("resize", initPorerSwiperIfMobile);
+      </script>
+      
+      
+      
+      
+        
 
       <section class="step_3">
         
