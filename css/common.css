@@ -788,6 +788,9 @@ section, .text{
   text-align: center;
   padding: 0 !important;
 }
+.dsp .form_data .sel .sub_mit{
+  background-color: #1B365B;
+}
 .form_data .sel .sub_mit a{
   display: block;
   padding: 16px 0;
@@ -849,7 +852,35 @@ section, .text{
   padding-top: 5%;
   padding-bottom: 0%;
 }
-
+.bx_wrap{
+  padding: calc(var(--padding)*5) 0;
+  width: 100%;
+  overflow: hidden;
+}
+.slide_row {
+  white-space: nowrap;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+.slide_row.row1{
+  padding-bottom: calc(var(--padding)*2.5);
+}
+.bx_wrap .track{
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+.bx_wrap .track img{
+  max-width: 120px;
+}
+.bx-wrapper {
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
 @media screen and (max-width:768px){
   .header{
     padding: calc(var(--padding)*1.5) 0 calc(var(--padding)*.5);
@@ -888,7 +919,7 @@ section, .text{
     display: flex;
   }
   .header .nav li a{
-    color: #fff;
+    color: #fff !important;
     font-size: 1.5rem;
     line-height: 1em;
     padding: 10px 0;
@@ -940,5 +971,8 @@ section, .text{
   }
   .dummy_foonter h1 img{
     width: 100%;
+  }
+  .bx_wrap{
+    padding: calc(var(--padding)*2.5) 0;
   }
 }

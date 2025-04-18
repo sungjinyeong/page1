@@ -130,30 +130,46 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// header Mobile btn햄버거
 document.addEventListener('DOMContentLoaded', function () {
-  const toggleBtn = document.querySelector('.hamburger-button');
-  const nav = document.querySelector('.header .nav');
-
-  toggleBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    toggleBtn.classList.toggle('active');
-    nav.classList.toggle('active');
-  });
-});
-
-// 햄버거
-document.addEventListener('DOMContentLoaded', function () {
+  const allToggles = document.querySelectorAll('.hamburger-button');
   const sections = document.querySelectorAll('.sec1, .sec2, .sec3, .sec4, .sec5, .sec6, .sec7, .sec8, .sec9');
-  const hamburger = document.querySelector('.hamburger-button');
 
+  // 햄버거 클릭 제어
+  allToggles.forEach(toggleBtn => {
+    toggleBtn.addEventListener('click', function (e) {
+      const parentHeader = this.closest('.header');
+
+      // clone된 header는 클릭 막음
+      if (!parentHeader || parentHeader.classList.contains('header-clone')) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+
+      // anchors 클래스만 허용
+      if (!parentHeader.classList.contains('anchors')) return;
+
+      const nav = parentHeader.querySelector('.nav');
+      this.classList.toggle('active');
+      nav?.classList.toggle('active');
+    });
+  });
+
+  // 배경색 따라 햄버거 버튼 클래스 토글
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const bg = window.getComputedStyle(entry.target).backgroundColor;
         const isLight = isLightColor(bg);
-        hamburger.classList.toggle('hamburger-light', !isLight);
-        hamburger.classList.toggle('hamburger-dark', isLight);
+
+        allToggles.forEach(btn => {
+          const parentHeader = btn.closest('.header');
+          // 오직 anchors 헤더만 처리
+          if (!parentHeader || !parentHeader.classList.contains('anchors')) return;
+
+          btn.classList.toggle('hamburger-light', !isLight);
+          btn.classList.toggle('hamburger-dark', isLight);
+        });
       }
     });
   }, {
@@ -162,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   sections.forEach(section => observer.observe(section));
 
-  // 배경이 밝은 색인지 판별하는 함수
+  // 밝기 판별 함수
   function isLightColor(rgb) {
     const [r, g, b] = rgb.match(/\d+/g).map(Number);
     const luminance = (0.299*r + 0.587*g + 0.114*b) / 255;

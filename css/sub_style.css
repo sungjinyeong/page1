@@ -1,6 +1,23 @@
 main{
   overflow: hidden;
 }
+.header-clone{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: white;
+  box-shadow: 3px 3px 6px rgb(125 125 125 / 10%);
+  padding: calc(var(--padding)*2) 0;
+}
+.header-clone h1 a img.rd_logo{
+  opacity: 1;
+  visibility: visible;
+}
+.header-clone .hamburger-button span{
+  background-color: #000;
+}
 .step_1{
   position: relative;
   height: 100vh;
@@ -52,9 +69,7 @@ main{
 .step_1 .textq{
   width: 80%;
 }
-.depth_a .h2q,
-.depth_b .title .h2q,
-.depth_c .h2q{
+.depth_a .h2q, .depth_b .title .h2q, .depth_c .h2q, .depth_d .title .h2q{
   font-size: clamp(35px, 4vw, 55px);
   border-bottom: 1px solid var(--border);
   margin-bottom: calc(var(--padding)*3);
@@ -180,6 +195,7 @@ main{
   flex-direction: column;
   justify-content: center;
   border-radius: 1000px;
+  padding: 0 5% 5%;
 }
 .key_list li .icon{
   width: 25%;
@@ -196,7 +212,7 @@ main{
   padding-bottom: calc(var(--padding)*1);
 }
 .key_list li .bx_tip{
-  font-size: clamp(12px, 2vw, 14px);
+  font-size: clamp(12px, 3vw, 16px);
   line-height: 1.2;
   font-weight: 400;
   width: 80%;
@@ -417,11 +433,37 @@ main{
   flex-direction: column;
   gap: 30px;
 }
-.dsp .h2q{
-  font-size: clamp(45px, 6vw, 60px) !important;
-}
 .dsp .h2q span{
   color: #1B365B;
+}
+.depth_e .line{
+  position: relative;
+  width: 100%;
+}
+.depth_e .line::before{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  width: 200%;
+  height: 100%;
+  background-color: #6c6c6c;
+}
+.depth_e .line::after{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  width: 200%;
+  height: 100%;
+  background-color: #b7b7b7;
+}
+.depth_e .line img{
+  width: 100%;
 }
 @media screen and (max-width:768px){
   .depth_a, .depth_c{
@@ -454,14 +496,15 @@ main{
     padding: 10px 8%;
     font-size: clamp(16px, 2vw, 20px);
   }
-  .depth_a .h2q, .depth_b .title .h2q, .depth_c .h2q, .depth_d .title .h2q{
+  .depth_a .h2q, .depth_b .title .h2q, .depth_c .h2q, .depth_d .title .h2q, .dsp .depth_null_d .h2q, .depth_null_e .h2q, .depth_d .title .h2q, .depth_g .h2q{
+    font-size: clamp(35px, 4vw, 55px);
     border: none;
     margin-bottom: 0;
   }
   [class^="depth"] .h3q{
     font-size: clamp(22px, 4vw, 30px);
   }
-  .depth_a, .depth_c{
+  .depth_a, .depth_c, .dsp .depth_null_d, .depth_null_e, .depth_g{
     padding-bottom: calc(var(--padding)*20);
   }
   .dsp .depth_a .del .img_box img, .dsp .depth_c .del .img_box img{
@@ -485,12 +528,16 @@ main{
     display: block;
     height: auto;
   }
+  .step_3{
+    height: auto;
+  }
   .form_data .del{
     /* display: none; */
   }
   .form_data .sel{
     position: relative;
     z-index: 20;
+    padding: 40px 0;
   }
   .form_data .sel form{
     width: 90%;
@@ -505,6 +552,9 @@ main{
   .form_data .del .h3q{
     padding-bottom: 5px;
   }
+  .form_data .sel .user_data li{
+    padding-bottom: 25px;
+  }
   section, .text, .form_data{
     pointer-events: auto !important; /* ← 반드시 있어야 함 */
   }
@@ -512,7 +562,7 @@ main{
     display: none;
   }
   .form_data .del .img_box{
-    max-height: 50vh;
+    max-height: 35vh;
     overflow: hidden;
   }
   .form_data .del, .form_data .sel{
@@ -557,7 +607,8 @@ main{
     padding: 0 2% calc(var(--padding)*3);
   }
   .key_list li .icon{
-    padding-bottom: calc(var(--padding)*.5);
+    width: 20%;
+    padding-bottom: calc(var(--padding)*1);
   }
   .key_list li .bx_title{
     padding-bottom: calc(var(--padding)*.5);

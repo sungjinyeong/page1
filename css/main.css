@@ -759,25 +759,10 @@ section .text{
 .sec7 .sel .img_box{
   width: 100%;
 }
-.sec7 .sel .img_box img{
+.sec7 .sel .img_box img,
+.sec7 .sel .img_box video{
   width: 100%;
 }
-/* .sec8 .img_box{
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  z-index: 1;
-}
-.sec8 .img_box img{
-  width: 100%;
-} */
 .sec8 .title{
   position: relative;
   z-index: 2;
@@ -802,7 +787,6 @@ section .text{
   flex-direction: column;
 }
 .sec8 .back_bg{
-  padding-top: calc(var(--padding)*5);
   width: 100%;
 }
 .sec8 .fir_title{
@@ -832,7 +816,7 @@ section .text{
   font-weight: 600;
   text-align: left;
   width: 100%;
-  padding: 0 0 calc(var(--padding)*4) 2%;
+  padding: 0 0 0 2%;
   z-index: 3;
 }
 .sec8 .flat{
@@ -844,32 +828,6 @@ section .text{
 .spon_slider_wrap {
   max-width: 1200px;
   margin: 0 auto;
-}
-.bx_wrap {
-  width: 100%;
-  overflow: hidden;
-}
-.slide_row {
-  white-space: nowrap;
-  overflow: hidden;
-  margin-bottom: 30px;
-  pointer-events: none;
-  user-select: none;
-}
-.bx_wrap .track{
-  display: flex;
-  align-items: center;
-  gap: 80px;
-}
-.bx_wrap .track img{
-  max-width: 120px;
-}
-.bx-wrapper {
-  margin-bottom: 0 !important;
-  padding: 0 !important;
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
 }
 .sec6 .round_list li {
   opacity: 0;
