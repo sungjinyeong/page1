@@ -646,5 +646,6 @@ main{
   }
   .step_2 .mid_title{
     font-size: 16px;
+    padding: calc(var(--padding)*1.5) 0;
   }
 }
