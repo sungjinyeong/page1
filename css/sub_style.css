@@ -465,6 +465,12 @@ main{
 .depth_e .line img{
   width: 100%;
 }
+.depth_e .line .opn{
+  display: block;
+}
+.depth_e .line .hdn{
+  display: none;
+}
 @media screen and (max-width:768px){
   .depth_a, .depth_c{
     flex-direction: column;
@@ -627,7 +633,12 @@ main{
   .depth_null_e .sel{
     width: 100%;
   }
-  .depth_g .porer_list{}
+  .depth_e .line .opn{
+    display: none;
+  }
+  .depth_e .line .hdn{
+    display: block;
+  }
 }
 @media screen and (max-width:480px){
   .depth_a, .depth_c, .depth_b, .depth_d, .depth_e{
