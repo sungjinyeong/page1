@@ -210,6 +210,7 @@ main{
   line-height: 1.2;
   font-weight: 600;
   padding-bottom: calc(var(--padding)*1);
+  word-break: keep-all;
 }
 .key_list li .bx_tip{
   font-size: clamp(12px, 3vw, 16px);
@@ -366,6 +367,7 @@ main{
   width: 100%;
   padding-left: 4%;
   box-sizing: border-box;
+  word-break: keep-all;
 }
 .step_2{
   padding-top: calc(var(--padding)*15);
@@ -503,12 +505,12 @@ main{
     font-size: clamp(16px, 2vw, 20px);
   }
   .depth_a .h2q, .depth_b .title .h2q, .depth_c .h2q, .depth_d .title .h2q, .dsp .depth_null_d .h2q, .depth_null_e .h2q, .depth_d .title .h2q, .depth_g .h2q{
-    font-size: clamp(35px, 4vw, 55px);
+    font-size: clamp(30px, 4vw, 55px);
     border: none;
     margin-bottom: 0;
   }
   [class^="depth"] .h3q{
-    font-size: clamp(22px, 4vw, 30px);
+    font-size: clamp(18px, 3.5vw, 30px);
   }
   .depth_a, .depth_c, .dsp .depth_null_d, .depth_null_e, .depth_g{
     padding-bottom: calc(var(--padding)*20);
@@ -598,6 +600,9 @@ main{
     padding: 0 2%;
     padding-bottom: calc(var(--padding)*3.5);
   }
+  .depth_c .h2q{
+    width: 90%;
+  }
   .dsp .depth_c .h2q span{
     width: 70%;
     display: inline-block;
@@ -611,6 +616,7 @@ main{
   }
   .depth_b .title, .depth_d .title{
     padding: 0 2% calc(var(--padding)*3);
+    text-align: right;
   }
   .key_list li .icon{
     width: 20%;
