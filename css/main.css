@@ -816,8 +816,8 @@ section .text{
   font-weight: 600;
   text-align: left;
   width: 100%;
-  padding: 0 0 0 2%;
   z-index: 3;
+  padding: calc(var(--padding)*10) 2% calc(var(--padding)*3);
 }
 .sec8 .flat{
   width: 100%;
