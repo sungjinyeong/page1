@@ -448,11 +448,102 @@ main{
   padding-bottom: calc(var(--padding)*30);
 }
 .depth_null_d .grap{
+  position: relative;
   width: 50%;
 }
 .depth_null_d .grap img{
   width: 100%;
 }
+.depth_null_d .grap .persent{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.fr_per_a{
+  position: absolute;
+  bottom: 2%;
+  left: 14%;
+  width: 17%;
+  height: 10%;
+  background-color: #EBEBEB;
+  border-radius: clamp(15px, 2vw, 20px) clamp(15px, 2vw, 20px) 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #C2C2C2;
+  font-size: clamp(12px, 1.3vw, 24px);
+}
+.fr_per_b{
+  position: absolute;
+  bottom: 2%;
+  left: 60%;
+  width: 17%;
+  height: 20%;
+  background-color: #EBEBEB;
+  border-radius: clamp(15px, 2vw, 20px) clamp(15px, 2vw, 20px) 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  text-align: center;
+  padding-top: 2%;
+  color: #C2C2C2;
+  font-size: clamp(12px, 1.3vw, 24px);
+}
+.main_per_a{
+  position: absolute;
+  bottom: 2%;
+  left: 33%;
+  width: 17%;
+  height: 60%;
+  background-color: #1B365B;
+  border-radius: clamp(15px, 2vw, 20px) clamp(15px, 2vw, 20px) 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  text-align: center;
+  padding-top: 2%;
+  color: white;
+  font-size: clamp(12px, 1.3vw, 24px);
+}
+.main_per_b{
+  position: absolute;
+  bottom: 2%;
+  left: 79%;
+  width: 17%;
+  height: 75%;
+  background-color: #1B365B;
+  border-radius: clamp(15px, 2vw, 20px) clamp(15px, 2vw, 20px) 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  text-align: center;
+  padding-top: 2%;
+  color: white;
+  font-size: clamp(12px, 1.3vw, 24px);
+}
+.side_tip{
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: -5%;
+  right: 0%;
+  width: 35%;
+}
+.side_tip img{
+  width: 100%;
+}
+.arw1, .arw2{
+  display: none;
+}
+
+
+
+
+
+
 .depth_null_d .title{
   width: 50%;
   text-align: right;
@@ -710,6 +801,7 @@ main{
   .dsp .depth_null_d .title{
     width: 100%;
     order: 1;
+    padding-bottom: calc(var(--padding)*2.5);
   }
   .dsp .depth_b .title, .dsp .depth_d .title{
     padding: 0 2%;

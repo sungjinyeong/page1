@@ -175,7 +175,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   const $items = $('.depth_c .tip_list li');
-  const exposurePercentage = 100;
+  const exposurePercentage = 50;
 
   // 초기 스타일 설정
   $items.css({
@@ -236,4 +236,116 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   container.appendChild(fragment);
+});
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateHeightAndNumber();
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  const target = document.querySelector(".depth_null_d");
+  if (target) observer.observe(target);
+
+  function animateHeightAndNumber() {
+    $(".fr_per_a, .fr_per_b, .main_per_a, .main_per_b").each(function () {
+      const $el = $(this);
+      const targetVal = parseInt($el.attr("data-val"), 10);
+      const isMain = $el.hasClass("main_per_a") || $el.hasClass("main_per_b");
+      const duration = isMain ? 2500 : 1500;
+
+      // 현재 적용된 % height 추출
+      const currentHeight = window.getComputedStyle(this).getPropertyValue('height');
+      const parentHeight = this.parentElement.clientHeight;
+      const finalPercent = (parseFloat(currentHeight) / parentHeight) * 100;
+
+      // 초기 height 0% 적용
+      $el.css("height", "0%");
+
+      // height 애니메이션 실행
+      $({ p: 0 }).animate({ p: finalPercent }, {
+        duration: duration,
+        easing: "swing",
+        step: function (now) {
+          $el.css("height", now + "%");
+        }
+      });
+
+      // 숫자 애니메이션
+      $({ count: 0 }).animate({ count: targetVal }, {
+        duration: duration,
+        easing: "linear",
+        step: function (now) {
+          $el.text(Math.floor(now) + "%");
+        },
+        complete: function () {
+          $el.text(targetVal + "%");
+        }
+      });
+    });
+  }
+});
+
+
+
+
+
+// spon 슬라이드
+function getSliderSpeed(baseSpeed = 85000, baseWidth = 1920) {
+  const currentWidth = window.innerWidth;
+  const ratio = currentWidth / baseWidth;
+  return baseSpeed / ratio;
+}
+
+$(document).ready(function() {
+  function initSliders() {
+    if ($('.slider1').length) $('.slider1').destroySlider();
+    if ($('.slider2').length) $('.slider2').destroySlider();
+
+    const speed1 = getSliderSpeed(85000);
+    const speed2 = getSliderSpeed(60000);
+
+    imagesLoaded('.row1 .track', function() {
+      $('.row1 .track').addClass('slider1').bxSlider({
+        slideSelector: 'img',
+        minSlides: 5,
+        maxSlides: 20,
+        moveSlides: 1,
+        slideWidth: 150,
+        slideMargin: 20,
+        ticker: true,
+        speed: speed1,
+        useCSS: false
+      });
+    });
+
+    imagesLoaded('.row2 .track', function() {
+      $('.row2 .track').addClass('slider2').bxSlider({
+        slideSelector: 'img',
+        minSlides: 5,
+        maxSlides: 20,
+        moveSlides: 1,
+        slideWidth: 150,
+        slideMargin: 20,
+        ticker: true,
+        speed: speed2,
+        useCSS: false
+      });
+    });
+  }
+
+  initSliders();
+  $(window).on('resize', function() {
+    initSliders();
+  });
 });
