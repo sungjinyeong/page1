@@ -214,6 +214,7 @@ window.addEventListener('resize', adjustSec6Image);
 document.addEventListener('DOMContentLoaded', () => {
   const h2Targets = [
     { selector: '.sec1 .title h2', textRaw: 'BEYOND VISION!', textMobile: 'BEYOND<br>VISION!' },
+    { selector: '.sec7 .h2q', textRaw: 'ACE, 이렇게 다릅니다', textMobile: 'ACE,<br>이렇게 다릅니다' },
     { selector: '.sec8 .fir_title', textRaw: 'PARTNERS<br>함께하는 파트너', textMobile: 'PARTNERS<br>함께하는 파트너' }
   ];
 
@@ -292,15 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ✅ scale + blur 애니메이션 대상 정의 (직접 selector/durationClass 지정)
   const animatedH2List = [
-    { selector: '.sec3 .title h2',          durationClass: 'show2000' },
-    { selector: '.sec4 .h2q',          durationClass: 'show1500' },
-    // { selector: '.sec4 .h3q',          durationClass: 'show2500' },
-    { selector: '.sec5 .h2q',          durationClass: 'show1500' },
-    // { selector: '.sec5 .h3q',          durationClass: 'show2000' },
-    // { selector: '.sec5 .textq',          durationClass: 'show2500' },
-    { selector: '.sec6 .h2q',          durationClass: 'show1500' },
-    // { selector: '.sec6 .h3q',          durationClass: 'show2500' },
-    { selector: '.sec3 .history',          durationClass: 'show1500' },
+    { selector: '.sec3 .title h2',     durationClass: 'show2000' },
   ];
 
   animatedH2List.forEach(target => {
@@ -324,34 +317,162 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+  // 초기 스타일 설정
+  document.addEventListener('DOMContentLoaded', function () {
+    const h3 = document.querySelector('.sec1 .title h3');
+    if (!h3) return;
+  
+    // 초기 완전 숨김 (시작할 때 안보이게)
+    h3.style.opacity = '0';
+    h3.style.transform = 'translateX(-3%)';
+    h3.style.visibility = 'hidden';
+    h3.style.transition = 'opacity 2s ease, transform 2s ease';
+  
+    let timer = null;
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // 2.5초 뒤 부드럽게 등장
+          timer = setTimeout(() => {
+            h3.style.visibility = 'visible';
+            h3.style.opacity = '1';
+            h3.style.transform = 'translateX(0)';
+          }, 2500);
+        } else {
+          // 즉시 초기화 (완전히 안보이게)
+          clearTimeout(timer);
+          h3.style.opacity = '0';
+          h3.style.transform = 'translateX(-3%)';
+          h3.style.visibility = 'hidden';
+        }
+      });
+    }, {
+      threshold: 0.5,
+      root: document.querySelector('.fullpage-container') || null
+    });
+  
+    observer.observe(h3);
+  });
+  
 
 
+// sec2
+document.addEventListener('DOMContentLoaded', function () {
+  const sec2 = document.querySelector('.sec2');
+  const fadeTargets = [
+    sec2.querySelector('.text .h2q'),
+    sec2.querySelector('.text .h3q'),
+    sec2.querySelector('.text .textq')
+  ];
+  const scaleImg = sec2.querySelector('.sel .img_box img');
 
+  // 초기 스타일 세팅
+  fadeTargets.forEach(el => {
+    el.classList.add('fade-up-seq');
+    el.classList.remove('visible');
+  });
 
+  if (scaleImg) {
+    scaleImg.classList.add('scale-in-img');
+    scaleImg.classList.remove('active');
+  }
 
+  let fadeTimers = [];
 
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // 순차 등장
+        fadeTargets.forEach((el, i) => {
+          const t = setTimeout(() => el.classList.add('visible'), i * 800);
+          fadeTimers.push(t);
+        });
 
-// scroll 1
-const $counters = $(".scroll_on");
-const exposurePercentage = 100;
-const loop = true;
+        if (scaleImg) {
+          setTimeout(() => {
+            scaleImg.classList.add('active');
+          }, 0);
+        }
+      } else {
+        // 타이머 정리 + 즉시 초기화
+        fadeTimers.forEach(t => clearTimeout(t));
+        fadeTimers = [];
 
-$(window).on('scroll', function () {
-  $counters.each(function () {
-    const $el = $(this);
-    const rect = $el[0].getBoundingClientRect();
-    const winHeight = window.innerHeight;
-    const contentHeight = rect.bottom - rect.top;
-    
-    if (rect.top <= winHeight - (contentHeight * exposurePercentage / 100) && rect.bottom >= (contentHeight * exposurePercentage / 100)) {
-      $el.addClass('active');
-    }
-    
-    if (loop && (rect.bottom <= 0 || rect.top >= window.innerHeight)) {
-        $el.removeClass('active');
+        fadeTargets.forEach(el => el.classList.remove('visible'));
+        if (scaleImg) scaleImg.classList.remove('active');
       }
     });
-}).scroll();
+  }, { threshold: 0.5 });
+
+  observer.observe(sec2);
+});
+
+// sec list
+document.addEventListener('DOMContentLoaded', function () {
+  const configs = [
+    {
+      section: '.sec4',
+      targets: ['.h2q', '.h3q', '.textq'] // title 밖에 있어도 전부 적용
+    },
+    {
+      section: '.sec5 .title',
+      targets: ['.h2q', '.h3q', '.textq']
+    },
+    {
+      section: '.sec6 .title',
+      targets: ['.h2q', '.h3q', '.textq']
+    }
+  ];
+
+  configs.forEach(({ section, targets }) => {
+    const root = document.querySelector(section);
+    if (!root) return;
+
+    const elements = targets
+      .map(sel => root.querySelector(sel))
+      .filter(Boolean);
+
+    if (elements.length === 0) return;
+
+    // 초기 스타일 세팅
+    elements.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20%)';
+      el.style.transition = 'opacity 1s ease, transform 1s ease';
+    });
+
+    let timers = [];
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          elements.forEach((el, i) => {
+            const t = setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 800);
+            timers.push(t);
+          });
+        } else {
+          timers.forEach(t => clearTimeout(t));
+          timers = [];
+          elements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20%)';
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(root);
+  });
+});
+
+
+
+
+
 
 // sec8 header delet
 document.addEventListener('DOMContentLoaded', () => {
@@ -427,26 +548,50 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // sec6라운드 등장효과
 document.addEventListener('DOMContentLoaded', function () {
+  const sec6 = document.querySelector('.sec6');
   const sec6Items = document.querySelectorAll('.sec6 .round_list li');
+
+  if (!sec6 || sec6Items.length === 0) return;
+
+  let showTimeout = null;
+  let itemTimeouts = [];
+
+  // 초기화
+  sec6Items.forEach(el => {
+    el.classList.remove('visible');
+  });
 
   const observerSec6 = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        // 기존 타이머 제거
+        clearTimeout(showTimeout);
+        itemTimeouts.forEach(t => clearTimeout(t));
+        itemTimeouts = [];
+
         // 순차 등장
-        sec6Items.forEach((el, i) => {
-          setTimeout(() => {
-            el.classList.add('visible');
-          }, i * 200);
-        });
+        showTimeout = setTimeout(() => {
+          sec6Items.forEach((el, i) => {
+            const timeout = setTimeout(() => {
+              el.classList.add('visible');
+            }, i * 500);
+            itemTimeouts.push(timeout);
+          });
+        }, 2000);
       } else {
-        // 뷰포트 벗어나면 초기화
+        // 나가면 초기화
+        clearTimeout(showTimeout);
+        itemTimeouts.forEach(t => clearTimeout(t));
+        itemTimeouts = [];
         sec6Items.forEach(el => el.classList.remove('visible'));
       }
     });
   }, { threshold: 0.4 });
 
-  sec6Items.forEach(item => observerSec6.observe(item));
+  observerSec6.observe(sec6);
 });
+
+
 
 
 // spon 슬라이드
@@ -497,4 +642,123 @@ $(document).ready(function() {
   $(window).on('resize', function() {
     initSliders();
   });
+});
+
+
+
+// sec3 리스트 효과
+document.addEventListener('DOMContentLoaded', function () {
+  const historyEl = document.querySelector('.sec3 .history');
+  const hisItems = document.querySelectorAll('.sec3 .history .his_tt');
+  const isMobile = () => window.innerWidth <= 768;
+
+  if (!historyEl || hisItems.length === 0) return;
+
+  let lineTimeout = null;
+  let itemTimeouts = [];
+
+  // 초기 스타일 세팅
+  hisItems.forEach(el => {
+    el.classList.remove('visible');
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // 기존 타이머 초기화
+        clearTimeout(lineTimeout);
+        itemTimeouts.forEach(t => clearTimeout(t));
+        itemTimeouts = [];
+
+        if (isMobile()) {
+          // 모바일도 1.5초 후에 등장
+          lineTimeout = setTimeout(() => {
+            hisItems.forEach((el, i) => {
+              const t = setTimeout(() => el.classList.add('visible'), i * 800);
+              itemTimeouts.push(t);
+            });
+          }, 1500);
+        } else {
+          // PC: 선 애니메이션 후 등장
+          historyEl.classList.add('line-animate');
+          lineTimeout = setTimeout(() => {
+            hisItems.forEach((el, i) => {
+              const t = setTimeout(() => el.classList.add('visible'), i * 800);
+              itemTimeouts.push(t);
+            });
+          }, 2000);
+        }
+
+      } else {
+        // 초기화
+        clearTimeout(lineTimeout);
+        itemTimeouts.forEach(id => clearTimeout(id));
+        itemTimeouts = [];
+
+        historyEl.classList.remove('line-animate');
+        hisItems.forEach(el => {
+          el.classList.remove('visible');
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+        });
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  observer.observe(historyEl);
+});
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const serviceItems = document.querySelectorAll('.service_list li');
+  let showTimeout = null;
+  let itemTimeouts = [];
+
+  // 초기 스타일 세팅 (필수)
+  serviceItems.forEach(li => {
+    li.style.opacity = '0';
+    li.style.transform = 'translateY(30px)';
+    li.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // 기존 타이머 제거
+        clearTimeout(showTimeout);
+        itemTimeouts.forEach(t => clearTimeout(t));
+        itemTimeouts = [];
+
+        // 1.5초 후 순차 등장
+        showTimeout = setTimeout(() => {
+          serviceItems.forEach((el, i) => {
+            const timeout = setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 500);
+            itemTimeouts.push(timeout);
+          });
+        }, 1500);
+      } else {
+        // 벗어나면 타이머 초기화 및 바로 리셋
+        clearTimeout(showTimeout);
+        itemTimeouts.forEach(t => clearTimeout(t));
+        itemTimeouts = [];
+        serviceItems.forEach(el => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+
+  serviceItems.forEach(item => observer.observe(item));
 });

@@ -98,17 +98,18 @@ main{
 .step_1 .posi .textq{
   margin: 0 auto;
 }
-.step_3{
-  height: 100vh;
-}
 .step_1 .textq{
   width: 80%;
 }
-.depth_a .h2q, .depth_b .title .h2q, .depth_c .h2q{
+.depth_a .h2q, .depth_b .title .h2q, .depth_c .h2q, .depth_d .h2q, .depth_g .h2q, .depth_null_d .title .h2q, .depth_null_e .h2q{
   font-size: clamp(35px, 4vw, 55px);
   border-bottom: 1px solid var(--border);
   margin-bottom: calc(var(--padding)*3);
   display: inline-block;
+}
+.depth_g .h2q{
+  border: none;
+  margin: 0 auto;
 }
 .depth_a, .depth_c{
   padding: 0 0 calc(var(--padding)*30);
@@ -386,6 +387,7 @@ main{
   width: 100%;
   padding: 0 2%;
   transform: translateX(-50%);
+  word-break: keep-all;
 }
 
 .inside_swiper li{
@@ -433,7 +435,7 @@ main{
   text-align: center;
   width: 100%;
   padding: calc(var(--padding)*3) 0;
-  background-color: #3B3B3B;
+  background-color: #3b3b3bfa;
   color: white;
   font-weight: 300;
 }
@@ -543,6 +545,49 @@ main{
 .depth_e .line .hdn{
   display: none;
 }
+.step_3 .form_data .del, .step_3 .form_data .sel{
+  height: auto;
+}
+.step_3 .form_data .del{
+  height: 75vh;
+}
+.step_3 .form_data .del .img_box img{
+  max-width: none;
+}
+.form_data .del .img_box{
+  height: auto;
+}
+.wave_background_wrap{
+  position: relative;
+  overflow: hidden;
+}
+
+.wave_background_wrap .mid_title{
+  position: relative;
+  z-index: 2;
+}
+
+.wave_background_wrap .bg_bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0.5%; /* 막대 두께 */
+  background: #fff;
+  opacity: 1;
+  z-index: 1;
+  animation: waveBarColorFlow 5s infinite ease-in-out;
+}
+
+@keyframes waveBarColorFlow {
+  0%, 100% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: #3B3B3B;
+  }
+}
+
+
 @media screen and (max-width:768px){
   .depth_a, .depth_c{
     flex-direction: column;
@@ -609,8 +654,8 @@ main{
   .step_3{
     height: auto;
   }
-  .form_data .del{
-    /* display: none; */
+  .step_3 .form_data .del{
+    height: auto;
   }
   .form_data .sel{
     position: relative;
@@ -714,6 +759,9 @@ main{
   }
   .depth_e .line .hdn{
     display: block;
+  }
+  .step_2 .mid_title{
+    padding: calc(var(--padding)*2);
   }
 }
 @media screen and (max-width:480px){
