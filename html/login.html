@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reseter.css/2.0.0/reseter.min.css" integrity="sha512-gCJkkUMGTe73+FMwog6gIBCVJIMXRoc21l6/IPCuzxCex/1sxvO8ctb6Zd4/WWs2UMqmtnDrAdhJht5pEY0LXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- normalize css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- tabler-icons  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.28.1/tabler-icons.min.css" integrity="sha512-UuL1Le1IzormILxFr3ki91VGuPYjsKQkRFUvSrEuwdVCvYt6a1X73cJ8sWb/1E726+rfDRexUn528XRdqrSAOw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- swiper css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" />
+    <!-- Slick css -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+  
+    <!-- jQurey -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- swiper js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js" integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Modernizr 최신 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/3.11.7/modernizr.min.js" referrerpolicy="no-referrer"></script>
+    <!-- GSAP 최신 버전 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <!-- Slick -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <!-- imagesLoaded -->
+    <script src="https://unpkg.com/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"></script>
+
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <script defer src="../js/login.js"></script>
+  <title>데일리팜</title>
+</head>
+<body>
+  <header class="header anchors user_header">
+    <div class="header_container">
+      <h1 class="logo">
+        <a href="">
+          <img class="wh_logo" src="../images/logo.svg" alt="ACE PLANET" />
+          <img class="rd_logo" src="../images/logo_rd.svg" alt="ACE PLANET" style="opacity: 1;"/>
+        </a>
+      </h1>
+      <ul class="nav">
+        <li class="active"><a href="#page-1">Home</a></li>
+        <li><a href="#page-2">옵티바이즈(SSP)</a></li>
+        <li><a href="#page-2">알파엠(DSP)</a></li>
+        <li><a href="#page-3">Login</a></li>
+      </ul>
+      <div class="adver"><a href="#page-4">광고문의</a></div>
+      <a href="#" class="hamburger-button">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div>
+    <div class="modal_menu">
+      <div class="menu_inner">
+        <ul>
+          <li class="active"><a href="#page-1">Home</a></li>
+          <li><a href="#page-2">옵티바이즈(SSP)</a></li>
+          <li><a href="#page-2">알파엠(DSP)</a></li>
+          <li><a href="#page-3">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <div class="login_page container_pc">
+    <h2 class="logo_h2"><a href=""><img src="../images/logo_rd.svg" alt="ACEPLANET"></a></h2>
+    <h3 class="form_center">아이디와 비밀번호를 입력하세요.</h3>
+    <div class="log_form">
+      <form action="">
+        <div class="user_ID search_bar">
+          <input class="" type="text" name="" value="" id="" minlength="1" placeholder="아이디">
+        </div>
+        <div class="user_PASS search_bar">
+          <input class="" type="text" name="" value="" id="" minlength="8" maxlength="16" placeholder="비밀번호">
+        </div>
+        <label for="test" class="ID_save check_design">
+          <input type="checkbox" id="test" class="check_point">
+          <span class="on"></span>
+          아이디 저장
+        </label>
+        <div class="login_button">로그인</div>
+        <div class="kakao_button">카카오 로그인</div>
+        <div class="naver_button">네이버 로그인</div>
+        <ul class="login_add">
+          <li><a href="">회원가입</a></li>
+          <li><a href="">아이디/비밀번호 찾기</a></li>
+        </ul>
+      </form>
+    </div>
+    <div class="adv_bn d-flex all_center">Copyright ⓒ ACE PLANET 2000-2025,All rights reserved.</div>
+  </div>
+</body>
+</html>
