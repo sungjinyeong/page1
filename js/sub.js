@@ -62,6 +62,44 @@ $(window).on('scroll', function () {
 
 
 
+// step1
+document.addEventListener('DOMContentLoaded', function () {
+  const h2 = document.querySelector('.step_1 .posi .h2q');
+  const h3 = document.querySelector('.step_1 .posi .h3q');
+  const text = document.querySelector('.step_1 .posi .textq');
+
+  if (!h2 || !h3 || !text) return;
+
+  setTimeout(() => {
+    h2.style.opacity = '1';
+    h2.style.transform = 'translateY(0)';
+    
+    setTimeout(() => {
+      h3.style.opacity = '1';
+      h3.style.transform = 'translateY(0)';
+
+      setTimeout(() => {
+        text.style.opacity = '1';
+        text.style.transform = 'translateY(0)';
+      }, 600);
+    }, 800);
+  }, 500);
+});
+
+
+
+// tip
+document.addEventListener('DOMContentLoaded', function () {
+  const tip = document.querySelector('.depth_a .del .tip');
+  if (!tip) return;
+
+  setTimeout(() => {
+    tip.classList.add('visible');
+  }, 2000);
+});
+
+
+
 
 $(document).ready(function () {
   function handleScrollReveal(targetSelector) {
@@ -97,37 +135,41 @@ $(document).ready(function () {
     transition: 'opacity 1.2s ease, transform 1.2s cubic-bezier(0.35, 1.7, 0.7, 1)'
   });
 
+  let hasAnimated = false; // 중복 작동 방지용 플래그
+
   function handleKeyListReveal() {
-    const $items = $('.key_list li');
-    const winHeight = $(window).height();
-    const threshold = winHeight * 0.7;
+    const $target = $('.key_list');
+    const rect = $target[0].getBoundingClientRect();
+    const winHeight = window.innerHeight;
+    const isVisible = rect.top < winHeight && rect.bottom > 0;
 
-    $items.each(function (i) {
-      const $el = $(this);
-      const rect = $el[0].getBoundingClientRect();
-      const isVisible = rect.top < threshold && rect.bottom > 0;
-
-      if (isVisible && !$el.hasClass('visible')) {
+    if (isVisible && !hasAnimated) {
+      hasAnimated = true;
+      $target.find('li').each(function (i) {
+        const $el = $(this);
         setTimeout(() => {
-          $el.addClass('visible').css({
+          $el.css({
             opacity: 1,
             transform: 'translateY(0)'
           });
         }, i * 500); // 0.5초 간격
-      }
+      });
+    }
 
-      if (!isVisible) {
-        $el.removeClass('visible').css({
-          opacity: 0,
-          transform: 'translateY(20%)'
-        });
-      }
-    });
+    // 화면 벗어나면 초기화
+    if (!isVisible && hasAnimated) {
+      hasAnimated = false;
+      $target.find('li').css({
+        opacity: 0,
+        transform: 'translateY(20%)'
+      });
+    }
   }
 
   $(window).on('scroll resize', handleKeyListReveal);
   handleKeyListReveal(); // 최초 실행
 });
+
 
 
 $(document).ready(function () {
@@ -224,14 +266,14 @@ $(document).ready(function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   const container = document.querySelector('.wave_background_wrap');
-  const totalBars = 90; // 200의 약 2/3
+  const totalBars = 250;
   const fragment = document.createDocumentFragment();
 
   for (let i = 0; i < totalBars; i++) {
     const bar = document.createElement('span');
     bar.classList.add('bg_bar');
     bar.style.left = `${(i / totalBars) * 100}%`;
-    bar.style.animationDelay = `${i * 0.02}s`;
+    bar.style.animationDelay = `${i * 0.04}s`;
     fragment.appendChild(bar);
   }
 
@@ -242,7 +284,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
 document.addEventListener("DOMContentLoaded", function () {
+  const bars = $(".fr_per_a, .fr_per_b, .main_per_a, .main_per_b");
+
+  // 1. 초기화: 숫자 0%, height 0%
+  bars.each(function () {
+    $(this).text("0%").css("height", "0%");
+  });
+
+  // 2. IntersectionObserver 설정
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -257,22 +308,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const target = document.querySelector(".depth_null_d");
   if (target) observer.observe(target);
 
+  // 3. 애니메이션 실행 함수
   function animateHeightAndNumber() {
-    $(".fr_per_a, .fr_per_b, .main_per_a, .main_per_b").each(function () {
+    bars.each(function () {
       const $el = $(this);
       const targetVal = parseInt($el.attr("data-val"), 10);
       const isMain = $el.hasClass("main_per_a") || $el.hasClass("main_per_b");
       const duration = isMain ? 2500 : 1500;
 
-      // 현재 적용된 % height 추출
-      const currentHeight = window.getComputedStyle(this).getPropertyValue('height');
-      const parentHeight = this.parentElement.clientHeight;
-      const finalPercent = (parseFloat(currentHeight) / parentHeight) * 100;
+      // 기준 높이 비율 설정
+      const finalHeight = isMain ? 75 : 45; // main은 최대 75%, 그 외는 45% 기준
+      const finalPercent = finalHeight;
 
-      // 초기 height 0% 적용
-      $el.css("height", "0%");
-
-      // height 애니메이션 실행
+      // height 애니메이션
       $({ p: 0 }).animate({ p: finalPercent }, {
         duration: duration,
         easing: "swing",
@@ -295,6 +343,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
 
 
 

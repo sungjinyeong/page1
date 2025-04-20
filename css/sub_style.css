@@ -101,6 +101,13 @@ main{
 .step_1 .textq{
   width: 80%;
 }
+.step_1 .posi .h2q,
+.step_1 .posi .h3q,
+.step_1 .posi .textq {
+  opacity: 0;
+  transform: translateY(15%);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
 .depth_a .h2q, .depth_b .title .h2q, .depth_c .h2q, .depth_d .h2q, .depth_g .h2q, .depth_null_d .title .h2q, .depth_null_e .h2q{
   font-size: clamp(35px, 4vw, 55px);
   border-bottom: 1px solid var(--border);
@@ -166,6 +173,9 @@ main{
   font-size: clamp(10px, 2vw, 16px);
   line-height: 1;
   font-weight: 400;
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 1s ease, filter 1s ease;
 }
 .dsp .depth_a .del .tip{
   left: auto;
@@ -173,12 +183,16 @@ main{
   background-color: #1B365B;
   border-radius:  100px 0 0 100px;
 }
+.depth_a .del .tip.visible {
+  opacity: 1;
+  filter: blur(0);
+}
 .depth_a .sel, .depth_c .sel{
   width: 50%;
 }
 .depth_b{
   position: relative;
-  padding-bottom: calc(var(--padding)*30);
+  padding-bottom: calc(var(--padding)*35);
 }
 .depth_b .title, .depth_d .title{
   padding-left: 2%;
@@ -262,23 +276,22 @@ main{
   word-break: keep-all;
 }
 .key_list li .bx_tip{
-  font-size: clamp(12px, 3vw, 16px);
+  font-size: clamp(11px, 2.5vw, 16px);
   line-height: 1.2;
   font-weight: 400;
   width: 80%;
   margin: 0 auto;
   word-break: keep-all;
 }
-@media screen and (max-width:1200px){
+@media screen and (max-width:820px){
   .key_list{
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
   }
 }
 @media screen and (max-width:500px){
   .key_list{
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    padding: 0 3%;
+    gap: 15px;
   }
 }
 .depth_c .tip_list li{
@@ -321,7 +334,7 @@ main{
 }
 .depth_g{
   padding: 0 2%;
-  padding-bottom: calc(var(--padding)*30);
+  padding-bottom: calc(var(--padding)*35);
 }
 .depth_g .title{
   padding: 0 2%;
@@ -405,7 +418,7 @@ main{
   padding-bottom: calc(var(--padding)*.5);
 }
 .inside_swiper li .bx_tip{
-  font-size: 15px;
+  font-size: clamp(12.5px, 2vw, 15px);
 }
 .inside_swiper li .tem{
   background-color: #F1F1F1;
@@ -426,7 +439,7 @@ main{
   word-break: keep-all;
 }
 .step_2{
-  padding-top: calc(var(--padding)*15);
+  padding-top: 25vh;
 }
 .step_2 .mid_title{
   position: relative;
@@ -435,7 +448,7 @@ main{
   text-align: center;
   width: 100%;
   padding: calc(var(--padding)*3) 0;
-  background-color: #3b3b3bfa;
+  background-color: #4d4d4ddc;
   color: white;
   font-weight: 300;
 }
@@ -445,7 +458,7 @@ main{
   justify-content: space-between;
   gap: 3%;
   padding: 0 2%;
-  padding-bottom: calc(var(--padding)*30);
+  padding-bottom: calc(var(--padding)*35);
 }
 .depth_null_d .grap{
   position: relative;
@@ -561,7 +574,7 @@ main{
   align-items: center;
   gap: 2%;
   padding: 0 2%;
-  padding-bottom: calc(var(--padding)*30);
+  padding-bottom: calc(var(--padding)*35);
 }
 .depth_null_e .h2q{
   border-bottom: 1px solid var(--border);
@@ -674,7 +687,7 @@ main{
     background-color: #fff;
   }
   50% {
-    background-color: #3B3B3B;
+    background-color: #180909;
   }
 }
 
@@ -696,7 +709,7 @@ main{
     order: 2;
   }
   .step_2{
-    padding-top: calc(var(--padding)*5);
+    padding-top: calc(var(--padding)*10);
   }
   .depth_a .sel, .depth_c .sel{
     width: 100%;
@@ -860,8 +873,11 @@ main{
   .depth_a, .depth_c, .depth_b, .depth_d, .depth_e{
     padding-bottom: calc(var(--padding)*15);
   }
-  .dsp .inside_swiper{
-    grid-template-columns: 1fr;
+  .inside_swiper{
+    grid-template-columns: 1fr !important;
+  }
+  .inside_swiper li img{
+    width: 30px;
   }
   .step_2 .mid_title{
     font-size: 16px;
