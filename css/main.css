@@ -556,8 +556,7 @@ section .text{
   flex-direction: column;
 }
 .sec5 .text .h3q{
-  font-size: 18px;
-  padding-bottom: calc(var(--padding).7);
+  padding-bottom: calc(var(--padding));
 }
 .sec5 .text .textq{
   font-size: 16px;
