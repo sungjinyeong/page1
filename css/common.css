@@ -611,8 +611,11 @@ section, .text{
   line-height: 1.3em;
 }
 @media screen and (max-width:480px){
+  .login_page{
+    padding-top: 100px;
+  }
   .login_button a, .kakao_button a, .naver_button a{
-    padding: 15px 0;
+    padding: 17px 0;
   }
   .log_form .user_ID input, .log_form .user_PASS input{
     padding: 15px;
@@ -632,8 +635,10 @@ section, .text{
   .check_design .check_point[type="checkbox"] { display: none; }
   .on { width: 25px; height: 25px; position: absolute; top: 0; left: 0; border: 2px solid #D0D0D0; border-radius: 3px;}
   .on:after{
-    left: 6px;
-    top: 0px;
+    width: 8px;
+    height: 14px;
+    left: 7px;
+    top: 2px;
   }
 }
 .header{
