@@ -492,7 +492,7 @@ section, .text{
   justify-content: center;
   align-items: center;
   max-width: 210px;
-  padding-bottom: 5%;
+  padding-bottom: 3%;
 }
 .login_page .logo_h2 a{
   display: block;
@@ -504,7 +504,7 @@ section, .text{
   margin: auto;
   max-width: 470px;
   width: 100%;
-  padding: 0 2%;
+  padding: 0 2% calc(var(--padding)*5);
 }
 .log_form .user_ID, .log_form .user_PASS{
   font-size: 1.1em;
@@ -808,6 +808,17 @@ section, .text{
   z-index: 3;
   border-radius: 1000px;
 }
+
+
+.arw1, .arw2 {
+  opacity: 0;
+  transform: translateY(15%);
+  transition: opacity .8s ease, transform 0.8s ease;
+}
+.arw-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
 .ace_c{
   position: absolute;
   width: 40%;
@@ -1032,6 +1043,23 @@ section, .text{
   border: none !important;
   box-shadow: none !important;
 }
+/* bxSlider 전체 폭 사용하도록 강제 덮어쓰기 */
+.bx-wrapper {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* 내부 뷰포트도 100% 고정 */
+.bx-wrapper .bx-viewport {
+  width: 100% !important;
+  /* overflow-x: visible; 필요 시 추가 */
+}
+
+/* 트랙 슬라이더도 auto로 늘려서 자르지 않기 */
+.bx-wrapper .track {
+  width: auto !important;
+}
+
 @media screen and (max-width:768px){
   .header{
     padding: calc(var(--padding)*1.5) 0 calc(var(--padding)*.5);

@@ -127,7 +127,7 @@ main{
   /* padding-right: 2%; */
 }
 .dsp .depth_a, .dsp .depth_c{
-  padding-left: 2%;
+  padding-left: 5%;
   padding-right: 0%;
 }
 .depth_d{
@@ -174,7 +174,7 @@ main{
   line-height: 1;
   font-weight: 400;
   opacity: 0;
-  filter: blur(10px);
+  filter: blur(5px);
   transition: opacity 1s ease, filter 1s ease;
 }
 .dsp .depth_a .del .tip{
@@ -183,7 +183,7 @@ main{
   background-color: #1B365B;
   border-radius:  100px 0 0 100px;
 }
-.depth_a .del .tip.visible {
+.depth_a .del .tip.show {
   opacity: 1;
   filter: blur(0);
 }
@@ -213,10 +213,13 @@ main{
 .dsp .depth_b .title, .dsp .depth_d .title{
   width: 100%;
   text-align: right;
-  padding-right: 2%;
+  padding-right: 5%;
 }
 .dsp .depth_d .title{
   max-width: 1200px;
+  margin: 0;
+  margin-left: auto;
+  
 }
 .depth_b .img_box{
   position: absolute;
@@ -236,6 +239,17 @@ main{
   max-width: 1200px;
   padding: 0 2%;
   margin: 0 auto;
+}
+.dsp .depth_b .title{
+  margin: 0;
+  margin-left: auto;
+  padding-right: 5%;
+}
+.dsp .keySwiper{
+  margin: 0;
+  margin-right: 0;
+  margin-left: auto;
+  padding-right: 5%;
 }
 .key_list{
   display: grid;
@@ -314,7 +328,9 @@ main{
 .dsp .inside_swiper{
   max-width: 1200px;
   grid-template-columns: 1fr 1fr;
-  padding: 0 2%;
+  padding: 0 5% 0 2%;
+  margin: 0;
+  margin-left: auto;
 }
 @media screen and (max-width:1500px){
   .inside_swiper{
@@ -322,13 +338,8 @@ main{
     grid-template-columns: 1fr 1fr;
   }
 }
-@media screen and (max-width:1000px){
-  .inside_swiper{
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media screen and (max-width:500px){
-  .inside_swiper{
+@media screen and (max-width:600px){
+  .dsp .inside_swiper, .inside_swiper{
     grid-template-columns: 1fr;
   }
 }
@@ -463,6 +474,7 @@ main{
 .depth_null_d .grap{
   position: relative;
   width: 50%;
+  padding-left: 3%;
 }
 .depth_null_d .grap img{
   width: 100%;
@@ -478,7 +490,7 @@ main{
   position: absolute;
   bottom: 2%;
   left: 14%;
-  width: 17%;
+  width: 15%;
   height: 10%;
   background-color: #EBEBEB;
   border-radius: clamp(15px, 2vw, 20px) clamp(15px, 2vw, 20px) 0 0;
@@ -493,7 +505,7 @@ main{
   position: absolute;
   bottom: 2%;
   left: 60%;
-  width: 17%;
+  width: 15%;
   height: 20%;
   background-color: #EBEBEB;
   border-radius: clamp(15px, 2vw, 20px) clamp(15px, 2vw, 20px) 0 0;
@@ -509,7 +521,7 @@ main{
   position: absolute;
   bottom: 2%;
   left: 33%;
-  width: 17%;
+  width: 15%;
   height: 60%;
   background-color: #1B365B;
   border-radius: clamp(15px, 2vw, 20px) clamp(15px, 2vw, 20px) 0 0;
@@ -525,7 +537,7 @@ main{
   position: absolute;
   bottom: 2%;
   left: 79%;
-  width: 17%;
+  width: 15%;
   height: 75%;
   background-color: #1B365B;
   border-radius: clamp(15px, 2vw, 20px) clamp(15px, 2vw, 20px) 0 0;
@@ -548,8 +560,17 @@ main{
 .side_tip img{
   width: 100%;
 }
-.arw1, .arw2{
-  display: none;
+.arw1{
+  width: 12%;
+  position: absolute;
+  left: 25%;
+  top: 61%;
+}
+.arw2{
+  width: 12%;
+  position: absolute;
+  left: 71%;
+  top: 51%;
 }
 
 
@@ -558,12 +579,14 @@ main{
 
 
 .depth_null_d .title{
-  width: 50%;
+  width: 45%;
   text-align: right;
+  padding-right: 5%;
 }
 .depth_null_d .title .h2q{
-  border-bottom: 1px solid var(--border);
+  /* border-bottom: 1px solid var(--border); */
   margin-bottom: calc(var(--padding) * 3);
+  display: inline-block;
 }
 .depth_null_d .title .h4q em{
   font-weight: 800;
@@ -592,15 +615,17 @@ main{
   left: 0;
 }
 .depth_null_e .del{
-  width: 45%;
+  width: 42%;
+  padding-left: 3%;
 }
 .depth_null_e .h2q{
   font-size: clamp(3px, 5.5vw, 55px);
 }
 .depth_null_e .sel{
-  width: 50%;
+  width: 45%;
   display: flex;
   gap: 4%;
+  padding-right: 3%;
 }
 .depth_null_e .sel img{
   width: 100%;
@@ -693,6 +718,9 @@ main{
 
 
 @media screen and (max-width:768px){
+  .rg_img{
+    display: none;
+  }
   .depth_a, .depth_c{
     flex-direction: column;
   }
