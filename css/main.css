@@ -333,9 +333,6 @@ section .text{
   width: 100%;
   padding: 0 2%;
 }
-.sec2 .text .h2q{
-  font-size: clamp(30px, 8vw, 55px);
-}
 .sec2 .title h3.ahtoer{
   font-size: clamp(16px, 4vw, 20px);
   word-break: keep-all;
