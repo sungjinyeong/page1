@@ -672,6 +672,10 @@ section, .text{
   border-radius: 100px;
   padding: 8px 20px;
   display: block;
+  transition: .3s;
+}
+.header .adver a:hover{
+  background-color: #aa0b0b;
 }
 .header .nav li.active a{
   color: #D90000 !important;
@@ -949,9 +953,16 @@ section, .text{
   margin-top: 30px;
   text-align: center;
   padding: 0 !important;
+  transition: .2s;
 }
-.dsp .form_data .sel .sub_mit{
+.form_data .sel .sub_mit:hover{
+  background-color: #aa0b0b;
+}
+.form_data .sel .sub_mit.dsp{
   background-color: #1B365B;
+}
+.form_data .sel .sub_mit.dsp:hover{
+  background-color: #0a2342;
 }
 .form_data .sel .sub_mit a{
   display: block;

@@ -273,6 +273,10 @@ main{
   justify-content: center;
   border-radius: 1000px;
   padding: 0 5% 5%;
+  transition: .3s;
+}
+.key_list li:hover{
+  background: #eff0f1;
 }
 .key_list li .icon{
   width: 25%;
@@ -415,13 +419,16 @@ main{
 }
 
 .inside_swiper li{
-  /* max-width: 500px; */
   background-color: #F1F1F1;
   padding: 25px;
   border-radius: 35px;
   display: flex;
   align-items: center;
   gap: 15px;
+  transition: .3s;
+}
+.inside_swiper li:hover{
+  background-color: #e4e7eb;
 }
 .inside_swiper li .bx_title{
   font-size: 17px;
@@ -490,7 +497,7 @@ main{
   position: absolute;
   bottom: 2%;
   left: 14%;
-  width: 15%;
+  width: 14%;
   height: 10%;
   background-color: #EBEBEB;
   border-radius: clamp(15px, 2vw, 20px) clamp(15px, 2vw, 20px) 0 0;
@@ -505,7 +512,7 @@ main{
   position: absolute;
   bottom: 2%;
   left: 60%;
-  width: 15%;
+  width: 14%;
   height: 20%;
   background-color: #EBEBEB;
   border-radius: clamp(15px, 2vw, 20px) clamp(15px, 2vw, 20px) 0 0;
@@ -521,7 +528,7 @@ main{
   position: absolute;
   bottom: 2%;
   left: 33%;
-  width: 15%;
+  width: 14%;
   height: 60%;
   background-color: #1B365B;
   border-radius: clamp(15px, 2vw, 20px) clamp(15px, 2vw, 20px) 0 0;
@@ -537,7 +544,7 @@ main{
   position: absolute;
   bottom: 2%;
   left: 79%;
-  width: 15%;
+  width: 14%;
   height: 75%;
   background-color: #1B365B;
   border-radius: clamp(15px, 2vw, 20px) clamp(15px, 2vw, 20px) 0 0;

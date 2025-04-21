@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const originalHeader = document.querySelector('.header');
   let clone = null;
 
+  bindHamburgerToggle(originalHeader);
+
   window.addEventListener('scroll', function () {
     const scrollY = window.scrollY || window.pageYOffset;
 
@@ -10,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
       clone = originalHeader.cloneNode(true);
       clone.classList.add('header-clone');
       document.body.appendChild(clone);
-      bindHamburgerToggle(clone);
+      bindHamburgerToggle(clone); // ✅ 클론 바인딩
     } else if (scrollY <= 100 && clone) {
       clone.remove();
       clone = null;
@@ -30,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
 
 // ========================== SCROLL_ON VISIBILITY ==========================
 const $counters = $(".scroll_on");
@@ -304,4 +307,11 @@ function rippleClickEffect() {
 document.addEventListener('DOMContentLoaded', () => {
   formInputHandler();
   rippleClickEffect();
+});
+
+
+// 새로고침 강제이동
+window.addEventListener('beforeunload', function () {
+  document.documentElement.style.scrollBehavior = 'auto';
+  window.scrollTo(0, 0);
 });
