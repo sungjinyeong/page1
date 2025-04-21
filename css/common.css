@@ -493,6 +493,7 @@ section, .text{
   align-items: center;
   max-width: 210px;
   padding-bottom: calc(var(--padding)*1.5);
+  width: 75%;
 }
 .login_page .logo_h2 a{
   display: block;
@@ -598,7 +599,7 @@ section, .text{
 }
 .form_center{
   text-align: center;
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(16px, 2vw, 18px);
   padding-bottom: calc(var(--padding)*2.5);
 }
 .adv_bn{
