@@ -120,18 +120,51 @@ function setupSec1H3Reveal(){
 
 
 
-function setupSec2FadeScale(){
-  const sec2=document.querySelector('.sec2'); if(!sec2) return;
-  const items=[sec2.querySelector('.h2q'),sec2.querySelector('.h3q'),sec2.querySelector('.textq')];
-  const img=sec2.querySelector('.sel .img_box img'); items.forEach(el=>el?.classList.add('fade-up-seq'));
-  img?.classList.add('scale-in-img'); let timers=[];
-  new IntersectionObserver(es=>es.forEach(e=>{
-    if(e.isIntersecting){
-      items.forEach((el,i)=>timers.push(setTimeout(()=>el.classList.add('visible'),i*800)));
-      setTimeout(()=>img.classList.add('active'),0);
-    } else {timers.forEach(clearTimeout);timers=[];items.forEach(el=>el.classList.remove('visible'));img.classList.remove('active');}
-  }),{threshold:0.5}).observe(sec2);
+function setupSec2FadeScale() {
+  const sec2 = document.querySelector('.sec2');
+  if (!sec2) return;
+
+  const titleEls = sec2.querySelectorAll('.title .h2q, .title .h3q');
+  const textEls = sec2.querySelectorAll('.textq');
+  const img = sec2.querySelector('.sel .img_box img');
+
+  // 클래스 사전 세팅
+  titleEls.forEach(el => el?.classList.add('fade-up-seq'));
+  textEls.forEach(el => el?.classList.add('fade-up-fast'));
+  img?.classList.add('scale-in-img');
+
+  let timers = [];
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // 타이틀 등장: 0ms, 800ms
+        titleEls.forEach((el, i) => {
+          timers.push(setTimeout(() => el.classList.add('visible'), i * 800));
+        });
+
+        // 텍스트 등장: 타이틀 완료(1600ms) + 대기(500ms) 이후 시작
+        const baseDelay = (titleEls.length * 800) + 500;
+        textEls.forEach((el, i) => {
+          timers.push(setTimeout(() => el.classList.add('visible'), baseDelay + (i * 400)));
+        });
+
+        img?.classList.add('active');
+      } else {
+        timers.forEach(clearTimeout);
+        timers = [];
+        [...titleEls, ...textEls].forEach(el => el.classList.remove('visible'));
+        img?.classList.remove('active');
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  observer.observe(sec2);
 }
+
+
 
 function setupSec3HistoryList(){
   const el=document.querySelector('.sec3 .history'); const items=document.querySelectorAll('.sec3 .history .his_tt');
@@ -227,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupSponSlider();
     formInputHandler();
     rippleClickEffect();
-
+    setupSec2FadeScale();
     // ✅ 모바일 최적화 추가
     // if (window.innerWidth <= 768) {
     //   container.style.scrollSnapType = 'none';

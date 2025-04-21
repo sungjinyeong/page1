@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="315" viewBox="0 0 1920 315">
+  <g id="그룹_1004" data-name="그룹 1004" transform="translate(0 -4563)">
+    <g id="그룹_1003" data-name="그룹 1003">
+      <path id="사각형_16" data-name="사각형 16" d="M0,0H508.5A157.5,157.5,0,0,1,666,157.5v0A157.5,157.5,0,0,1,508.5,315H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(0 4563)" fill="#6c6c6c"/>
+      <path id="사각형_18" data-name="사각형 18" d="M0,0H377.5A157.5,157.5,0,0,1,535,157.5v0A157.5,157.5,0,0,1,377.5,315H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(1920 4878) rotate(180)" fill="#b7b7b7"/>
+      <rect id="사각형_17" data-name="사각형 17" width="714" height="315" rx="157.5" transform="translate(774 4563)" fill="#363636" opacity="0.98"/>
+      <circle id="타원_34" data-name="타원 34" cx="157.5" cy="157.5" r="157.5" transform="translate(519 4563)" fill="#ec373b" opacity="0.91"/>
+      <text id="매출" transform="translate(658 4662)" fill="#fff" font-size="24" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="0" y="0">매출</tspan></text>
+      <text id="일_평균_" data-name="일 평균 " transform="translate(274 4662)" fill="#fff" font-size="24" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="0" y="0">일 평균 </tspan></text>
+      <text id="_1억_5천_pv" data-name="1억 5천 pv" transform="translate(175 4753)" fill="#fff" font-size="60" font-family="Pretendard-Bold, Pretendard" font-weight="700"><tspan x="0" y="0">1억 5천 pv</tspan></text>
+      <text id="_3_000개_이상" data-name="3,000개 이상" transform="translate(978 4750)" fill="#fff" font-size="60" font-family="Pretendard-Bold, Pretendard" font-weight="700"><tspan x="0" y="0">3,000개 이상</tspan></text>
+      <text id="_30개_이상" data-name="30개 이상" transform="translate(1550 4757)" fill="#fff" font-size="70" font-family="Pretendard-Bold, Pretendard" font-weight="700"><tspan x="0" y="0">30개 이상</tspan></text>
+      <text id="_100억_달성" data-name="100억 
+달성" transform="translate(677 4728)" fill="#fff" font-size="60" font-family="Pretendard-Bold, Pretendard" font-weight="700"><tspan x="-86.514" y="0">100억 </tspan><tspan x="-51.855" y="70">달성</tspan></text>
+      <text id="매체_수" data-name="매체 수" transform="translate(1097 4662)" fill="#fff" font-size="24" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="0" y="0">매체 수</tspan></text>
+      <text id="국내_해외_DSP_연동" data-name="국내 해외 DSP 연동" transform="translate(1597 4662)" fill="#fff" font-size="24" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="0" y="0">국내 해외 DSP 연동</tspan></text>
+    </g>
+  </g>
+</svg>

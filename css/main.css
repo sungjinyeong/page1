@@ -942,7 +942,15 @@ section .text{
 .scale-in-img.active {
   transform: scale(1);
 }
-
+.fade-up-fast {
+  opacity: 0;
+  transform: translateY(20%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.fade-up-fast.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
 /*  */

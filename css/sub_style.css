@@ -101,6 +101,10 @@ main{
 .step_1 .textq{
   width: 80%;
 }
+.step_1 .posi .h3q{
+  padding-left: 5%;
+  padding-right: 5%;
+}
 .step_1 .posi .h2q,
 .step_1 .posi .h3q,
 .step_1 .posi .textq {
@@ -902,6 +906,9 @@ main{
   }
   .step_2 .mid_title{
     padding: calc(var(--padding)*2);
+  }
+  .depth_e .line::before{
+    background-color: #6f6f6f ;
   }
 }
 @media screen and (max-width:480px){
