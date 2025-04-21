@@ -190,14 +190,34 @@ function rippleClickEffect(){
 }
 
 // ========================== INIT ==========================
-document.addEventListener('DOMContentLoaded',()=>{
-  handleHeaderColor();setupHamburgerToggle();hideHeaderOnSec9();
-  setupPaginationScroll();setupSectionScaling();
-  setupSec1CharAnimation();setupSec1H3Reveal();
-  setupSec2FadeScale();setupSec3HistoryList();
-  setupSec4to6TextAnimations();setupSec6ImageAdjust();setupSec6RoundList();
-  setupSec7TextUpdate();setupServiceListAnimation();
-  setupSponSlider();
-  formInputHandler();rippleClickEffect();
-});
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.fullpage-container');
+  imagesLoaded(container, { background: true }, function () {
+    // ✅ 이미지 모두 로드 완료 후 실행할 기능들
+    handleHeaderColor();
+    setupHamburgerToggle();
+    hideHeaderOnSec9();
+    setupPaginationScroll();
+    setupSectionScaling();
+    setupSec1CharAnimation();
+    setupSec1H3Reveal();
+    setupSec2FadeScale();
+    setupSec3HistoryList();
+    setupSec4to6TextAnimations();
+    setupSec6ImageAdjust();
+    setupSec6RoundList();
+    setupSec7TextUpdate();
+    setupServiceListAnimation();
+    setupSponSlider();
+    formInputHandler();
+    rippleClickEffect();
 
+    // ✅ 모바일 최적화 추가
+    // if (window.innerWidth <= 768) {
+    //   container.style.scrollSnapType = 'none';
+    //   document.querySelectorAll('.fade-up-seq').forEach(el => {
+    //     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    //   });
+    // }
+  });
+});

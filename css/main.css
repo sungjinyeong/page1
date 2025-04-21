@@ -65,14 +65,21 @@ section .text{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: Arial, sans-serif;
-  transform: scale(0.98);
-  transition: transform 0.5s ease-in-out;
+  transform: scale(0.97);
+  opacity: 0.75;
+  filter: blur(2px);
+  transition:
+    transform 1s cubic-bezier(0.25, 0.1, 0.25, 1),
+    opacity .5s ease,
+    filter 1.1s ease;
   overflow: hidden;
 }
 .section.active {
   transform: scale(1);
+  opacity: 1;
+  filter: blur(0);
 }
+
 
 /* 페이지네이션 스타일 */
 .pagination {
