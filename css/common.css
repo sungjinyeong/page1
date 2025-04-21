@@ -481,18 +481,18 @@ section, .text{
   background: #000;
 }
 .login_page{
-  padding: 10% 0 0;
+  padding: 5% 0 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 .login_page .logo_h2{
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 210px;
-  padding-bottom: 3%;
+  padding-bottom: 1%;
 }
 .login_page .logo_h2 a{
   display: block;
@@ -534,9 +534,6 @@ section, .text{
   font-size: 1.2em;
   border-radius: 10px;
   background-color: #393939;
-  padding: 20px 0;
-  display: flex;
-  justify-content: center;
   color: var(--white);
   cursor: pointer;
   transition: .2s;
@@ -545,10 +542,7 @@ section, .text{
 .log_form .kakao_button{
   font-size: 1.2em;
   border-radius: 10px;
-  background-color: #F9E000;
-  padding: 20px 0;
-  display: flex;
-  justify-content: center;
+  background-color: #ffe812;
   color: #3F2623;
   font-weight: 500;
   cursor: pointer;
@@ -559,9 +553,6 @@ section, .text{
   font-size: 1.2em;
   border-radius: 10px;
   background-color: #02C55B;
-  padding: 20px 0;
-  display: flex;
-  justify-content: center;
   color: var(--white);
   cursor: pointer;
   transition: .2s;
@@ -569,6 +560,20 @@ section, .text{
 }
 .log_form .login_button:hover{
   background-color: #242424;
+}
+.login_button a, .kakao_button a, .naver_button a{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+.kakao_button img, .naver_button img{
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
 }
 .log_form .login_add{
   display: flex;
