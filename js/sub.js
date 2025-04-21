@@ -268,36 +268,6 @@ document.addEventListener("DOMContentLoaded", function () {
   container.appendChild(frag);
 });
 
-// ========================== SPONSOR SLIDER ==========================
-function getSliderSpeed(baseSpeed = 85000, baseWidth = 1920) {
-  return baseSpeed / (window.innerWidth / baseWidth);
-}
-
-$(document).ready(function() {
-  function initSliders() {
-    if ($('.slider1').length) $('.slider1').destroySlider();
-    if ($('.slider2').length) $('.slider2').destroySlider();
-
-    imagesLoaded('.row1 .track', function() {
-      $('.row1 .track').addClass('slider1').bxSlider({
-        slideSelector: 'img', minSlides:5, maxSlides:20, moveSlides:1,
-        slideWidth:150, slideMargin:20, ticker:true,
-        speed: getSliderSpeed(85000), useCSS:false
-      });
-    });
-    imagesLoaded('.row2 .track', function() {
-      $('.row2 .track').addClass('slider2').bxSlider({
-        slideSelector: 'img', minSlides:5, maxSlides:20, moveSlides:1,
-        slideWidth:150, slideMargin:20, ticker:true,
-        speed: getSliderSpeed(60000), useCSS:false
-      });
-    });
-  }
-
-  initSliders();
-  $(window).on('resize', initSliders);
-});
-
 // ========================== FORM & RIPPLE HANDLER ==========================
 function formInputHandler(){
   document.querySelectorAll('.form_data input, .form_data textarea')
