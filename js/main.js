@@ -74,7 +74,7 @@ function setupSectionScaling(){
 function setupSec1CharAnimation(){
   const targets=[
     {sel:'.sec1 .title h2',raw:'BEYOND VISION!',mob:'BEYOND<br>VISION!'},
-    {sel:'.sec7 .h2q',raw:'ACE, 이렇게 다릅니다',mob:'ACE,<br>이렇게 다릅니다'},
+    // {sel:'.sec7 .h2q',raw:'ACE, 이렇게 다릅니다',mob:'ACE,<br>이렇게 다릅니다'},
     {sel:'.sec8 .fir_title',raw:'PARTNERS<br>함께하는 파트너',mob:'PARTNERS<br>함께하는 파트너'}
   ];
   targets.forEach(t=>{
@@ -128,7 +128,7 @@ function setupSec2FadeScale() {
   const textEls = sec2.querySelectorAll('.textq');
   const img = sec2.querySelector('.sel .img_box img');
 
-  // 클래스 사전 세팅
+  // 클래스 세팅
   titleEls.forEach(el => el?.classList.add('fade-up-seq'));
   textEls.forEach(el => el?.classList.add('fade-up-fast'));
   img?.classList.add('scale-in-img');
@@ -138,15 +138,14 @@ function setupSec2FadeScale() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // 타이틀 등장: 0ms, 800ms
+        // 타이틀 순차 등장 (800ms 간격)
         titleEls.forEach((el, i) => {
           timers.push(setTimeout(() => el.classList.add('visible'), i * 800));
         });
 
-        // 텍스트 등장: 타이틀 완료(1600ms) + 대기(500ms) 이후 시작
-        const baseDelay = (titleEls.length * 800) + 500;
+        // 텍스트 4개 빠르게 순차 등장 (400ms 간격)
         textEls.forEach((el, i) => {
-          timers.push(setTimeout(() => el.classList.add('visible'), baseDelay + (i * 400)));
+          timers.push(setTimeout(() => el.classList.add('visible'), i * 400));
         });
 
         img?.classList.add('active');
@@ -163,7 +162,6 @@ function setupSec2FadeScale() {
 
   observer.observe(sec2);
 }
-
 
 
 function setupSec3HistoryList(){
@@ -204,11 +202,19 @@ function setupSec6RoundList(){
 }
 
 function setupSec7TextUpdate(){
-  const el=document.querySelector('.sec7 .h2q'); if(!el) return;
-  const raw='ACE, 이렇게 다릅니다',mob='ACE,<br>이렇게 다릅니다';
-  const upd=()=>el.innerHTML=window.innerWidth<=768?mob:raw;
-  upd();window.addEventListener('resize',upd);
+  const el = document.querySelector('.sec7 .h2q');
+  if (!el) return;
+
+  const raw = 'ACE,&nbsp;이렇게&nbsp;다릅니다';
+  const mob = 'ACE,<br>이렇게&nbsp;다릅니다';
+  const upd = () => {
+    el.innerHTML = window.innerWidth <= 768 ? mob : raw;
+  };
+
+  upd();
+  window.addEventListener('resize', upd);
 }
+
 
 function setupServiceListAnimation(){
   const items=document.querySelectorAll('.service_list li'); if(!items.length) return; let st,tts=[];
