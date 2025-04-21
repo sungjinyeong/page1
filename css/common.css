@@ -609,6 +609,7 @@ section, .text{
   padding: calc(var(--padding)*2.5) 4%;
   text-align: center;
   line-height: 1.3em;
+  word-break: keep-all;
 }
 @media screen and (max-width:480px){
   .login_page{
@@ -639,6 +640,9 @@ section, .text{
     height: 14px;
     left: 7px;
     top: 2px;
+  }
+  .adv_bn{
+    display: none;
   }
 }
 .header{
