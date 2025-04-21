@@ -420,7 +420,7 @@ body{
 }
 .h3q{
   font-size: clamp(18px, 2.8vw, 26px);
-  line-height: 1.2;
+  line-height: 1.3;
   font-weight: 600;
   padding-bottom: calc(var(--padding)*1);
   word-break: keep-all;

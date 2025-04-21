@@ -95,20 +95,28 @@ function setupSec1CharAnimation(){
 
 function setupSec1H3Reveal(){
   const h3 = document.querySelector('.sec1 .title h3'); if (!h3) return;
-  h3.style.opacity = '0'; h3.style.transform = 'translateY(20%)';
+  h3.style.opacity = '0';
+  h3.style.transform = 'translateY(20%)';
+  h3.style.visibility = 'hidden'; // 처음부터 안 보이도록
   h3.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  
   new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) {
-      requestAnimationFrame(() => {
-        h3.style.opacity = '1';
-        h3.style.transform = 'translateY(0)';
-      });
+      setTimeout(() => {
+        requestAnimationFrame(() => {
+          h3.style.visibility = 'visible'; // 보이게 전환
+          h3.style.opacity = '1';
+          h3.style.transform = 'translateY(0)';
+        });
+      }, 1500);
     } else {
+      h3.style.visibility = 'hidden'; // 다시 숨김
       h3.style.opacity = '0';
       h3.style.transform = 'translateY(20%)';
     }
   }), { threshold: 0.5, root: document.querySelector('.fullpage-container') }).observe(h3);
 }
+
 
 
 
