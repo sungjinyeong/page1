@@ -719,11 +719,14 @@ section, .text{
   background-color: #fff; /* 기본 흰색 */
   transition: background-color 0.3s;
 }
+/* 어두운 배경일 때 (아이콘은 밝게) */
 .hamburger-dark span {
-  background-color: #000;
+  background-color: #fff !important;
 }
+
+/* 밝은 배경일 때 (아이콘은 어둡게) */
 .hamburger-light span {
-  background-color: #fff;
+  background-color: #000 !important;
 }
 
 .header .modal_menu {
