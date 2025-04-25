@@ -44,6 +44,56 @@ section .text{
   background-color: #fff;
   color: #000;
 }
+
+
+/* 첫페이지 */
+.main-center-line {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100vh;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.rain-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 160px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255, 255, 255, 0.555), white);
+  opacity: 0.7;
+  border-radius: 10px;
+  animation: rainDrop 2.5s ease-out forwards;
+}
+
+@keyframes rainDrop {
+  0% {
+    transform: translateX(-50%) translateY(-100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* 오버레이 */
+
+/* 첫페이지 */
+
+
+
 /* 풀페이지 컨테이너 설정: 스크롤 스냅 적용 */
 /* 스크롤바 숨김 처리 (웹킷, Firefox, IE/Edge) */
 .fullpage-container {
@@ -78,6 +128,25 @@ section .text{
   transform: scale(1);
   opacity: 1;
   filter: blur(0);
+}
+@keyframes randomFloat {
+  0%   { transform: translate(0px, 0px); }
+  25%  { transform: translate(-15px, 10px); }
+  50%  { transform: translate(15px, -10px); }
+  75%  { transform: translate(-9px, 16px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+.sec3 .img_box img {
+  animation: randomFloat 20s ease-in-out infinite;
+  transition: transform 1s ease;
+  will-change: transform;
+}
+@media screen and (max-width: 768px) {
+  .sec3 .img_box img {
+    animation: none;
+    transform: none;
+  }
 }
 
 
@@ -483,6 +552,7 @@ section .text{
   padding-right: 2%;
   order: 1;
 }
+
 .sec4 .over_list{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -497,9 +567,14 @@ section .text{
   color: white;
   transition: .3s;
   cursor: pointer;
+  overflow: hidden;
+}
+.sec4 .over_list li:hover img{
+  transform: scale(1.1);
 }
 .sec4 .over_list li img{
   width: 100%;
+  transition: 2s;
 }
 .sec4 .over_list li .title{
   position: absolute;
@@ -642,10 +717,20 @@ section .text{
 .optivize_list li.SSP .tip .round,
 .optivize_list li.SSP .move_btn{
   background-color: #D90000;
+  transition: .5s;
+}
+.optivize_list li.SSP .tip .round:hover,
+.optivize_list li.SSP .move_btn:hover{
+  background-color: #b40000;
 }
 .optivize_list li.DSP .tip .round,
 .optivize_list li.DSP .move_btn{
   background-color: #1B365B;
+  transition: .5s;
+}
+.optivize_list li.DSP .tip .round:hover,
+.optivize_list li.DSP .move_btn:hover{
+  background-color: #132c50;
 }
 .optivize_list li .move_btn{
   position: absolute;
@@ -655,13 +740,14 @@ section .text{
   font-size: 18px;
   line-height: 1;
   border-radius: 12px;
-  padding: 2.5% 8%;
   text-align: center;
+  padding: 2.5% 8%;
 }
 .optivize_list li .move_btn a{
   display: flex;
   gap: 5px;
   align-items: center;
+  white-space: nowrap;
 }
 .optivize_list li .move_btn a i{
   font-size: 0.8em;
@@ -1040,6 +1126,9 @@ section .text{
   .sec2 .sel{
     max-height: 50vh;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .sec2 .sel .img_box{
     display: flex;

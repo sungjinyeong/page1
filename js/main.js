@@ -1,6 +1,30 @@
 // 전체 기능 유지하며 header → section → footer 순서로 정리된 스크립트
 // ACE PLANET 풀페이지 웹사이트 (2025.04)
 
+// 첫페이지 효과
+function startSingleRain() {
+  const container = document.querySelector('.main-center-line');
+
+  function createSingleDrop() {
+    const drop = document.createElement('div');
+    drop.classList.add('rain-line');
+    container.appendChild(drop);
+
+    // 애니메이션 종료 후 제거
+    setTimeout(() => {
+      drop.remove();
+    }, 5600); // 애니메이션 시간 + 여유
+  }
+
+  // 일정한 간격으로 1개씩만 실행
+  setInterval(() => {
+    createSingleDrop();
+  }, 5000); // 5초마다 1개
+}
+
+// 실행
+document.addEventListener('DOMContentLoaded', startSingleRain);
+
 // ========================== HEADER ==========================
 function handleHeaderColor() {
   const headerLogoWhite = document.querySelector(".wh_logo");
@@ -121,47 +145,54 @@ function setupSec1H3Reveal(){
 
 
 function setupSec2FadeScale() {
-  const sec2 = document.querySelector('.sec2');
-  if (!sec2) return;
+  const section = document.querySelector('.sec2');
+  if (!section) return;
 
-  const titleEls = sec2.querySelectorAll('.title .h2q, .title .h3q');
-  const textEls = sec2.querySelectorAll('.textq');
-  const img = sec2.querySelector('.sel .img_box img');
+  const h2 = section.querySelector('.h2q');
+  const h3 = section.querySelector('.h3q');
+  const textItems = section.querySelectorAll('.textq');
+  const img = section.querySelector('.sel .img_box');
 
-  // 클래스 세팅
-  titleEls.forEach(el => el?.classList.add('fade-up-seq'));
-  textEls.forEach(el => el?.classList.add('fade-up-fast'));
-  img?.classList.add('scale-in-img');
+  if (!h2 || !h3 || textItems.length === 0 || !img) return;
 
-  let timers = [];
+  const elements = [h2, h3, ...textItems];
 
-  const observer = new IntersectionObserver((entries) => {
+  elements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20%)';
+    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+  });
+  img.style.transform = 'scale(1.2)';
+  img.style.transition = 'transform 2s ease';
+
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // 타이틀 순차 등장 (800ms 간격)
-        titleEls.forEach((el, i) => {
-          timers.push(setTimeout(() => el.classList.add('visible'), i * 800));
+        elements.forEach((el, idx) => {
+          setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }, 600 * idx); // 단계별 0.6초 딜레이
         });
-
-        // 텍스트 4개 빠르게 순차 등장 (400ms 간격)
-        textEls.forEach((el, i) => {
-          timers.push(setTimeout(() => el.classList.add('visible'), i * 400));
-        });
-
-        img?.classList.add('active');
+        setTimeout(() => {
+          img.style.transform = 'scale(1)';
+        }, 600 * elements.length); // 텍스트 다 나오고 이미지 등장
       } else {
-        timers.forEach(clearTimeout);
-        timers = [];
-        [...titleEls, ...textEls].forEach(el => el.classList.remove('visible'));
-        img?.classList.remove('active');
+        elements.forEach(el => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(20%)';
+        });
+        img.style.transform = 'scale(1.2)';
       }
     });
   }, {
-    threshold: 0.5
+    threshold: 0.4,
+    root: document.querySelector('.fullpage-container')
   });
 
-  observer.observe(sec2);
+  observer.observe(section);
 }
+
 
 
 function setupSec3HistoryList(){
@@ -201,19 +232,19 @@ function setupSec6RoundList(){
   }),{threshold:0.4}).observe(sec6);
 }
 
-function setupSec7TextUpdate(){
-  const el = document.querySelector('.sec7 .h2q');
-  if (!el) return;
+// function setupSec7TextUpdate(){
+//   const el = document.querySelector('.sec7 .h2q');
+//   if (!el) return;
 
-  const raw = 'ACE,&nbsp;이렇게&nbsp;다릅니다';
-  const mob = 'ACE,<br>이렇게&nbsp;다릅니다';
-  const upd = () => {
-    el.innerHTML = window.innerWidth <= 768 ? mob : raw;
-  };
+//   const raw = 'ACE,&nbsp;이렇게&nbsp;다릅니다';
+//   const mob = 'ACE,<br>이렇게&nbsp;다릅니다';
+//   const upd = () => {
+//     el.innerHTML = window.innerWidth <= 768 ? mob : raw;
+//   };
 
-  upd();
-  window.addEventListener('resize', upd);
-}
+//   upd();
+//   window.addEventListener('resize', upd);
+// }
 
 
 function setupServiceListAnimation(){
@@ -244,6 +275,9 @@ function rippleClickEffect(){
   document.addEventListener('click',e=>ripple(e.clientX,e.clientY));document.addEventListener('touchstart',e=>ripple(e.touches[0].clientX,e.touches[0].clientY));
 }
 
+
+
+
 // ========================== INIT ==========================
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.fullpage-container');
@@ -261,12 +295,13 @@ document.addEventListener('DOMContentLoaded', () => {
     setupSec4to6TextAnimations();
     setupSec6ImageAdjust();
     setupSec6RoundList();
-    setupSec7TextUpdate();
+    // setupSec7TextUpdate();
     setupServiceListAnimation();
     setupSponSlider();
     formInputHandler();
     rippleClickEffect();
     setupSec2FadeScale();
+
     // ✅ 모바일 최적화 추가
     // if (window.innerWidth <= 768) {
     //   container.style.scrollSnapType = 'none';
