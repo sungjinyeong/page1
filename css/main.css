@@ -123,11 +123,11 @@ section .text{
   transform: scale(0.97) translateY(30%);
   transform-origin: center center;
   opacity: 0;
-  filter: blur(4px);
+  filter: blur(3px);
 
   transition:
     transform 1.7s ease,
-    opacity 0.75s ease,
+    opacity 0.85s ease,
     filter 1s ease;
 }
 .section.active {
