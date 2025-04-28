@@ -65,7 +65,7 @@ section .text{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transform: scale(0.97);
+  transform: scale(0.96);
   opacity: 0.75;
   filter: blur(2px);
   transition:
