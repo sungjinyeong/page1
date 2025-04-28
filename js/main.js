@@ -124,36 +124,39 @@ function setupSec2FadeScale() {
   const sec2 = document.querySelector('.sec2');
   if (!sec2) return;
 
-  const titleEls = sec2.querySelectorAll('.title .h2q, .title .h3q');
+  const h2El = sec2.querySelector('.title .h2q');
+  const h3El = sec2.querySelector('.title .h3q');
   const textEls = sec2.querySelectorAll('.textq');
   const img = sec2.querySelector('.sel .img_box img');
 
-  // 클래스 세팅
-  titleEls.forEach(el => el?.classList.add('fade-up-seq'));
-  textEls.forEach(el => el?.classList.add('fade-up-fast'));
-  img?.classList.add('scale-in-img');
+  if (!h2El || !h3El || !textEls.length || !img) return;
+
+  // 초기 클래스 세팅
+  [h2El, h3El, ...textEls].forEach(el => {
+    el.classList.add('fade-up-seq');
+    el.classList.remove('visible');
+  });
+  img.classList.add('scale-in-img');
 
   let timers = [];
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // 타이틀 순차 등장 (800ms 간격)
-        titleEls.forEach((el, i) => {
-          timers.push(setTimeout(() => el.classList.add('visible'), i * 800));
-        });
-
-        // 텍스트 4개 빠르게 순차 등장 (400ms 간격)
+        // 순서대로 등장
+        timers.push(setTimeout(() => h2El.classList.add('visible'), 0));
+        timers.push(setTimeout(() => h3El.classList.add('visible'), 800));
         textEls.forEach((el, i) => {
-          timers.push(setTimeout(() => el.classList.add('visible'), i * 400));
+          timers.push(setTimeout(() => el.classList.add('visible'), 1600 + i * 400));
         });
 
-        img?.classList.add('active');
+        img.classList.add('active');
+
       } else {
         timers.forEach(clearTimeout);
         timers = [];
-        [...titleEls, ...textEls].forEach(el => el.classList.remove('visible'));
-        img?.classList.remove('active');
+        [h2El, h3El, ...textEls].forEach(el => el.classList.remove('visible'));
+        img.classList.remove('active');
       }
     });
   }, {
@@ -162,6 +165,7 @@ function setupSec2FadeScale() {
 
   observer.observe(sec2);
 }
+
 
 
 function setupSec3HistoryList(){
