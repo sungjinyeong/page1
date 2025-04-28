@@ -205,19 +205,25 @@ function setupSec6RoundList(){
   }),{threshold:0.4}).observe(sec6);
 }
 
-function setupSec7TextUpdate(){
+function setupSec7TextUpdate() {
   const el = document.querySelector('.sec7 .h2q');
   if (!el) return;
 
-  const raw = 'ACE,&nbsp;이렇게&nbsp;다릅니다';
-  const mob = 'ACE,<br>이렇게&nbsp;다릅니다';
-  const upd = () => {
-    el.innerHTML = window.innerWidth <= 768 ? mob : raw;
+  const raw = 'ACE, 이렇게 다릅니다';  // PC용 (띄어쓰기 없음)
+  const mob = 'ACE,<br>이렇게&nbsp;다릅니다'; // 모바일용 (줄바꿈 + 띄어쓰기)
+
+  const updateText = () => {
+    if (window.innerWidth <= 768) {
+      el.innerHTML = mob;
+    } else {
+      el.innerHTML = raw;
+    }
   };
 
-  upd();
-  window.addEventListener('resize', upd);
+  updateText(); // 최초 1회 세팅
+  window.addEventListener('resize', updateText); // 창 크기 변경 시 반응
 }
+
 
 
 function setupServiceListAnimation(){
