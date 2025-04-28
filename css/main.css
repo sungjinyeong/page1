@@ -73,6 +73,7 @@ section .text{
     opacity .5s ease,
     filter 1.1s ease;
   overflow: hidden;
+  padding: 70px 0;
 }
 .section.active {
   transform: scale(1);
@@ -463,6 +464,8 @@ section .text{
   color: var(--black);
   gap: 2%;
   box-sizing: border-box;
+  overflow: hidden;
+  height: 100%;
 }
 .sec4 .h2q{
   text-align: right;
@@ -474,30 +477,47 @@ section .text{
   font-size: clamp(12px, 2.5vw, 22px);
   text-align: right;
 }
-.sec4 .del{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .sec4 .sel{
   padding-right: 2%;
   order: 1;
 }
-.sec4 .over_list{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  max-width: 700px;
+
+
+.sec4 .del {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 140px); /* 위아래 70px */
+  box-sizing: border-box;
+  padding: 0 20px;
+  overflow: hidden;
+  position: relative;
 }
 
-.sec4 .over_list li{
-  max-width: 400px;
-  max-height: 400px;
-  position: relative;
-  color: white;
-  transition: .3s;
-  cursor: pointer;
+.sec4 .over_list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 무조건 가로 2개 */
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  justify-content: center;
 }
+
+.sec4 .over_list li {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* 정사각형 유지 */
+  max-width: 400px;
+  max-height: calc((100vh - 140px - 20px) / 2); /* del 영역 높이 기준 자동 줄이기 */
+  color: white;
+  overflow: hidden;
+}
+
+
+
+
+
 .sec4 .over_list li img{
   width: 100%;
 }
@@ -752,38 +772,44 @@ section .text{
 }
 .sec7 .text{
   max-width: 1920px;
-  color: black;
   flex-flow: row;
   flex-direction: column;
   justify-content: center;
 }
-.sec7 .text .top{
+.sec7 .text .h2q{
+  color: #D90000;
+}
+.sec7 .text .top {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  height: calc(100vh - 140px); /* 위아래 70px 고려 */
+  box-sizing: border-box;
   gap: 4%;
-  padding-bottom: 3%;
-  width: 100%;
 }
-.sec7 .h2q{
-  line-height: 1.1em;
-  color: #D70000;
-  word-break: keep-all;
-}
-.sec7 .sel{
-  width: 50%;
+
+.sec7 .sel {
+  flex: 0 1 50%; /* 가로 50% */
   max-width: 650px;
+  height: 100%; /* 높이 100% */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
-.sec7 .del{
-  width: 50%;
-}
-.sec7 .sel .img_box{
+
+.sec7 .sel .img_box {
   width: 100%;
+  height: 100%;
 }
+
 .sec7 .sel .img_box img,
-.sec7 .sel .img_box video{
+.sec7 .sel .img_box video {
   width: 100%;
+  height: 100%;
+  object-fit: contain; /* 비율 깨지지 않게 */
 }
+
 .sec8 .title{
   position: relative;
   z-index: 2;
@@ -803,9 +829,15 @@ section .text{
   align-items: start;
 }
 
-.sec8 .text{
-  padding: 0;
+.sec8 .text {
+  display: flex;
   flex-direction: column;
+  justify-content: space-between; /* 위-가운데-아래 균등배치 */
+  align-items: stretch;
+  height: calc(100vh - 140px); /* 70px 상단/하단 제외 */
+  box-sizing: border-box;
+  overflow-y: auto;
+  padding: 0; /* 쓸데없는 여백 제거 */
 }
 .sec8 .back_bg{
   width: 100%;
@@ -817,7 +849,7 @@ section .text{
   font-weight: 700;
   text-align: right;
   width: 100%;
-  padding: 0 3% 3% 0;
+  padding: 0 3% calc(var(--padding)*3) 0;
 }
 .sec8 .mid_title{
   position: relative;
@@ -950,12 +982,15 @@ section .text{
 
 
 /*  */
+.sec9{
+  padding: 0;
+}
 .sec9 .text{
   flex-direction: column;
   padding: 0;
 }
 
-@media screen and (max-width:1000px){
+@media screen and (max-width:1100px){
   .sec4 .text{
     flex-direction: column;
     justify-content: end;
