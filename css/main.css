@@ -489,7 +489,6 @@ section .text{
   justify-content: center;
   height: calc(100vh - 140px); /* 위아래 70px */
   box-sizing: border-box;
-  padding: 0 20px;
   overflow: hidden;
   position: relative;
 }
