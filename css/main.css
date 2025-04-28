@@ -655,13 +655,13 @@ section .text{
   font-size: 18px;
   line-height: 1;
   border-radius: 12px;
-  padding: 2.5% 8%;
   text-align: center;
 }
 .optivize_list li .move_btn a{
   display: flex;
   gap: 5px;
   align-items: center;
+  padding: 10px 30px;
 }
 .optivize_list li .move_btn a i{
   font-size: 0.8em;
@@ -1115,7 +1115,6 @@ section .text{
     padding: 25px;
   }
   .optivize_list li .move_btn{
-    padding: 10px 10%;
     font-size: 15px;
   }
   .sec6 .round_list{
