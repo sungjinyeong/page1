@@ -655,7 +655,7 @@ section, .text{
   right: 0;
   width: 100%;
   z-index: 100;
-  padding: calc(var(--padding)*2.5) 0 calc(var(--padding)*.5);
+  padding: calc(var(--padding)*2) 0 calc(var(--padding)*.5);
 }
 .header_container{
   width: 94%;
@@ -676,7 +676,7 @@ section, .text{
   position: relative;
   opacity: 1;
 }
-.wh_logo, .rd_logo {
+.wh_logo, .rd_logo{
   position: absolute;
   top: 0;
   left: 0;
@@ -693,19 +693,94 @@ section, .text{
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 4%;
-  font-size: clamp(0.75em, 2vw, 1em);
+  gap: 2.5%;
+  font-size: clamp(0.75em, 1.8vw, 1em);
   line-height: 1em;
   width: 100%;
   padding-right: 2%;
+}
+.header .nav li{
+  position: relative;
 }
 .header .nav li a{
   position: relative;
   transition: color 0.3s;
   padding: 2px 4px;
-  display: block;
+  display: flex;
+  gap: 5px;
   white-space: nowrap;
   color: white;
+}
+.load_icon{
+  width: 14px;
+  height: 14px;
+  fill: black;
+  transition: fill 0.3s;
+}
+.header .nav li .down_pdf{
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  font-weight: 500;
+  transform: translateX(-50%);
+  background-color: var(--white);
+  font-size: 0.85em;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  display: none;
+}
+.header .nav li.view_active .down_pdf{
+  display: block;
+}
+.header .nav .down_pdf li:first-child{
+  border-bottom: 1px solid var(--border);
+}
+.header .nav .down_pdf li a{
+  color: var(--black) !important;
+  display: block;
+  padding: 12px;
+  transition: .3s;
+}
+.header .nav .down_pdf li a:hover{
+  color: #D90000 !important;
+}
+[class^="mo_pdf"]{
+  display: none;
+}
+@media screen and (max-width:768px){
+  [class^="mo_pdf"]{
+    position: relative;
+    display: block;
+    max-width: 550px;
+  }
+  .mo_pdf_ssp{
+    width: 90%;
+    background-color: #D90000;
+    margin: 0 auto;
+    border-radius: 6px;
+    position: absolute !important;
+    bottom: 60px;
+  }
+  .mo_pdf_dsp{
+    width: 90%;
+    background-color: #1B365B;
+    margin: 0 auto;
+    border-radius: 6px;
+    position: absolute !important;
+    bottom: 135px;
+  }
+  [class^="mo_pdf"] a{
+    justify-content: center;
+    align-items: center;
+    padding: 20px !important;
+    font-size: 1.2rem !important;
+  }
+  [class^="mo_pdf"] svg{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+  }
 }
 .header .adver{
   white-space: nowrap;
@@ -716,7 +791,7 @@ section, .text{
   background-color: #D90000;
   color: var(--white) !important;
   border-radius: 100px;
-  padding: 8px 20px;
+  padding: 5px 16px;
   display: block;
   transition: .3s;
 }
@@ -1147,12 +1222,16 @@ section, .text{
     align-items: center;
     gap: 30px;
     transition: 0.3s ease;
+    padding: 0;
   }
-  .header .nav.active {
+  .header .nav.active{
     display: flex;
   }
   .header .nav.on{
     display: flex;
+  }
+  .header .nav li.load_file{
+    display: none;
   }
   .header .nav li a{
     color: #fff !important;

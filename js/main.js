@@ -2,20 +2,56 @@
 // ACE PLANET 풀페이지 웹사이트 (2025.04)
 
 // ========================== HEADER ==========================
+$(document).ready(function () {
+  $('.load_file > a').on('click', function (e) {
+    e.preventDefault();
+    const $parent = $(this).parent();
+
+    if ($parent.hasClass('view_active')) {
+      $parent.removeClass('view_active');
+    } else {
+      $('.load_file').removeClass('view_active');
+      $parent.addClass('view_active');
+    }
+  });
+
+  $(document).on('click', function (e) {
+    if (!$(e.target).closest('.load_file').length) {
+      $('.load_file').removeClass('view_active');
+    }
+  });
+});
+
+
+
+
+
 function handleHeaderColor() {
+  const header = document.querySelector(".header");
   const headerLogoWhite = document.querySelector(".wh_logo");
   const headerLogoRed = document.querySelector(".rd_logo");
   const navLinks = document.querySelectorAll(".header .nav li a");
-  const fontColors = ["white","black","white","black","white","white","black","black","black"];
+
+  const fontColors = ["white", "black", "white", "black", "white", "white", "black", "black", "black"];
   const container = document.querySelector('.fullpage-container');
+
   container.addEventListener('scroll', () => {
     const idx = Math.round(container.scrollTop / window.innerHeight);
-    const color = fontColors[idx]||'black';
-    headerLogoWhite.style.opacity = color==='white'? '1':'0';
-    headerLogoRed.style.opacity = color==='white'? '0':'1';
-    navLinks.forEach(a=>a.style.color=color);
+    const color = fontColors[idx] || 'black';
+
+    // 로고 색상 제어
+    headerLogoWhite.style.opacity = color === 'white' ? '1' : '0';
+    headerLogoRed.style.opacity = color === 'white' ? '0' : '1';
+
+    // nav 링크 색상 직접 지정
+    navLinks.forEach(a => a.style.color = color);
+
+    // header 클래스 토글
+    header.classList.remove('header-white', 'header-black');
+    header.classList.add(color === 'white' ? 'header-white' : 'header-black');
   });
 }
+
 
 function setupHamburgerToggle() {
   const btns = document.querySelectorAll('.hamburger-button');

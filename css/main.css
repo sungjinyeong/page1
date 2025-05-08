@@ -44,6 +44,13 @@ section .text{
   background-color: #fff;
   color: #000;
 }
+.header .nav li a .load_icon {
+  fill: #000; /* 기본 검정 */
+}
+.header.header-white .nav li a .load_icon {
+  fill: #fff;
+}
+
 /* 풀페이지 컨테이너 설정: 스크롤 스냅 적용 */
 /* 스크롤바 숨김 처리 (웹킷, Firefox, IE/Edge) */
 .fullpage-container {
