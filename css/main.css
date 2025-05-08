@@ -318,6 +318,7 @@ section .text{
 .sec1 .title h2 span{
   color: #fff !important;
   transition: 1s;
+  display: inline-block;
 }
 .sec1 .title h2 span:hover{
   color: #D70000 !important;
@@ -337,7 +338,7 @@ section .text{
 .sec2 .title h3.ahtoer{
   font-size: clamp(16px, 4vw, 20px);
   word-break: keep-all;
-  padding-right: 15%;
+  padding-right: 5%;
   padding-bottom: calc(var(--padding)*1);
 }
 .sec2 .text .h2q span{
@@ -462,7 +463,7 @@ section .text{
 }
 .sec4 .text{
   color: var(--black);
-  gap: 2%;
+  gap: 5%;
   box-sizing: border-box;
   overflow: hidden;
   height: 100%;
@@ -472,6 +473,7 @@ section .text{
 }
 .sec4 .h2q span{
   color: #D90000;
+  font-size: 0.9em;
 }
 .sec4 .h3q{
   font-size: clamp(12px, 2.5vw, 22px);
@@ -507,7 +509,7 @@ section .text{
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1; /* 정사각형 유지 */
-  max-width: 400px;
+  max-width: 300px;
   max-height: calc((100vh - 140px - 20px) / 2); /* del 영역 높이 기준 자동 줄이기 */
   color: white;
   overflow: hidden;
@@ -534,7 +536,7 @@ section .text{
   position: absolute;
   top: 75%;
   left: 5%;
-  font-size: clamp(9px, 2vw, 16px);
+  font-size: clamp(9px, 1.6vw, 15px);
   line-height: 1.1;
   font-weight: 500;
   z-index: 2;
@@ -1006,6 +1008,7 @@ section .text{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: auto;
   }
   .sec4 .sel{
     order: 1;

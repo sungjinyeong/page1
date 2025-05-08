@@ -74,24 +74,37 @@ function setupSectionScaling(){
 function setupSec1CharAnimation(){
   const targets=[
     {sel:'.sec1 .title h2',raw:'BEYOND VISION!',mob:'BEYOND<br>VISION!'},
-    // {sel:'.sec7 .h2q',raw:'ACE, 이렇게 다릅니다',mob:'ACE,<br>이렇게 다릅니다'},
     {sel:'.sec8 .fir_title',raw:'PARTNERS<br>함께하는 파트너',mob:'PARTNERS<br>함께하는 파트너'}
   ];
   targets.forEach(t=>{
     const el=document.querySelector(t.sel); if(!el) return; let anim=false;
-    const setText=txt=>{
-      el.innerHTML=''; txt.split(/(<br\s*\/?>)/gi).forEach(seg=>{
-        if(/<br/i.test(seg)) el.appendChild(document.createElement('br'));
-        else [...seg].forEach(ch=>{const sp=document.createElement('span');sp.textContent=ch||'\u00A0';sp.classList.add('char-fade');el.appendChild(sp);});
+
+    // 여기 이 부분을 교체
+    const setText = txt => {
+      el.innerHTML = '';
+      txt.split(/(<br\s*\/?>)/gi).forEach(seg => {
+        if (/^<br/i.test(seg)) {
+          el.appendChild(document.createElement('br'));
+        } else {
+          [...seg].forEach(ch => {
+            const sp = document.createElement('span');
+            sp.textContent = ch === ' ' ? '\u00A0' : ch;
+            sp.classList.add('char-fade');
+            el.appendChild(sp);
+          });
+        }
       });
     };
+
     new IntersectionObserver(es=>es.forEach(e=>{
       if(e.isIntersecting&&!anim){setText(window.innerWidth<=768?t.mob:t.raw);anim=true;}
       if(!e.isIntersecting){el.innerHTML='';anim=false;}
     }),{threshold:0.5}).observe(el);
+
     window.addEventListener('resize',()=>anim&&setText(window.innerWidth<=768?t.mob:t.raw));
   });
 }
+
 
 function setupSec1H3Reveal(){
   const h3 = document.querySelector('.sec1 .title h3'); if (!h3) return;
