@@ -271,6 +271,36 @@ document.addEventListener("DOMContentLoaded", function () {
   container.appendChild(frag);
 });
 
+
+document.addEventListener('DOMContentLoaded', function () {
+  const paragraphs = document.querySelectorAll('.depth_null_e .colur p');
+  if (paragraphs.length < 2) return;
+
+  const defaultTexts = [
+    '뷰티, 패션, 푸드, 여행, 육아 등 다양한 카테고리 중 딱 맞는 인플루언서 카테고리만 선정하여 정밀한 타겟 광고를 진행하실 수 있습니다.',
+    '복잡한 인플루언서 광고 진행, 이제 그만! <br>이제 일일이 컨택할 필요 없이, 에이스파이어 하나로 브랜드와 인플루언서 팔로워를 손쉽게 연결할 수 있습니다.'
+  ];
+
+  const mobileTexts = [
+    '다양한 카테고리로 맞춤 인플루언서 매칭',
+    '간편한 인플루언서 광고 진행'
+  ];
+
+  function updateInfluencerText() {
+    if (window.innerWidth <= 768) {
+      paragraphs[0].innerHTML = mobileTexts[0];
+      paragraphs[1].innerHTML = mobileTexts[1];
+    } else {
+      paragraphs[0].innerHTML = defaultTexts[0];
+      paragraphs[1].innerHTML = defaultTexts[1];
+    }
+  }
+
+  updateInfluencerText();
+  window.addEventListener('resize', updateInfluencerText);
+});
+
+
 // ========================== FORM & RIPPLE HANDLER ==========================
 function formInputHandler(){
   document.querySelectorAll('.form_data input, .form_data textarea')

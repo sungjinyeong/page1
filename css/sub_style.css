@@ -358,6 +358,9 @@ main{
   .dsp .inside_swiper, .inside_swiper{
     grid-template-columns: 1fr;
   }
+  .dsp .inside_swiper{
+    padding: 0 2%;
+  }
 }
 .depth_g{
   padding: 0 2%;
@@ -652,7 +655,10 @@ main{
 .depth_null_e .colur{
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 10px;
+}
+.depth_null_e .colur .h4q{
+  font-size: clamp(17px, 1.5vw, 26px);
 }
 .dsp .h2q span{
   color: #1B365B;
@@ -776,7 +782,7 @@ main{
     margin-bottom: 0;
   }
   [class^="depth"] .h3q{
-    font-size: clamp(18px, 3.5vw, 30px);
+    font-size: clamp(16px, 3.5vw, 30px);
   }
   .depth_a, .depth_c, .dsp .depth_null_d, .depth_null_e, .depth_g{
     padding-bottom: calc(var(--padding)*20);
@@ -862,6 +868,7 @@ main{
     width: 100%;
     order: 1;
     padding-bottom: calc(var(--padding)*2.5);
+    padding-right: 0;
   }
   .dsp .depth_b .title, .dsp .depth_d .title{
     padding: 0 2%;
