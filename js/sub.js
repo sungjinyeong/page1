@@ -1,3 +1,28 @@
+function bindLoadFileToggle(scope = document) {
+  $(scope).find('.load_file > a').each(function () {
+    // href="#"를 javascript:void(0)으로 강제 교체
+    $(this).attr('href', 'javascript:void(0)');
+  });
+
+  $(scope).find('.load_file > a').off('click').on('click', function (e) {
+    e.preventDefault(); // 혹시 모를 기본동작 차단
+    const $parent = $(this).closest('.load_file');
+    if ($parent.hasClass('view_active')) {
+      $parent.removeClass('view_active');
+    } else {
+      $(scope).find('.load_file').removeClass('view_active');
+      $parent.addClass('view_active');
+    }
+  });
+}
+
+// 외부 클릭 시 닫기 (1회만 바인딩)
+$(document).on('click', function (e) {
+  if (!$(e.target).closest('.load_file').length) {
+    $('.load_file').removeClass('view_active');
+  }
+});
+
 // ========================== HEADER CLONE ==========================
 document.addEventListener("DOMContentLoaded", function () {
   const originalHeader = document.querySelector('.header');

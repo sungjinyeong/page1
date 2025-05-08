@@ -1,6 +1,12 @@
 main{
   overflow: hidden;
 }
+.load_icon{
+  fill: white !important;
+}
+.header-clone .load_icon{
+  fill: black !important;
+}
 .header-clone{
   position: fixed;
   top: 0;
