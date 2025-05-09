@@ -122,10 +122,19 @@ main{
 }
 .step_1 .posi .h2q,
 .step_1 .posi .h3q,
-.step_1 .posi .textq {
+.step_1 .posi .textq{
   opacity: 0;
   transform: translateY(15%);
   transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.step_1 .posi .h2q{
+      font-size: clamp(50px, 8vw, 75px);
+}
+.step_1 .posi .h3q{
+  font-size: clamp(20px, 2.8vw, 28px);
+}
+.step_1 .posi .textq{
+  font-size: clamp(14px, 1.5vw, 20px);
 }
 .depth_a .h2q, .depth_b .title .h2q, .depth_c .h2q, .depth_d .h2q, .depth_g .h2q, .depth_null_d .title .h2q, .depth_null_e .h2q{
   font-size: clamp(35px, 4vw, 55px);
@@ -655,6 +664,11 @@ main{
   width: 42%;
   padding-left: 3%;
 }
+@media screen and (max-width:1000px){
+  .depth_null_e .del, .depth_null_e .sel{
+    width: 50%;
+  }
+}
 .depth_null_e .h2q{
   font-size: clamp(3px, 5.5vw, 55px);
 }
@@ -673,7 +687,7 @@ main{
   gap: 10px;
 }
 .depth_null_e .colur .h4q{
-  font-size: clamp(17px, 1.5vw, 26px);
+  font-size: clamp(17px, 1.5vw, 22px);
 }
 .dsp .h2q span{
   color: #1B365B;
@@ -689,7 +703,7 @@ main{
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 100%;
+  right: 99%;
   width: 200%;
   height: 100%;
   background-color: #6c6c6c;
@@ -700,7 +714,7 @@ main{
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 100%;
+  left: 99%;
   width: 200%;
   height: 100%;
   background-color: #b7b7b7;
@@ -950,6 +964,7 @@ main{
   }
   .depth_null_e .sel{
     width: 100%;
+    max-width: 500px;
   }
   .depth_e .line .opn{
     display: none;

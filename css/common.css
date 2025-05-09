@@ -748,6 +748,7 @@ section, .text{
   display: block;
   padding: 12px;
   transition: .3s;
+  text-align: center;
 }
 .header .nav .down_pdf li a:hover{
   color: #D90000 !important;
