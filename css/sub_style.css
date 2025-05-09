@@ -735,10 +735,10 @@ main{
   height: 75vh;
 }
 .step_3 .form_data .del .img_box img{
-  max-width: none;
+  max-width: 205%;
 }
 .form_data .del .img_box{
-  height: auto;
+  height: 100%;
 }
 .wave_background_wrap{
   position: relative;
