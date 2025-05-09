@@ -714,8 +714,16 @@ section, .text{
 .load_icon{
   width: 14px;
   height: 14px;
-  fill: black;
+  fill: white;
   transition: fill 0.3s;
+}
+.user_header .load_icon{
+  fill: #000;
+}
+@media screen and (max-width:768px){
+  .user_header .load_icon{
+    fill: #fff;
+  }
 }
 .header .nav li .down_pdf{
   position: absolute;
@@ -1145,6 +1153,16 @@ section, .text{
 .dummy_foonter .company_info li.copy{
   padding-top: 5%;
   padding-bottom: 0%;
+}
+.dummy_foonter h1{
+  width: 245px;
+  min-width: 115px;
+}
+.dummy_foonter h1 a{
+  display: block;
+}
+.dummy_foonter h1 a img{
+  width: 100%;
 }
 .bx_wrap{
   padding: calc(var(--padding)*5) 0;
