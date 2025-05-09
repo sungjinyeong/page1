@@ -31,12 +31,12 @@ main{
 .header.header-clone .nav li a{
   color: black;
 }
-.header .nav li:not(.mo_pdf_ssp):not(.mo_pdf_dsp):hover a{
-  color: #686868 !important;
-}
 @media screen and (max-width:768px){
   .header-clone{
     padding: calc(var(--padding)*1.5) 0 calc(var(--padding)*1.5);
+  }
+  .header .nav li:not(.mo_pdf_ssp):not(.mo_pdf_dsp):hover a{
+    color: #686868 !important;
   }
 }
 .step_1{
