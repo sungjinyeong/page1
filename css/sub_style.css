@@ -687,7 +687,7 @@ main{
   gap: 10px;
 }
 .depth_null_e .colur .h4q{
-  font-size: clamp(17px, 1.5vw, 22px);
+  font-size: clamp(16px, 1.5vw, 20px);
 }
 .dsp .h2q span{
   color: #1B365B;
