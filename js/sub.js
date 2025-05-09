@@ -24,11 +24,41 @@ $(document).on('click', function (e) {
 });
 
 // ========================== HEADER CLONE ==========================
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
+  // 통합 햄버거 toggle 핸들러
+  function toggleHamburger(e) {
+    e.preventDefault();
+
+    const thisBtn = e.currentTarget;
+    const isActive = thisBtn.classList.contains('active');
+
+    // 모든 버튼, 메뉴 초기화
+    document.querySelectorAll('.hamburger-button').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.header .nav').forEach(nav => nav.classList.remove('active'));
+
+    // 현재 클릭한 버튼만 다시 열기
+    if (!isActive) {
+      thisBtn.classList.add('active');
+      const nav = thisBtn.closest('.header')?.querySelector('.nav');
+      if (nav) nav.classList.add('active');
+    }
+  }
+
+  // 햄버거 버튼 바인딩 함수
+  function bindHamburgers(scope = document) {
+    scope.querySelectorAll('.hamburger-button').forEach(btn => {
+      btn.removeEventListener('click', btn._hamburgerHandler || (() => {}));
+      btn._hamburgerHandler = toggleHamburger;
+      btn.addEventListener('click', toggleHamburger);
+    });
+  }
+
+  // 원래 header 연결
+  bindHamburgers();
+
+  // 스크롤 시 header clone 처리 및 바인딩
   const originalHeader = document.querySelector('.header');
   let clone = null;
-
-  bindHamburgerToggle(originalHeader);
 
   window.addEventListener('scroll', function () {
     const scrollY = window.scrollY || window.pageYOffset;
@@ -37,26 +67,14 @@ document.addEventListener("DOMContentLoaded", function () {
       clone = originalHeader.cloneNode(true);
       clone.classList.add('header-clone');
       document.body.appendChild(clone);
-      bindHamburgerToggle(clone); // ✅ 클론 바인딩
+      bindHamburgers(clone); // ✅ 클론도 연결
     } else if (scrollY <= 100 && clone) {
       clone.remove();
       clone = null;
     }
   });
-
-  function bindHamburgerToggle(headerEl) {
-    const toggleBtn = headerEl.querySelector('.hamburger-button');
-    const nav       = headerEl.querySelector('.nav');
-    if (!toggleBtn || !nav) return;
-
-    toggleBtn.addEventListener('click', function (e) {
-      if (!headerEl.classList.contains('anchors')) return;
-      e.preventDefault();
-      toggleBtn.classList.toggle('active');
-      nav.classList.toggle('active');
-    });
-  }
 });
+
 
 
 // ========================== SCROLL_ON VISIBILITY ==========================

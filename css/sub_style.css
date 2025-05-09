@@ -15,11 +15,15 @@ main{
   z-index: 9999;
   background-color: white;
   box-shadow: 3px 3px 6px rgb(125 125 125 / 10%);
-  padding: calc(var(--padding)*2.5) 0 calc(var(--padding)*2);
+  padding: calc(var(--padding)*2) 0 calc(var(--padding)*2);
 }
 .header-clone h1 a img.rd_logo{
-  opacity: 1;
+  opacity: 1 !important;
   visibility: visible;
+}
+.header-clone h1 a img.wh_logo{
+  opacity: 0 !important;
+  visibility: hidden;
 }
 .header-clone .hamburger-button span{
   background-color: #000;
@@ -27,8 +31,13 @@ main{
 .header.header-clone .nav li a{
   color: black;
 }
-.header .nav li:hover a{
+.header .nav li:not(.mo_pdf_ssp):not(.mo_pdf_dsp):hover a{
   color: #686868 !important;
+}
+@media screen and (max-width:768px){
+  .header-clone{
+    padding: calc(var(--padding)*1.5) 0 calc(var(--padding)*1.5);
+  }
 }
 .step_1{
   position: relative;
@@ -746,9 +755,28 @@ main{
     background-color: #180909;
   }
 }
-
-
+.dsp .depth_a .h4q{
+  display: block;
+}
+.tag_motex{
+  display: none;
+}
 @media screen and (max-width:768px){
+  .dsp .depth_a .h4q{
+    display: none;
+  }
+  .tag_motex{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    font-size: clamp(13px, 2vw, 16px)
+  }
+  .tag_motex li{
+    background-color: #EBEBEB;
+    padding: 6px 12px;
+    border-radius: 100px;
+  }
   .rg_img{
     display: none;
   }
@@ -934,6 +962,9 @@ main{
   }
   .depth_e .line::before{
     background-color: #6f6f6f ;
+  }
+  .header-clone [class^="mo_pdf"] .load_icon{
+    fill: white !important;
   }
 }
 @media screen and (max-width:480px){
