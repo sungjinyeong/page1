@@ -341,6 +341,13 @@ main{
     /* margin: 0 auto; */
     margin-left: auto;
   }
+  .key_list li {
+    flex: 0 0 calc(50% - 15px); /* 2열 구조에서 gap을 감안한 width */
+    max-width: none;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    padding: 0 8px 8px;
+  }
 }
 @media screen and (max-width:500px){
   .key_list{
