@@ -103,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
 // ========================== SCROLL_ON VISIBILITY ==========================
 const $counters = $(".scroll_on");
 const loop = true;

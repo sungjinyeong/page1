@@ -979,6 +979,7 @@ main{
   .depth_e .line .hdn{
     display: block;
   }
+
   .step_2 .mid_title{
     padding: calc(var(--padding)*2);
   }
