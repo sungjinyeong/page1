@@ -1009,4 +1009,10 @@ main{
   .depth_e .line{
     width: 100%;
   }
+  .depth_e .line::after{
+    left: 100%;
+  }
+  .depth_e .line::before{
+    right: 100%;
+  }
 }
