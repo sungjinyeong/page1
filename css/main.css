@@ -340,7 +340,7 @@ section .text{
   align-items: center;
   gap: 5%;
   width: 100%;
-  padding: 0 2%;
+  padding-right: 2%;
 }
 .sec2 .title h3.ahtoer{
   font-size: clamp(16px, 4vw, 20px);
@@ -353,11 +353,14 @@ section .text{
   font-family: 'Gmarket Sans';
   font-weight: 700;
 }
-.sec2 .del{
-
+.sec2 .del .h2q{
+  font-size: clamp(26px, 6.5vw, 47px);
+}
+.sec2 .textq{
+  font-size: clamp(12px, 2.5vw, 20px);
 }
 .sec2 .sel{
-
+  width: 45%;
 }
 .sec2 .sel .img_box{
   width: 100%;
@@ -589,9 +592,6 @@ section .text{
 .sec5 .text .h3q{
   padding-bottom: calc(var(--padding));
 }
-.sec5 .text .textq{
-  font-size: 16px;
-}
 .sec5 .text .h2q span{
   color: white !important;
 }
@@ -639,8 +639,11 @@ section .text{
   padding-bottom: 2%;
 }
 .optivize_list li .textq{
-  font-size: clamp(12px, 1.5vw, 16px);
+  font-size: clamp(14px, 1.5vw, 16px);
   padding-bottom: 2%;
+}
+.optivize_list li .textq em{
+  font-size: 0.9em;
 }
 .optivize_list li.SSP .h3q{
   color: #D90000;
@@ -1096,6 +1099,7 @@ section .text{
     align-items: center;
     height: 100%;
     width: 100%;
+    margin: 0 auto;
   }
   .sec2 .sel .img_box img{
     max-height: none;
@@ -1156,9 +1160,12 @@ section .text{
   .sec4 .over_list li:hover .title{
     transform: none;
   }
+  
   .optivize_list{
+    max-width: 500px;
     flex-direction: column;
     gap: 40px;
+    margin: 0 auto;
   }
   .optivize_list li{
     padding: 25px;
@@ -1300,6 +1307,9 @@ section .text{
     font-size: 12px;
     top: 60%;
     line-height: 1.3;
+  }
+  .optivize_list li{
+    padding: 25px 15px;
   }
 }
 @media screen and (max-width:400px){

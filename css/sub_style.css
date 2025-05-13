@@ -1006,4 +1006,7 @@ main{
   .depth_null_e .h4q{
     padding-left: 12px;
   }
+  .depth_e .line{
+    width: 100%;
+  }
 }

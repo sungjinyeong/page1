@@ -791,6 +791,12 @@ section, .text{
     right: 15px;
   }
 }
+@media screen and (max-width:480px){
+  [class^="mo_pdf"] a{
+    padding: 15px !important;
+    font-size: 1.1rem !important;
+  }
+}
 .header .adver{
   white-space: nowrap;
   font-size: clamp(0.75em, 2vw, 1em);
@@ -1254,7 +1260,7 @@ section, .text{
   }
   .header .nav li a{
     color: #fff !important;
-    font-size: 1.35rem;
+    font-size: clamp(1.2rem, 3.5vw, 1.35rem);
     line-height: 1em;
     padding: 10px 0;
   }
