@@ -356,6 +356,11 @@ section .text{
 .sec2 .del .h2q{
   font-size: clamp(26px, 6.5vw, 47px);
 }
+@media screen and (max-width:480px){
+  .sec2 .del .h2q{
+    padding-bottom: calc(var(--padding)*.5);
+  }
+}
 .sec2 .textq{
   font-size: clamp(12px, 2.5vw, 20px);
 }
