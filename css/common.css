@@ -151,9 +151,6 @@ body{
 .dark{
   color: var(--dark);
 }
-.bg_sky{
-  background-color: #cbe3f8;
-}
 /* hover, button*/
 .cursor{
   cursor: pointer;
@@ -186,7 +183,6 @@ body{
   background-color: var(--point_main);
   color: var(--white);
 }
-
 .border_s{
   border-radius: 7px;
   overflow: hidden;
@@ -195,134 +191,8 @@ body{
   border-radius: 10px;
   overflow: hidden;
 }
-.page_prev{
-  color: var(--grey3);
-  fill: var(--grey3);
-  cursor: pointer;
-  line-height: 1em;
-  transition: .2s;
-}
-.page_prev a{
-  display: flex;
-  align-items: center;
-}
-.page_prev:hover{
-  filter: brightness(75%);
-}
-.value_inp{
-  display: block;
-  width: 100%;
-  border-radius: 7px;
-  border: 1px solid var(--border);
-  font-size: 0.9em;
-  padding: 15px;
-  max-height: 50px;
-  transition: .2s;
-  box-sizing: border-box;
-}
-.value_inp.active{
-  border: 1px solid #858585;
-}
-.value_inp.file{
-  height: 50px;
-  cursor: pointer;
-}
-.value_inp_hidden{
-  display: none;
-}
-.value_select{
-  position: relative;
-  display: inline-block;
-  width: auto;
-  border-radius: 7px;
-  border: 1px solid var(--border);
-  font-size: 0.9em;
-  max-height: 50px;
-  transition: .2s;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: url(../images/down_arrow.svg) no-repeat 95% 50% / 15px auto;
-}
-.value_select.active{
-  border: 1px solid #858585;
-}
-.value_select_label{
-  padding: 15px;
-}
-/* 옵션 리스트 */
-.value_select_list{
-  position: absolute;
-  min-width: 100%;
-  width: auto;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  display: none;
-  list-style: none;
-  padding: 0;
-  margin-top: 3%;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-  left: 3%;
-}
-.value_select_list li{
-  padding: 10px;
-  cursor: pointer;
-  transition: background 0.3s;
-  white-space: nowrap;
-}
-.value_select_list li:hover{
-  background: #f0f0f0;
-}
 .img_box{
   position: relative;
-}
-.hover_play::before{
-  display: block;
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  /* background-color: #00000045; */
-  opacity: 0;
-  transition: .2s;
-}
-.hover_play::after{
-  display: block;
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 35px;
-  height: 35px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  z-index: 2;
-  opacity: 0;
-  transition: .8s;
-}
-.hover_play:hover::after, .hover_play:hover::before{
-  opacity: 1;
-}
-.play_icon::before{
-  display: block;
-  content: '';
-  position: absolute;
-  bottom: 6px;
-  right: 10px;
-  width: 22px;
-  height: 22px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  z-index: 1;
-}
-.hover_play::after{
-  background-image: url(/images/play_btn.png);
-  opacity: 1;
 }
 .fade-prep {
   will-change: opacity, filter;
@@ -351,13 +221,12 @@ body{
 .scroll_on.type_right {
   transform: translate(20%, 0);
 }
-.scrollBar::-webkit-scrollbar {
+.scrollBar::-webkit-scrollbar{
   width: 10px;
 }
-.scrollBar::-webkit-scrollbar-thumb {
+.scrollBar::-webkit-scrollbar-thumb{
   height: 30%;
   background: #dcdfe6;
-  
   border-radius: 10px;
 }
 .scrollBar::-webkit-scrollbar-track {
@@ -403,9 +272,6 @@ body{
   top: 1px;
 }
 
-
-
-
 .h2q{
   font-size: clamp(45px, 8vw, 70px);
   line-height: 1.2;
@@ -413,7 +279,6 @@ body{
   font-weight: 800;
   padding-bottom: calc(var(--padding)*1.5);
   word-break: keep-all;
-  
 }
 .h2q span{
   color: #D90000;
@@ -456,19 +321,15 @@ section, .text{
   opacity: 1 !important;
   transform: translate(0, 0) !important;
 }
-
 .scroll_on.type_top {
   transform: translate(0, -20%);
 }
-
 .scroll_on.type_bottom {
   transform: translate(0, 20%);
 }
-
 .scroll_on.type_left {
   transform: translate(-20%, 0);
 }
-
 .scroll_on.type_right {
   transform: translate(20%, 0);
 }
@@ -854,8 +715,6 @@ section, .text{
 }
 .hamburger-button span {
   display: block;
-  /* height: 2px;
-  margin: 4px 0; */
   background-color: #fff; /* 기본 흰색 */
   transition: background-color 0.3s;
 }
@@ -863,7 +722,6 @@ section, .text{
 .hamburger-dark span {
   background-color: #fff !important;
 }
-
 /* 밝은 배경일 때 (아이콘은 어둡게) */
 .hamburger-light span {
   background-color: #000 !important;
@@ -898,7 +756,6 @@ section, .text{
   color: #fff;
   font-size: 20px;
 }
-
 
 
 .ace_list{
@@ -1200,18 +1057,17 @@ section, .text{
   border: none !important;
   box-shadow: none !important;
 }
+
 /* bxSlider 전체 폭 사용하도록 강제 덮어쓰기 */
 .bx-wrapper {
   max-width: none !important;
   width: 100% !important;
 }
-
 /* 내부 뷰포트도 100% 고정 */
 .bx-wrapper .bx-viewport {
   width: 100% !important;
   /* overflow-x: visible; 필요 시 추가 */
 }
-
 /* 트랙 슬라이더도 auto로 늘려서 자르지 않기 */
 .bx-wrapper .track {
   width: auto !important;

@@ -88,7 +88,6 @@ section .text{
   filter: blur(0);
 }
 
-
 /* 페이지네이션 스타일 */
 .pagination {
   position: fixed;
@@ -101,25 +100,24 @@ section .text{
   flex-direction: column;
   gap: 12px;
 }
-.pagination li {
+.pagination li{
   position: relative;
   width: 10px;
   height: 10px;
   background-color: #ccc;
   border-radius: 50%;
   cursor: pointer;
-  /* overflow: hidden; */
   transition: background-color 0.3s;
 }
 
-.pagination li::after {
+.pagination li::after{
   content: '';
   position: absolute;
   left: 50%;
   top: 50%;
   width: 0;
   height: 0;
-  background: rgba(255, 166, 166, 0.377); /* 반투명 붉은 원 */
+  background: rgba(255, 166, 166, 0.377);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -138,11 +136,9 @@ section .text{
   opacity: 0;
   transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
 }
-
 .pagination li.active {
   background-color: #D70000;
 }
-
 .pagination li.active::after {
   width: 16px;
   height: 16px;
@@ -153,20 +149,13 @@ section .text{
   height: 6px;
   opacity: 1;
 }
-
-
-
 .pg-wrapper.pg-vertical{
   overflow-x: hidden;
 }
-main{
-  /* background-color: black; */
-}
-pre {
+pre{
   padding: 20px;
   border-radius: 5px;
 }
-
 .token.string,
 .token.number,
 .token.comment,
@@ -174,7 +163,6 @@ pre {
 .token.attr-value {
   opacity: 0.6;
 }
-
 section{
   display: flex;
   align-items: center;
@@ -183,7 +171,6 @@ section{
   color: #fff;
   position: relative;
 }
-
 
 .text{
   width: 100%;
@@ -268,7 +255,6 @@ section{
   animation: rippleEffect 0.6s ease-out;
   z-index: 9999;
 }
-
 @keyframes rippleEffect {
   to {
     transform: scale(1);
@@ -280,17 +266,13 @@ section{
   position: relative;
   z-index: 1;
 }
-
 body {
   margin: 0;
   overflow: hidden;
 }
-
-
 section .text{
   padding: 0 2%;
 }
-
 .sec1 .sec1_vod{
   position: absolute;
   top: 0;
@@ -413,9 +395,6 @@ section .text{
 .sec3 .history{
   position: relative;
   display: block;
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-items: stretch; */
   width: 100%;
   margin: 0 auto;
   padding-right: 5%;
@@ -457,13 +436,8 @@ section .text{
 }
 .sec3 .history .his_tt li:first-child{
   font-size: 1.4em;
-  /* border-right: 1px solid white; */
   padding-right: 5%;
   text-align: right;
-  /* flex: 1; */
-}
-.sec3 .history .his_tt li:last-child{
-  /* flex: 4; */
 }
 .sec3 .history .his_tt li:last-child span{
   font-size: 1.2em;
@@ -500,19 +474,19 @@ section .text{
 }
 
 
-.sec4 .del {
+.sec4 .del{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 140px); /* 위아래 70px */
+  height: calc(100vh - 140px);
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
 }
 
-.sec4 .over_list {
+.sec4 .over_list{
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 무조건 가로 2개 */
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   width: 100%;
   height: 100%;
@@ -525,15 +499,10 @@ section .text{
   width: 100%;
   aspect-ratio: 1 / 1; /* 정사각형 유지 */
   max-width: 300px;
-  max-height: calc((100vh - 140px - 20px) / 2); /* del 영역 높이 기준 자동 줄이기 */
+  max-height: calc((100vh - 140px - 20px) / 2);
   color: white;
   overflow: hidden;
 }
-
-
-
-
-
 .sec4 .over_list li img{
   width: 100%;
 }
@@ -799,31 +768,28 @@ section .text{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 140px); /* 위아래 70px 고려 */
+  height: calc(100vh - 140px);
   box-sizing: border-box;
   gap: 4%;
 }
-
 .sec7 .sel {
-  flex: 0 1 50%; /* 가로 50% */
+  flex: 0 1 50%;
   max-width: 650px;
-  height: 100%; /* 높이 100% */
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
-
 .sec7 .sel .img_box {
   width: 100%;
   height: 100%;
 }
-
 .sec7 .sel .img_box img,
 .sec7 .sel .img_box video {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* 비율 깨지지 않게 */
+  object-fit: contain;
 }
 
 .sec8 .title{
@@ -848,11 +814,11 @@ section .text{
 .sec8 .text{
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* 위-가운데-아래 균등배치 */
+  justify-content: space-between;
   align-items: stretch;
-  height: calc(100vh - 140px); /* 70px 상단/하단 제외 */
+  height: calc(100vh - 140px);
   box-sizing: border-box;
-  padding: 0; /* 쓸데없는 여백 제거 */
+  padding: 0;
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none; 
@@ -985,7 +951,7 @@ section .text{
 /* 이미지 scale-in 효과 */
 .scale-in-img{
   transform: scale(1.2);
-  transform-origin: center center; /* 중심 기준으로 스케일 */
+  transform-origin: center center;
   transition: transform 3.5s ease;
 }
 .scale-in-img.active {
@@ -1001,8 +967,6 @@ section .text{
   transform: translateY(0);
 }
 
-
-/*  */
 .sec9{
   padding: 0;
 }
@@ -1010,7 +974,6 @@ section .text{
   flex-direction: column;
   padding: 0;
 }
-
 @media screen and (max-width:1100px){
   .sec4 .text{
     flex-direction: column;
@@ -1272,7 +1235,7 @@ section .text{
     padding-bottom: 5px;
   }
   section, .text, .form_data{
-    pointer-events: auto !important; /* ← 반드시 있어야 함 */
+    pointer-events: auto !important;
   }
   .form_data .del .textq{
     display: none;
