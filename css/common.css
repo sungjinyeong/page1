@@ -637,7 +637,7 @@ section, .text{
     margin: 0 auto;
     border-radius: 6px;
     position: absolute !important;
-    bottom: 135px;
+    bottom: 120px;
   }
   [class^="mo_pdf"] a{
     justify-content: center;
@@ -1066,7 +1066,6 @@ section, .text{
 /* 내부 뷰포트도 100% 고정 */
 .bx-wrapper .bx-viewport {
   width: 100% !important;
-  /* overflow-x: visible; 필요 시 추가 */
 }
 /* 트랙 슬라이더도 auto로 늘려서 자르지 않기 */
 .bx-wrapper .track {
