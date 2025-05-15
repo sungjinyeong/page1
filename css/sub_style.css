@@ -252,6 +252,7 @@ section,.text,.form_data{pointer-events:auto !important;}
 .depth_null_e .del{width:100%;padding-bottom:calc(var(--padding)*5);}
 .depth_null_e .h2q{border:none;margin-bottom:0;}
 .depth_null_e .sel{width:100%;max-width:500px;}
+.depth_e .line{width: 100%;}
 .depth_e .line .opn{display:none;}
 .depth_e .line .hdn{display:block;}
 .step_2 .mid_title{padding:calc(var(--padding)*2);}
