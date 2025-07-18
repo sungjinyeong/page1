@@ -1,24 +1,31 @@
 // ========================== HEADER CLONE ==========================
-function bindLoadFileToggle(scope = document) {
-  $(scope).find('.load_file > a').each(function () {
+function bindDropdownToggle(scope = document) {
+  const selector = '.load_file, .login_tool';
+
+  $(scope).find(`${selector} > a`).each(function () {
     $(this).attr('href', 'javascript:void(0)');
   });
-  $(scope).find('.load_file > a').off('click').on('click', function (e) {
+
+  $(scope).find(`${selector} > a`).off('click').on('click', function (e) {
     e.preventDefault();
-    const $parent = $(this).closest('.load_file');
+    const $parent = $(this).closest(selector);
+    const $siblings = $(scope).find(selector);
+
     if ($parent.hasClass('view_active')) {
       $parent.removeClass('view_active');
     } else {
-      $(scope).find('.load_file').removeClass('view_active');
+      $siblings.removeClass('view_active');
       $parent.addClass('view_active');
     }
   });
 }
+
 $(document).on('click', function (e) {
-  if (!$(e.target).closest('.load_file').length) {
-    $('.load_file').removeClass('view_active');
+  if (!$(e.target).closest('.load_file, .login_tool').length) {
+    $('.load_file, .login_tool').removeClass('view_active');
   }
 });
+
 function toggleHamburger(e) {
   e.preventDefault();
   const thisBtn = e.currentTarget;
@@ -44,25 +51,38 @@ function bindHamburgers(scope = document) {
 function setupHeaderCloneHandler() {
   const originalHeader = document.querySelector('.header');
   let clone = null;
+
+  if (!originalHeader) {
+    console.warn('원본 header 요소가 존재하지 않습니다.');
+    return;
+  }
+
   window.addEventListener('scroll', function () {
     const scrollY = window.scrollY || window.pageYOffset;
     if (scrollY > 100 && !clone) {
       clone = originalHeader.cloneNode(true);
       clone.classList.add('header-clone');
       document.body.appendChild(clone);
+      
       bindHamburgers(clone);
-      bindLoadFileToggle(clone);
+      bindDropdownToggle(clone); // ✅ 이걸 정확히 바인딩해야 작동합니다.
+
+      console.log('헤더 클론 생성됨');
     } else if (scrollY <= 100 && clone) {
       clone.remove();
       clone = null;
+      console.log('헤더 클론 제거됨');
     }
   });
 }
+
+
 document.addEventListener('DOMContentLoaded', function () {
   bindHamburgers();
-  bindLoadFileToggle();
+  bindDropdownToggle(); // ✅ 함수명 정확히 확인
   setupHeaderCloneHandler();
 });
+
 
 // ========================== SCROLL_ON VISIBILITY ==========================
 const $counters = $(".scroll_on");

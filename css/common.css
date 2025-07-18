@@ -122,10 +122,17 @@ h1 a{display:block;}
 }
 .header.user_header .nav li a{color:black;}
 .header .nav li .down_pdf{position:absolute;top:30px;left:50%;font-weight:500;transform:translateX(-50%);background-color:var(--white);font-size:.85em;border-radius:10px;border:1px solid var(--border);display:none;}
+.header .nav li .login_tip{position:absolute;top:30px;left:50%;font-weight:500;transform:translateX(-50%);background-color:var(--white);font-size:.85em;border-radius:10px;border:1px solid var(--border);display:none;}
 .header .nav li.view_active .down_pdf{display:block;}
+.header .nav li.view_active .login_tip{display:block;}
 .header .nav .down_pdf li:first-child{border-bottom:1px solid var(--border);}
+.header .nav .login_tip li:first-child{border-bottom:1px solid var(--border);}
 .header .nav .down_pdf li a{color:var(--black)!important;display:block;padding:12px;transition:.3s;text-align:center;}
-.header .nav .down_pdf li a:hover{color:#D90000!important;}
+.header .nav .login_tip li a{color:var(--black)!important;display:block;padding:12px;transition:.3s;text-align:center;}
+.header .nav .down_pdf li:first-child a:hover{color:#D90000!important;}
+.header .nav .down_pdf li:last-child a:hover{color:#1B365B!important;}
+.header .nav .login_tip li:first-child a:hover{color:#D90000!important;}
+.header .nav .login_tip li:last-child a:hover{color:#1B365B!important;}
 .header .adver{white-space:nowrap;font-size:clamp(0.75em,2vw,1em);line-height:1.1em;}
 .header .adver a{background-color:#D90000;color:var(--white)!important;border-radius:100px;padding:5px 16px;display:block;transition:.3s;}
 .header .adver a:hover{background-color:#aa0b0b;}
@@ -146,7 +153,6 @@ h1 a{display:block;}
 .hamburger-dark span{background-color:#fff!important;}
 .hamburger-light span{background-color:#000!important;}
 .header .modal_menu{position:fixed;top:0;right:0;width:100%;height:100%;background:#0000003a;color:#fff;transform:translateX(100%);transition:0.3s ease;z-index:9999;}
-.header .modal_menu.on{transform:translateX(0);}
 .header .modal_menu .menu_inner{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;}
 .header .modal_menu ul li{margin-bottom:20px;}
 .header .modal_menu ul li a{color:#fff;font-size:20px;}
@@ -155,7 +161,8 @@ h1 a{display:block;}
 /* ======= LOGIN FORM ======= */
 .header.user_header .hamburger-button span{background:#000;}
 .login_page{padding:150px 0 0;min-height:100vh;display:flex;flex-direction:column;}
-.login_page .logo_h2{margin:0 auto;display:flex;justify-content:center;align-items:center;max-width:210px;padding-bottom:calc(var(--padding)*1.5);width:75%;}
+.login_page .logo_h2.op{margin:0 auto;display:flex;justify-content:center;align-items:center;max-width:210px;padding-bottom:calc(var(--padding)*1.5);width:75%;   font-family: 'Gmarket Sans'; font-style: normal; font-weight: 600; font-size: 46px; color: #D90000; line-height: 1em;}
+.login_page .logo_h2.dp{margin:0 auto;display:flex;justify-content:center;align-items:center;max-width:210px;padding-bottom:calc(var(--padding)*1.5);width:75%;   font-family: 'Gmarket Sans'; font-style: normal; font-weight: 600; font-size: 46px; color: #1B365B; line-height: 1em;}
 .login_page .logo_h2 a{display:block;}
 .login_page .logo_h2 img{width:100%;}
 .log_form{margin:0 auto;max-width:470px;width:90%;padding:0 2% calc(var(--padding)*5);display:block;box-sizing:border-box;}
@@ -170,12 +177,13 @@ h1 a{display:block;}
 }
 .log_form .user_ID.active,
 .log_form .user_PASS.active{border:1px solid #858585;}
-.log_form .ID_save{display:flex;justify-content:start;align-items:center;color:#949494;margin-bottom:calc(var(--padding)*1);}
+.log_form .ID_save{display:flex;justify-content:start;align-items:center;color:#949494;margin-bottom:calc(var(--padding)*1.2);}
 .log_form .login_button,
 .log_form .kakao_button,
 .log_form .naver_button{
   font-size:clamp(1em,2.3vw,1.2em);border-radius:10px;cursor:pointer;transition:.2s;margin-bottom:calc(var(--padding)*1.5);
 }
+.login_svg_tol{display: none;}
 .log_form .login_button{background-color:#393939;color:var(--white);}
 .log_form .login_button:hover{background-color:#242424;}
 .log_form .kakao_button{background-color:#ffe812;color:#3F2623;font-weight:500;}
@@ -268,6 +276,7 @@ section,
   .header .nav.active,
   .header .nav.on{display:flex;}
   .header .nav li.load_file{display:none;}
+  .header .nav li.login_tip{display:none;}
   .header .nav li a{color:#fff!important;font-size:clamp(1.2rem,3.5vw,1.35rem);line-height:1em;padding:10px 0;}
   .header .adver{margin-left:auto;padding-right:20px;}
   .header .hamburger-button{display:flex;z-index:10000;}
@@ -279,7 +288,7 @@ section,
   .circle-check img{margin-top:2px;width:10px;}
   .form_data .sel .user_data li input{padding:8px 14px;}
   .form_data .sel .choice_list{font-size:clamp(12px,2vw,18px);}
-  .form_data .sel .choice_list li{padding:8px 0;}
+  .form_data .sel .choice_list li{padding:8px 0 !important;}
   .dummy_foonter h1{width:30%;max-width:250px;}
   .dummy_foonter h1 img{width:100%;}
   .bx_wrap{padding:calc(var(--padding)*2.5) 0;}
@@ -289,6 +298,9 @@ section,
   .mo_pdf_dsp{width:90%;background-color:#1B365B;margin:0 auto;border-radius:6px;position:absolute!important;bottom:135px;}
   [class^="mo_pdf"] a{justify-content:center;align-items:center;padding:20px!important;font-size:1.2rem!important;}
   [class^="mo_pdf"] svg{position:absolute;top:50%;transform:translateY(-50%);right:15px;}
+  .header .nav li .login_tip a{font-size: 14px; padding: 10px 14px;}
+  .login_svg_tol{display: block;}
+  .header .nav li .login_tip{top: 40px; border-radius: 6px;}
 }
 
 /* ========== [MEDIA QUERY: 480px] ========== */

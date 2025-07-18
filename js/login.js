@@ -25,19 +25,20 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 $(document).ready(function () {
-  $('.load_file > a').on('click', function (e) {
+  $('.load_file > a, .login_tool > a').on('click', function (e) {
     e.preventDefault();
     const $parent = $(this).parent();
     if ($parent.hasClass('view_active')) {
       $parent.removeClass('view_active');
     } else {
-      $('.load_file').removeClass('view_active');
+      $('.load_file, .login_tool').removeClass('view_active');
       $parent.addClass('view_active');
     }
   });
+
   $(document).on('click', function (e) {
-    if (!$(e.target).closest('.load_file').length) {
-      $('.load_file').removeClass('view_active');
+    if (!$(e.target).closest('.load_file, .login_tool').length) {
+      $('.load_file, .login_tool').removeClass('view_active');
     }
   });
 });
