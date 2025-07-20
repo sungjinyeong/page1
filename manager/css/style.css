@@ -1,0 +1,177 @@
+.section_gp{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+    padding-bottom: calc(var(--padding)*3);
+}
+.section_gp .info{
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 30px;
+  padding-bottom: calc(var(--padding)*3);
+}
+.section_gp .info .del{
+  flex: 4;
+}
+.section_gp .info .sel{
+  flex: 1;
+}
+.section_gp .info .sel .drop_sel{
+  position: relative;
+  color: white;
+  background-color: #4D4D4D;
+  border-radius: 12px;
+  padding: 12px 20px;
+  margin-bottom: calc(var(--padding)*2);
+}
+.section_gp .info .sel .check_box{
+  border-radius: 20px;
+  padding: 20px 30px;
+  box-shadow: 10px 10px 10px #00000025;
+  border: 2px solid #F8F8F8;
+}
+.section_gp .info .sel .check_box .menu_list{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+.section_gp .info .sel .drop_sel .h2_st{
+  padding-bottom: 5px;
+  font-weight: 300;
+  font-size: 0.95em;
+  line-height: 1.15em;
+}
+.section_gp .info .sel .drop_sel .now_today{
+  font-size: 1.15em;
+  font-weight: 600;
+  line-height: 1.15em;
+}
+.section_gp .info .sel .drop_sel .now_today span{
+  color: #D90000;
+}
+.custom_ulist{
+  position: absolute;
+  display: none;
+}
+.section_gp .info .del_top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: calc(var(--padding)*2.5);
+}
+.section_gp .info .del_l{
+  display: flex;
+  gap: 20px;
+}
+.section_gp .info .del_r{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section_gp .info .typ_a, .section_gp .info .typ_b{
+  position: relative;
+  width: 150px;
+  font-weight: 600;
+}
+.caret{
+  position: absolute;
+  right: 7%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.info_data{
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 2%;
+  width: 95%;
+  margin: 0 auto;
+}
+.info_data li{
+  width: 100%;
+  background-color: #F8F8F8;
+  border-radius: 20px;
+  padding: 15px 22px;
+  transition: .3s;
+}
+.info_data li:hover{
+  filter: brightness(97.5%);
+}
+.info_data li:last-child:hover{
+  filter: brightness(92.5%);
+}
+.info_data li:last-child{
+  min-width: 240px;
+  background-color: #FFD5D5;
+}
+.info_data li .tt{
+  font-weight: 500;
+  padding-bottom: 5px;
+}
+.info_data li .count{
+  text-align: right;
+  font-size: 1.25em;
+  font-weight: 700;
+}
+.date_start, .date_end{
+  position: relative;
+  width: 160px;
+}
+.calendar{
+  position: absolute;
+  left: 7%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.date_start input, .date_end input{
+  text-align: center !important;
+}
+.date_start input::placeholder, .date_end input::placeholder{
+  font-size: 14px;
+}
+.select_btn{
+  padding: 12px 16px;
+  border-radius: 8px;
+  background-color: #B5B5B5;
+  transition: .3s;
+  cursor: pointer;
+  color: white;
+  line-height: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.select_btn:hover{
+  background-color: #95969b;
+}
+section.table{
+  background-color: #F8F8F8;
+  padding: 50px 0;
+}
+
+
+/* check on color */
+.section_gp .info .sel .check_box .menu_list li:nth-child(1) .check_design .check_point[type="checkbox"]:checked + .on:after,
+.section_gp .info .sel .check_box .menu_list li:nth-child(1) .check_design .check_point[type="checkbox"]:checked + .on{
+  background: #D90000;
+}
+.section_gp .info .sel .check_box .menu_list li:nth-child(2) .check_design .check_point[type="checkbox"]:checked + .on:after,
+.section_gp .info .sel .check_box .menu_list li:nth-child(2) .check_design .check_point[type="checkbox"]:checked + .on{
+  background: #0081CF;
+}
+.section_gp .info .sel .check_box .menu_list li:nth-child(3) .check_design .check_point[type="checkbox"]:checked + .on:after,
+.section_gp .info .sel .check_box .menu_list li:nth-child(3) .check_design .check_point[type="checkbox"]:checked + .on{
+  background: #008F7A;
+}
+.section_gp .info .sel .check_box .menu_list li:nth-child(4) .check_design .check_point[type="checkbox"]:checked + .on:after,
+.section_gp .info .sel .check_box .menu_list li:nth-child(4) .check_design .check_point[type="checkbox"]:checked + .on{
+  background: #845EC2;
+}
+.section_gp .info .sel .check_box .menu_list li:nth-child(5) .check_design .check_point[type="checkbox"]:checked + .on:after,
+.section_gp .info .sel .check_box .menu_list li:nth-child(5) .check_design .check_point[type="checkbox"]:checked + .on{
+  background: #FFC75F;
+}
