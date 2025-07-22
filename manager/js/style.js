@@ -50,23 +50,33 @@ $(document).ready(function () {
 
 // 시간 범위 선택 교체
 $(document).ready(function () {
-  $('.section_gp .info .sel .drop_sel').on('click', function (e) {
+  $('.drop_sel').on('click', function (e) {
     e.stopPropagation();
-    $(this).toggleClass('active');
-    $(this).find('.custom_ulist').toggle();
+    const $this = $(this);
+    const $ulist = $this.find('.custom_ulist');
+
+    // 현재 상태에 따라 toggle
+    if ($ulist.is(':visible')) {
+      $ulist.hide();
+      $this.removeClass('active');
+    } else {
+      $('.drop_sel').removeClass('active').find('.custom_ulist').hide(); // 다른 드롭다운 닫기
+      $ulist.show();
+      $this.addClass('active');
+    }
   });
 
   $('.custom_ulist ul li').on('click', function (e) {
     e.stopPropagation();
-    const selectedText = $(this).text();
+    const text = $(this).text();
     const $dropSel = $(this).closest('.drop_sel');
-    $dropSel.find('.h2_st').text(selectedText);
-    $dropSel.removeClass('active');
+
+    $dropSel.find('.h2_st').text(text);
     $dropSel.find('.custom_ulist').hide();
+    $dropSel.removeClass('active');
   });
 
   $(document).on('click', function () {
-    $('.section_gp .info .sel .drop_sel').removeClass('active');
-    $('.custom_ulist').hide();
+    $('.drop_sel').removeClass('active').find('.custom_ulist').hide();
   });
 });
