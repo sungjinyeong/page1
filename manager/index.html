@@ -36,9 +36,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     <!-- imagesLoaded -->
     <script src="https://unpkg.com/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"></script>
-    <!-- datepicker -->
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- datepicker JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-..." crossorigin="anonymous"></script>
     <!-- 언어 파일 (한글 지원) -->
@@ -74,6 +71,24 @@
         </div>
       </div>
     </header>
+    <!-- <header class="header">
+      <div class="standard container">
+        <h1><a href=""><img src="/manager/images/mg_logo.svg" alt="optivize"></a></h1>
+        <nav class="header_nav">
+          <ul>
+            <li><a href="">회원정보수정</a></li>
+            <li class="active"><a href="">매체 리포트</a></li>
+            <li><a href="">API 확인하기</a></li>
+            <li class="pointer"><a href="">정산신청</a></li>
+            <li><a href="">공지사항</a></li>
+          </ul>
+        </nav>
+        <div class="hd_state">
+          <div><span>***</span>님</div>
+          <div>로그아웃</div>
+        </div>
+      </div>
+    </header> -->
     <main>
       <div class="container">
         <section class="section_gp d-flex">
@@ -82,18 +97,20 @@
               <div class="del_top">
                 <div class="del_l">
                   <div class="typ_a value_select">
-                    <div class="value_select_label">매체<img class="caret" src="/manager/images/caret-right.svg" alt="caret"></div>
+                    <div class="value_select_label">매체</div>
                     <ul class="value_select_list">
                       <li data-value="1" data-name="">매체</li>
                       <li data-value="2" data-name="">테스트</li>
                     </ul>
+                    <div class="caret"><img src="/manager/images/caret-right.svg" alt=""></div>
                   </div>
                   <div class="typ_b value_select">
-                    <div class="value_select_label">영역<img class="caret" src="/manager/images/caret-right.svg" alt="caret"></div>
+                    <div class="value_select_label">영역</div>
                     <ul class="value_select_list">
                       <li data-value="1" data-name="">영역</li>
                       <li data-value="2" data-name="">테스트</li>
                     </ul>
+                    <div class="caret"><img src="/manager/images/caret-right.svg" alt=""></div>
                   </div>
                 </div>
                 <div class="del_r">
@@ -111,12 +128,16 @@
               <div class="drop_sel">
                 <h2 class="h2_st">Last 30 days</h2>
                 <div class="now_today"><span class="cl_red">26 JUN</span> 2025</div>
-                <ul class="custom_ulist">
-                  <li>Last 7 day</li>
-                  <li>Last 30 dat</li>
-                  <li>Last month(June)</li>
-                  <li>the month before(May)</li>
-                </ul>
+                <nav class="custom_ulist">
+                  <ul>
+                    <li data-value="days_1">Last 7 day</li>
+                    <li data-value="days_2">Last 30 day</li>
+                    <li data-value="days_3">90 day</li>
+                    <li data-value="days_4">1 year</li>
+                    <li data-value="days_5">14일</li>
+                  </ul>
+                </nav>
+                <div class="caret"><img src="/manager/images/caret-right.svg" alt=""></div>
               </div>
               <div class="check_box">
                 <ul class="menu_list">

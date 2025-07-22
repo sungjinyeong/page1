@@ -56,7 +56,7 @@ img {vertical-align:top;}
 
 /* datepicker */
 /* date input 필드 스타일 */
-.date_input {
+.date_input{
   width: 100%;
   max-width: 220px;
   padding: 10px 15px;
@@ -71,7 +71,10 @@ img {vertical-align:top;}
   transition: all 0.2s ease-in-out;
   box-sizing: border-box;
 }
-.date_input:focus {
+.date_input.active{
+  border: 1px solid #858585;
+}
+.date_input:focus{
   border-color: #6666ff;
   outline: none;
   box-shadow: 0 0 0 2px rgba(102, 102, 255, 0.2);
@@ -102,7 +105,7 @@ img {vertical-align:top;}
 .datepicker table tr td.active::before{
   background-color: #6666ff !important;
   color: #fff !important;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   position: absolute;
   content: '';
   left: 50%;
@@ -111,20 +114,22 @@ img {vertical-align:top;}
 }
 .datepicker table tr td.today {
   background-color: #eee;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 .datepicker table tr td.active, .datepicker table tr td.active.disabled, .datepicker table tr td.active.disabled:hover, .datepicker table tr td.active:hover{
   background-image: none;
 }
 .datepicker table tr td.active.active, .datepicker table tr td.active.disabled, .datepicker table tr td.active.disabled.active, .datepicker table tr td.active.disabled.disabled, .datepicker table tr td.active.disabled:active, .datepicker table tr td.active.disabled:hover, .datepicker table tr td.active.disabled:hover.active, .datepicker table tr td.active.disabled:hover.disabled, .datepicker table tr td.active.disabled:hover:active, .datepicker table tr td.active.disabled:hover:hover, .datepicker table tr td.active.disabled:hover[disabled], .datepicker table tr td.active.disabled[disabled], .datepicker table tr td.active:active, .datepicker table tr td.active:hover, .datepicker table tr td.active:hover.active, .datepicker table tr td.active:hover.disabled, .datepicker table tr td.active:hover:active, .datepicker table tr td.active:hover:hover, .datepicker table tr td.active:hover[disabled], .datepicker table tr td.active[disabled]{
-  background-color: #a473ff;
-  border-radius: 50%;
+  background-color: #8a58ff;
+  /* border-radius: 50%; */
 }
 .datepicker table tr td.today, .datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled:hover, .datepicker table tr td.today:hover{
   background-image: none;
 }
 .datepicker table tr td.today{
-  background-color: #fff9a8;
+  background-color: #fff2cc;
+  color: #ff7800;
+  font-weight: 600;
 }
 /* style */
 .value_inp{
@@ -188,10 +193,10 @@ textarea.value_inp:focus{
   display: none;
   list-style: none;
   padding: 0;
-  margin-top: 3%;
+  margin-top: 2%;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 10;
-  left: 3%;
+  left: 2%;
 }
 .value_select_list li{
   padding: 10px;
@@ -200,7 +205,7 @@ textarea.value_inp:focus{
   white-space: nowrap;
 }
 .value_select_list li:hover{
-  background: #f0f0f0;
+  background: #f0f2f5;
 }
 
 /* check */

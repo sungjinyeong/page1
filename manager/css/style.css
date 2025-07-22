@@ -24,6 +24,13 @@
   border-radius: 12px;
   padding: 12px 20px;
   margin-bottom: calc(var(--padding)*2);
+  cursor: pointer;
+}
+.section_gp .info .sel .drop_sel.active .caret{
+  transform: rotate(-180deg);
+}
+.section_gp .info .sel .drop_sel.active .custom_ulist{
+  display: block;
 }
 .section_gp .info .sel .check_box{
   border-radius: 20px;
@@ -55,7 +62,36 @@
 }
 .custom_ulist{
   position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% - 10px);
+  width: 100%;
   display: none;
+  background-color: #4D4D4D;
+  padding: 10px;
+  z-index: 100;
+  border-radius: 0 0 12px 12px;
+}
+.custom_ulist ul{
+  padding: 5px 0;
+  background-color: white;
+  color: #000;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1em;
+  line-height: 1.8em;
+}
+.custom_ulist ul li{
+  margin: 0 15px;
+  cursor: pointer;
+  transition: .2s;
+}
+.custom_ulist ul li:hover{
+  color: #D90000;
+}
+.custom_ulist ul li + li{
+  border-top: 1px solid var(--border);
 }
 .section_gp .info .del_top{
   display: flex;
@@ -82,6 +118,10 @@
   right: 7%;
   top: 50%;
   transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
 }
 .info_data{
   display: flex;
