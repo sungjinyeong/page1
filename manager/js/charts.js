@@ -79,6 +79,9 @@ function renderLineChart(type) {
       datasets: activeDatasets
     },
     options: {
+      maintainAspectRatio: true, // 기본 true, 명시
+      aspectRatio: 3, // 가로:세로 = 3:1 → 세로를 낮게 유지
+      responsive: true,
       responsive: true,
       animation: {
         duration: 500,
@@ -153,6 +156,9 @@ $('.check_point').on('change', function () {
         datasets: []
       },
       options: {
+        responsive: true,
+        maintainAspectRatio: true, // 기본 true, 명시
+        aspectRatio: 3, // 가로:세로 = 3:1 → 세로를 낮게 유지
         responsive: true,
         animation: {
           duration: 100,

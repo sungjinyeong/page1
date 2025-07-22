@@ -181,6 +181,7 @@ textarea.value_inp:focus{
   padding: 10px 16px;
   font-size: 15px;
   line-height: 1em;
+  cursor: pointer;
 }
 /* 옵션 리스트 */
 .value_select_list{
@@ -291,7 +292,15 @@ textarea.value_inp:focus{
   justify-content: space-between;
 }
 .header .hd_state{
+  line-height: 18px;
+}
+.header .out_btn, .header .login_out{
+  cursor: pointer;
+}
+.header .hd_state .login_in{
   display: flex;
+  gap: 15px;
+  align-items: center;
 }
 .header_nav{
   margin-left: auto;
