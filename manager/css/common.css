@@ -29,7 +29,7 @@
 
 /* ======= RESET & LAYOUT ======= */
 body{background-color:var(--white);line-height:1.1em;}
-main{padding-top: 50px; padding-bottom: 100px;}
+main{padding-top: 50px; padding-bottom: 100px; min-height: calc(100vh - 80px - 216px);}
 h1 a{display:block;}
 .hidden{display:none;}
 .word_keep{word-break:keep-all;}
@@ -333,6 +333,9 @@ textarea.value_inp:focus{
   width: calc(100% - 16px);
   height: 2px;
 }
+.header_nav li.bold{
+  font-weight: 600;
+}
 .header_nav li a{
   display: block;
   padding: 4px 8px;
@@ -340,6 +343,96 @@ textarea.value_inp:focus{
 .header .pointer{
   color: #D90000;
 }
+.header_nav li.pointer.active::before{
+  background-color: #D90000;
+}
 .table_row.table_footer .cell{
   background-color: #e8ecf075;
+}
+
+.dummy_foonter{width:100%;padding:45px 0;background-color:#2E2E2E;display:flex;justify-content:center;align-items:center;color:white;gap:5%;}
+.dummy_foonter .company_info{font-size:clamp(10px,2vw,16px);line-height:1.3;font-weight:200;}
+.dummy_foonter .company_info li{padding-bottom:2%;}
+.dummy_foonter .company_info li.copy{padding-top:5%;padding-bottom:0%;}
+.dummy_foonter h1{width:245px;min-width:115px;}
+.dummy_foonter h1 a{display:block;}
+.dummy_foonter h1 a img{width:100%;}
+
+
+.excel_table .check_design{
+  width: 16px;
+  height: 16px;
+  line-height: 0px;
+  padding: 0;
+}
+.excel_table .check_design .on{
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  background-color: white;
+}
+.excel_table .check_design .on:after{
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  left: 5px;
+  top: 1px;
+}
+.excel_table .check_design .check_point[type="checkbox"]:checked + .on,
+.excel_table .check_design .check_point[type="checkbox"]:checked + .on:after{
+  background: #4D4D4D;
+}
+.excel_table{
+  width: 100%;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-size: 0.95em;
+  color: #000;
+}
+.ex_row{
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  height: 48px;
+  line-height: 1.35em;
+}
+.ex_header{
+  border-radius: 15px 15px 0 0;
+  background: #f5f5f5;
+}
+.vell{
+  flex: 1;
+  text-align: center;
+  word-break: keep-all;
+  padding: 0 5px;
+}
+.vell.oder{
+  flex: .5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vell:nth-child(2){
+  flex: 1.2;
+}
+.vell:nth-child(3), .vell:nth-child(4){
+  flex:.8;
+}
+.vell:last-child{
+  flex: 1.3;
+}
+.vell.check{
+  flex: 0 0 30px;
+}
+.vell.ex_red, .vell span{
+  color: #e60000;
+}
+.vell.ex_blue{
+  color: #0073e6;
 }

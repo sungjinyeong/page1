@@ -215,3 +215,25 @@ section.table{
 .section_gp .info .sel .check_box .menu_list li:nth-child(5) .check_design .check_point[type="checkbox"]:checked + .on{
   background: #FFC75F;
 }
+
+
+
+/* subpage */
+.excel .tip{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.025em;
+  line-height: 1.4em;
+  color: #2B2B2B;
+  padding-bottom: calc(var(--padding)*5);
+}
+.excel .tip img{
+  width: 18px;
+  opacity: .3;
+}
+.excel .tip em{
+  color: #D90000;
+  font-weight: 500;
+}
