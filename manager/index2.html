@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 외부 리소스들 (reset, normalize, 아이콘 등) -->
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/2.7.94/css/materialdesignicons.min.css">
+		<link rel="stylesheet" type="text/css" href="https://unpkg.com/minibarjs@latest/dist/minibar.min.css">
+		<link rel="stylesheet" type="text/css" href="https://unpkg.com/rangeable@latest/dist/rangeable.min.css">
+    <!-- reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reseter.css/2.0.0/reseter.min.css" integrity="sha512-gCJkkUMGTe73+FMwog6gIBCVJIMXRoc21l6/IPCuzxCex/1sxvO8ctb6Zd4/WWs2UMqmtnDrAdhJht5pEY0LXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- normalize css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- swiper css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" />
+    <!-- Slick css -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <!-- datepicker -->
+    <!-- datepicker CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-..." crossorigin="anonymous" />
+
+
+    <!-- jQurey -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.17/jquery.bxslider.min.js" integrity="sha512-LaBO0tZh1+6Ebk+EnHt/WsGM0UnmkCXfQ1rfhGmpa5MXUdslNuSSELBRcteHKz4k4ny+Op10Ax2fPoTNq+VcUg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- swiper js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js" integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Modernizr 최신 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/3.11.7/modernizr.min.js" referrerpolicy="no-referrer"></script>
+    <!-- GSAP 최신 버전 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <!-- Slick -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <!-- imagesLoaded -->
+    <script src="https://unpkg.com/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"></script>
+    <!-- datepicker JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-..." crossorigin="anonymous"></script>
+    <!-- 언어 파일 (한글 지원) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/locales/bootstrap-datepicker.ko.min.js" integrity="sha512-..." crossorigin="anonymous"></script>
+    <!-- chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- (그 외 필요한 리소스들 생략) -->
+
+    
+    <link rel="stylesheet" href="./css/common.css"/>
+    <link rel="stylesheet" href="./css/style.css"/>
+
+    <script defer src="./js/style.js"></script>
+    <script defer src="./js/charts.js"></script>
+    <title>ACE PLANET</title>
+  </head>
+  <body>
+    <!-- excel.html에 다른 사용자용 header 있습니다 -->
+    <header class="header vip">
+      <div class="standard container">
+        <h1><a href="./index.html"><img src="./images/mg_logo.svg" alt="optivize"></a></h1>
+        <nav class="header_nav">
+          <ul>
+            <li><a href="">회원정보수정</a></li>
+            <li class="bold active"><a href="">인플루언서 리포트</a></li>
+            <li class="pointer"><a href=""> 지급신청</a></li>
+            <li><a href="">공지사항</a></li>
+          </ul>
+        </nav>
+        <div class="hd_state">
+          <!-- <div class="login_in">
+            <div><span>테스트</span>님</div>
+            <div class="out_btn"><svg width="18" height="18" fill="#7A7A7A" viewBox="0 0 256 256"><path d="M120,216a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H56V208h56A8,8,0,0,1,120,216Zm109.66-93.66-40-40a8,8,0,0,0-11.32,11.32L204.69,120H112a8,8,0,0,0,0,16h92.69l-26.35,26.34a8,8,0,0,0,11.32,11.32l40-40A8,8,0,0,0,229.66,122.34Z"/></svg></div>
+          </div> -->
+          <div class="login_out">LOGIN</div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <section class="section_gp d-flex">
+          <div class="info">
+            <div class="del">
+              <div class="del_top">
+                <div class="del_l">
+                  <div class="typ_a value_select">
+                    <div class="value_select_label">매체</div>
+                    <ul class="value_select_list">
+                      <li data-value="1" data-name="">매체</li>
+                      <li data-value="2" data-name="">테스트</li>
+                    </ul>
+                    <div class="caret"><img src="./images/caret-right.svg" alt=""></div>
+                  </div>
+                  <div class="typ_b value_select">
+                    <div class="value_select_label">영역</div>
+                    <ul class="value_select_list">
+                      <li data-value="1" data-name="">영역</li>
+                      <li data-value="2" data-name="">테스트</li>
+                    </ul>
+                    <div class="caret"><img src="./images/caret-right.svg" alt=""></div>
+                  </div>
+                </div>
+                <div class="del_r">
+                  <div class="date_start"><img class="calendar" src="./images/calendar-minus.svg" alt="calendar"><input type="text" class="datepicker date_input" placeholder="선택해주세요." required></div>
+                  <span>-</span>
+                  <div class="date_end"><img class="calendar" src="./images/calendar-minus.svg" alt="calendar"><input type="text" class="datepicker date_input" placeholder="선택해주세요." required></div>
+                  <div class="select_btn" onclick="">Select</div>
+                </div>
+              </div>
+              <div class="del_bot">
+                <canvas id="lineChart"></canvas>
+              </div>
+            </div>
+            <div class="sel">
+              <div class="drop_sel">
+                <h2 class="h2_st">This Month</h2>
+                <div class="now_today"><span class="cl_red">26 JUN</span> 2025</div>
+                <nav class="custom_ulist">
+                  <ul>
+                    <li data-value="days_1">This Month</li>
+                    <li data-value="days_2">Last 7 day</li>
+                    <li data-value="days_3">Last 30 day</li>
+                    <li data-value="days_4">90 day</li>
+                    <li data-value="days_5">1 year</li>
+                  </ul>
+                </nav>
+                <div class="caret"><img src="./images/caret-right.svg" alt=""></div>
+              </div>
+              <div class="check_box">
+                <ul class="menu_list">
+                  <li>
+                    <label for="test_a" class="check_design">정산금액
+                      <input type="checkbox" id="test_a" class="check_point" checked>
+                      <span class="on"></span>
+                    </label>
+                  </li>
+                  <li>
+                    <label for="test_b" class="check_design">PV
+                      <input type="checkbox" id="test_b" class="check_point">
+                      <span class="on"></span>
+                    </label>
+                  </li>
+                  <li>
+                    <label for="test_c" class="check_design">Click
+                      <input type="checkbox" id="test_c" class="check_point">
+                      <span class="on"></span>
+                    </label>
+                  </li>
+                  <li>
+                    <label for="test_d" class="check_design">CTR
+                      <input type="checkbox" id="test_d" class="check_point">
+                      <span class="on"></span>
+                    </label>
+                  </li>
+                  <li>
+                    <label for="test_e" class="check_design">eCPM
+                      <input type="checkbox" id="test_e" class="check_point">
+                      <span class="on"></span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <ul class="info_data">
+            <li>
+              <div class="tt">PV</div>
+              <div class="count"><span>150,000</span></div>
+            </li>
+            <li>
+              <div class="tt">Click</div>
+              <div class="count"><span>150,000</span></div>
+            </li>
+            <li>
+              <div class="tt">CTR</div>
+              <div class="count"><span>10</span>&#37;</div>
+            </li>
+            <li>
+              <div class="tt">eCPM</div>
+              <div class="count">&#8361;<span>150,000</span></div>
+            </li>
+            <li>
+              <div class="tt">정산금액</div>
+              <div class="count">&#8361;<span>150,000</span></div>
+            </li>
+          </ul>
+        </section>
+      </div>
+      <section class="table">
+        <div class="data_table">
+          <!-- table header -->
+          <div class="table_row table_header">
+            <div class="cell">날짜</div>
+            <div class="cell">PV</div>
+            <div class="cell">Click</div>
+            <div class="cell">CTR</div>
+            <div class="cell">eCPM</div>
+            <div class="cell">정산금액</div>
+          </div>
+          <!-- 아래로 계속 추가 -->
+          <div class="table_row">
+            <div class="cell">2025-07-01</div>
+            <div class="cell">150,000</div>
+            <div class="cell">150,000</div>
+            <div class="cell">150,000</div>
+            <div class="cell">150,000</div>
+            <div class="cell">₩150,000</div>
+          </div>
+          <div class="table_row">
+            <div class="cell">2025-07-02</div>
+            <div class="cell">150,000</div>
+            <div class="cell">150,000</div>
+            <div class="cell">150,000</div>
+            <div class="cell">150,000</div>
+            <div class="cell">₩150,000</div>
+          </div>
+          <!-- table last -->
+          <div class="table_row table_footer">
+            <div class="cell">합계</div>
+            <div class="cell">150,000</div>
+            <div class="cell">150,000</div>
+            <div class="cell">150,000</div>
+            <div class="cell">150,000</div>
+            <div class="cell">₩150,000</div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="dummy_foonter">
+        <h1>
+          <a href="">
+            <img class="logo" src="./images/aceplanet_logo_white.png" alt="ACE PLANET">
+          </a>
+        </h1>
+        <ul class="company_info">
+          <li>서울 강남구 역삼로15길 3 에이빌딩</li>
+          <li>사업자등록번호 : 519-81-01569</li>
+          <li><a href="">02-6949-0070</a> / <a href="">bd@aceplanner.co.kr</a></li>
+          <li class="copy">Copyright &copy; ACE PLANET 2000-2025,All rights reserved.</li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
