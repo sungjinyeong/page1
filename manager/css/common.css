@@ -252,7 +252,7 @@ textarea.value_inp:focus{
 /* 기본 체크박스 숨기기 */
 .check_design .check_point[type="checkbox"] { display: none; }
 /* 선택되지 않은 체크박스 스타일 꾸미기 */
-.on { width: 20px; height: 20px; position: absolute; top: 0; left: 0; border: 1px solid #B4B4B4; border-radius: 3px;}
+.on { width: 20px; height: 20px; position: absolute; top: 0; left: 0; border: 1px solid #B4B4B4; border-radius: 4px;}
 /* 선택된 체크박스 스타일 꾸미기 */
 .check_design .check_point[type="checkbox"]:checked + .on { background: #4164f0; }
 .on:after { content: ""; position: absolute; display: none; }
@@ -333,6 +333,9 @@ textarea.value_inp:focus{
 }
 .header .out_btn, .header .login_out{
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .header .hd_state .login_in{
   display: flex;
@@ -408,7 +411,7 @@ textarea.value_inp:focus{
 .excel_table .check_design .on{
   width: 16px;
   height: 16px;
-  border-radius: 2px;
+  border-radius: 3px;
   background-color: white;
 }
 .excel_table .check_design .on:after{

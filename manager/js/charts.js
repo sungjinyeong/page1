@@ -1,5 +1,5 @@
 const lineTension = 0,
-      pointRadius = 3,
+      pointRadius = 2.5,
       borderWidth = 1,
       stepSizeY = 100000,
       maxYValue = 600000;
@@ -103,7 +103,8 @@ function renderLineChart(type) {
             color: '#333'
           },
           ticks: {
-            font: { size: 10 }
+            font: { size: 10 },
+            color: '#b1b1b1'
           }
         },
         y: {
@@ -117,7 +118,9 @@ function renderLineChart(type) {
           },
           ticks: {
             stepSize: stepSizeY,
-            callback: value => value.toLocaleString()
+            callback: value => value.toLocaleString(),
+            padding: 20,
+            color: '#b1b1b1'
           },
           min: 0,
           max: maxYValue
@@ -179,7 +182,7 @@ $('.check_point').on('change', function () {
               width: 1,
               color: '#333'
             },
-            ticks: { font: { size: 10 } }
+            ticks: { font: { size: 10 }, color: '#b1b1b1' }
           },
           y: {
             grid: {
@@ -190,7 +193,8 @@ $('.check_point').on('change', function () {
             border: { display: false },
             ticks: {
               stepSize: stepSizeY,
-              callback: value => value.toLocaleString()
+              callback: value => value.toLocaleString(), 
+              color: '#b1b1b1'
             },
             min: 0,
             max: maxYValue

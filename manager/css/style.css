@@ -108,6 +108,9 @@
   align-items: center;
   gap: 8px;
 }
+.section_gp .info .del_r span{
+  color: #B5B5B5;
+}
 .section_gp .info .typ_a, .section_gp .info .typ_b{
   position: relative;
   width: 150px;
@@ -215,7 +218,11 @@ section.table{
 .section_gp .info .sel .check_box .menu_list li:nth-child(5) .check_design .check_point[type="checkbox"]:checked + .on{
   background: #FFC75F;
 }
-
+.section_gp .info .sel .check_box .menu_list li:nth-child(1) .check_design .check_point[type="checkbox"]:checked + .on{border-color: #D90000;}
+.section_gp .info .sel .check_box .menu_list li:nth-child(2) .check_design .check_point[type="checkbox"]:checked + .on{border-color: #0081CF;}
+.section_gp .info .sel .check_box .menu_list li:nth-child(3) .check_design .check_point[type="checkbox"]:checked + .on{border-color: #008F7A;}
+.section_gp .info .sel .check_box .menu_list li:nth-child(4) .check_design .check_point[type="checkbox"]:checked + .on{border-color: #845EC2;}
+.section_gp .info .sel .check_box .menu_list li:nth-child(5) .check_design .check_point[type="checkbox"]:checked + .on{border-color: #FFC75F;}
 
 
 /* subpage */
