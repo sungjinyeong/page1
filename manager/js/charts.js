@@ -5,11 +5,11 @@ const lineTension = 0,
       maxYValue = 600000;
 
 let labelMap = {
-  days_1: [...Array(7)].map((_, i) => `${i + 1}`),
-  days_2: [...Array(31)].map((_, i) => `${i + 1}`),
-  days_3: [...Array(13)].map((_, i) => `${i + 1}`),
-  days_4: [...Array(12)].map((_, i) => `${i + 1}`),
-  days_5: [...Array(14)].map((_, i) => `${i + 1}`)
+  days_1: [...Array(31)].map((_, i) => `${i + 1}`),
+  days_2: [...Array(7)].map((_, i) => `${i + 1}`),
+  days_3: [...Array(31)].map((_, i) => `${i + 1}`),
+  days_4: [...Array(13)].map((_, i) => `${i + 1}`),
+  days_5: [...Array(12)].map((_, i) => `${i + 1}`)
 };
 
 let datasetMap = {
@@ -132,7 +132,7 @@ function renderLineChart(type) {
 
 // 초기 실행
 $(function () {
-  renderLineChart('days_2');
+  renderLineChart('days_1');
 
   // 기간 선택시
   $('.custom_ulist ul li').on('click', function () {
@@ -147,7 +147,7 @@ $(function () {
 // 선택 항목만 동적으로 추가/제거
 $('.check_point').on('change', function () {
   let key = this.id;
-  let type = $('.custom_ulist ul li.active').data('value') || 'days_2';
+  let type = $('.custom_ulist ul li.active').data('value') || 'days_1';
   let labels = labelMap[type];
 
   if (!lineChart) {

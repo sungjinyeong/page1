@@ -1,12 +1,12 @@
 // header Nav li active
 // 헤더 공용입니다 //
-$(document).ready(function (){
-  $('.header_nav li').on('click', function (e){
-    e.preventDefault();
-    $('.header_nav li').removeClass('active');
-    $(this).addClass('active');
-  });
-});
+// $(document).ready(function (){
+//   $('.header_nav li').on('click', function (e){
+//     e.preventDefault();
+//     $('.header_nav li').removeClass('active');
+//     $(this).addClass('active');
+//   });
+// });
 
 // 달력
 $(function () {
