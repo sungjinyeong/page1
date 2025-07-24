@@ -330,6 +330,9 @@ textarea.value_inp:focus{
 }
 .header .hd_state{
   line-height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .header .out_btn, .header .login_out{
   cursor: pointer;
@@ -351,6 +354,9 @@ textarea.value_inp:focus{
   padding-left: 40px;
   margin-right: 40px;
   color: var(--border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .header_nav ul{
   display: flex;
