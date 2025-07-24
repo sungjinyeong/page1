@@ -14,7 +14,7 @@
   font-weight:800;
   font-style:normal;
 }
-header, main, footer, section{font-family:"Pretendard","sans-serif";}
+header, main, footer, section{font-family:"Pretendard" !important;}
 
 :root{
   --white:#fff;
