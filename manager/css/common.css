@@ -14,7 +14,7 @@
   font-weight:800;
   font-style:normal;
 }
-header, main, footer{font-family:"Pretendard","sans-serif";}
+header, main, footer, section{font-family:"Pretendard","sans-serif";}
 
 :root{
   --white:#fff;
@@ -265,7 +265,6 @@ textarea.value_inp:focus{
   flex-direction: column;
   width: 1100px;
   border-collapse: collapse;
-  font-family: sans-serif;
   font-size: 14px;
   margin: 0 auto;
   overflow: hidden;
@@ -430,7 +429,6 @@ textarea.value_inp:focus{
 }
 .excel_table{
   width: 100%;
-  font-family: sans-serif;
   font-size: 14px;
   font-size: 0.95em;
   color: #000;
