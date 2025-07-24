@@ -1,3 +1,13 @@
+// header Nav li active
+// 헤더 공용입니다 //
+$(document).ready(function (){
+  $('.header_nav li').on('click', function (e){
+    e.preventDefault();
+    $('.header_nav li').removeClass('active');
+    $(this).addClass('active');
+  });
+});
+
 // 달력
 $(function () {
   $('.datepicker').datepicker({
@@ -53,14 +63,13 @@ $(document).ready(function () {
   $('.drop_sel').on('click', function (e) {
     e.stopPropagation();
     const $this = $(this);
-    const $ulist = $this.find('.custom_ulist');
+    let $ulist = $this.find('.custom_ulist');
 
-    // 현재 상태에 따라 toggle
     if ($ulist.is(':visible')) {
       $ulist.hide();
       $this.removeClass('active');
     } else {
-      $('.drop_sel').removeClass('active').find('.custom_ulist').hide(); // 다른 드롭다운 닫기
+      $('.drop_sel').removeClass('active').find('.custom_ulist').hide();
       $ulist.show();
       $this.addClass('active');
     }
@@ -69,7 +78,7 @@ $(document).ready(function () {
   $('.custom_ulist ul li').on('click', function (e) {
     e.stopPropagation();
     const text = $(this).text();
-    const $dropSel = $(this).closest('.drop_sel');
+    let $dropSel = $(this).closest('.drop_sel');
 
     $dropSel.find('.h2_st').text(text);
     $dropSel.find('.custom_ulist').hide();

@@ -186,7 +186,7 @@
   align-items: center;
 }
 .select_btn:hover{
-  background-color: #95969b;
+  background-color: #7e8086;
 }
 section.table{
   background-color: #F8F8F8;
@@ -236,4 +236,22 @@ section.table{
 .excel .tip em{
   color: #D90000;
   font-weight: 500;
+}
+.adjustment{
+  margin-left: auto;
+  width: 166px;
+  height: 48px;
+  border-radius: 6px;
+  background-color: #D90000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+  cursor: pointer;
+  font-size: 1.1em;
+  line-height: 1em;
+}
+.adjustment:hover{
+  background-color: #ad0000;
 }
