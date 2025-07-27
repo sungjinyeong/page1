@@ -353,3 +353,59 @@ window.addEventListener('beforeunload', function () {
   document.documentElement.style.scrollBehavior = 'auto';
   window.scrollTo(0, 0);
 });
+
+
+// BX slider
+function setupSponSlider() {
+  const speed = (baseSpeed = 85000, widthRef = 1920) => {
+    return baseSpeed / (window.innerWidth / widthRef);
+  };
+
+  function initSlider(rowClass, sliderClass, baseSpeed) {
+    const $row = $(rowClass);
+    const $track = $row.find('.track');
+
+    // 이전 슬라이더 제거
+    const existingSlider = $track.data('bxSliderInstance');
+    if (existingSlider) {
+      existingSlider.destroySlider();
+    }
+
+    // 슬라이더 클래스 부여
+    $track.removeClass('bx-wrapper'); // bxSlider 내부 래퍼 중복 방지
+    $track.addClass(sliderClass);
+
+    // 이미지 로딩 후 슬라이더 실행
+    imagesLoaded($track[0], function () {
+      const newSlider = $track.bxSlider({
+        slideSelector: 'img',
+        minSlides: 5,
+        maxSlides: 20,
+        moveSlides: 1,
+        slideWidth: 150,
+        slideMargin: 20,
+        ticker: true,
+        speed: speed(baseSpeed),
+        useCSS: false
+      });
+
+      // 슬라이더 인스턴스를 data로 저장
+      $track.data('bxSliderInstance', newSlider);
+    });
+  }
+
+  function init() {
+    initSlider('.row1', 'slider1', 85000);
+    initSlider('.row2', 'slider2', 60000);
+  }
+
+  init();
+  $(window).off('resize.slider').on('resize.slider', function () {
+    init();
+  });
+}
+
+$(document).ready(function () {
+  setupSponSlider();
+});
+
