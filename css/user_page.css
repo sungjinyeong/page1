@@ -124,3 +124,127 @@
   width: 100%;
   padding: calc(var(--padding)*2.5) 0;
 }
+
+.opttion_header{
+  background-color: hsla(0, 0%, 97%, 1);
+  height: 80px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  z-index: 100;
+}
+.join_guide{
+  padding-top: 50px;
+  padding-bottom: 100px;
+  min-height: calc(100vh - 80px - 216px);
+  width: 95%;
+  margin: 0 auto;
+}
+.join_guide h2{
+  text-align: center;
+  font-size: clamp(1.3em, 3.5vw, 1.45em);
+  line-height: 1em;
+  padding-bottom: 20px;
+  font-weight: 600;
+  border-bottom: 1px solid #4d4d4d;
+  margin-bottom: 50px;
+}
+.join_guide h3{
+  font-size: clamp(1.05em, 2.5vw, 1.25em);
+  line-height: 1em;
+  padding-bottom: 15px;
+}
+.join_guide h3 span{
+  color: #D90000;
+  font-size: 0.9em;
+}
+.terms_01, .terms_02{
+  padding-bottom: 40px;
+}
+.terms_box{
+  border-radius: 10px;
+  border: 1px solid #D1D1D1;
+  padding: 5px 25px 25px 25px;
+  font-size: clamp(0.85em, 2vw, 1em);
+  color: #3d3d3d;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 25px;
+}
+.tem_lab{
+  display: block;
+  max-width: 230px;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 10px;
+  padding: 20px 0;
+  cursor: pointer;
+}
+[id^="term"]:checked + .tem_lab{
+  background:#F6F6F6;
+  border-color:#2B2B2B;
+}
+.terms_box > li{
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+.terms_box > li:last-child{
+  border-bottom: none;
+}
+.terms_box h4{
+  font-size: 1.1em;
+  font-weight: bold;
+  padding-bottom: 10px;
+  color: #353535;
+}
+.terms_box p{
+  line-height: 1.5em;
+  padding-bottom: 5px;
+}
+.state_business{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 3%;
+}
+.state_business .ind{
+  background-color: #E6E6E6;
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+}
+.state_business .gro{
+  background-color: #7F7F7F;
+  color: #fff;
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+}
+.state_business a{
+  display: block;
+  padding: 20px 0;
+}
+@media screen and (max-width:768px){
+  .opttion_header{
+    height: 65px;
+  }
+  .terms_box{
+    padding: 0px 20px 20px 20px;
+    border-radius: 7px;
+    max-height: 250px;
+  }
+  .tem_lab{
+    font-size: 0.9em;
+    padding: 15px 0;
+    border-radius: 8px;
+  }
+}

@@ -89,3 +89,17 @@ $(document).ready(function () {
     $('.drop_sel').removeClass('active').find('.custom_ulist').hide();
   });
 });
+
+
+// API 신청하기 모달
+document.addEventListener('DOMContentLoaded', function () {
+  const apiView = document.querySelector('.api_view a');
+  const apiModal = document.querySelector('.api_modal');
+
+  if (apiView && apiModal) {
+    apiView.addEventListener('click', function (e) {
+      e.preventDefault(); // a 기본 링크 동작 차단
+      apiModal.classList.add('active'); // 모달 활성화
+    });
+  }
+});

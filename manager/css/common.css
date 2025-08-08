@@ -14,7 +14,7 @@
   font-weight:800;
   font-style:normal;
 }
-header, main, footer, section{font-family:"Pretendard" !important;}
+header, main, footer, section, .modal{font-family:"Pretendard";}
 
 :root{
   --white:#fff;
@@ -37,9 +37,15 @@ h1 a{display:block;}
 .just_space{justify-content:space-between;align-items:center;}
 .wrap{flex-wrap:wrap;}
 .all_center{align-items:center;justify-content:center;align-self:center;margin:0 auto;}
-.container{box-sizing:border-box;margin:auto;padding:0 10px; width: 1200px; margin: 0 auto;}
+.container{box-sizing:border-box;padding:0 10px; width: 1200px; margin: 0 auto;}
 .cf{display:block;clear:both;content:' ';}
-
+.auto_container{
+  box-sizing:border-box;
+  margin:0 auto;
+  max-width: 1000px;
+  width: 100%;
+  padding:0 10px;
+}
 /* reset */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
@@ -276,6 +282,7 @@ textarea.value_inp:focus{
 }
 .table_row.table_header{
   color: #fff;
+  background: #F8F8F8;
   font-weight: bold;
 }
 .cell{
@@ -485,4 +492,75 @@ textarea.value_inp:focus{
 }
 .vell.ex_blue{
   color: #0073e6;
+}
+.modal_content_l{
+  max-width: 570px !important;
+  padding: 0 !important;
+}
+.modal_close{
+  font-size: 1.25em;
+  line-height: 1.5em;
+  transition: .2s;
+  padding-left: 5px;
+  cursor: pointer;
+  color: #4d4d4d;
+}
+.modal_close:hover{
+  color: #000;
+}
+/* Modal */
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.modal.active{
+  display: flex;
+}
+[class^="modal_content"]{
+  position: relative;
+  overflow: hidden;
+  background-color: var(--white);
+  box-sizing: border-box;
+  width: 95%;
+  max-width: 400px;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.1);
+  z-index: 10000;
+  padding: calc(var(--padding)*2);
+}
+[class^="modal_content"] .action_btn{
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2%;
+  text-align: center;
+}
+[class^="modal_content"] .action_btn > div{
+  padding: 15px 0;
+  width: 100%;
+  background-color: #7F7F7F;
+  border-radius: 6px;
+  color: white;
+  line-height: 1em;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+[class^="modal_content"] .action_btn [class^="okay_btn"]{
+  background-color: #D90000;
+}
+[class^="modal_content"] .action_btn .close_btn{
+  background-color: #7F7F7F;
+  transition: .3s;
+}
+[class^="modal_content"] .action_btn .close_btn:hover{
+  background-color: #6c6e70;
 }

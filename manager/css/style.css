@@ -187,6 +187,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px;
+}
+.select_btn svg{
+  width: 15px;
+  height: 15px;
+  fill: white;
 }
 .select_btn:hover{
   background-color: #7e8086;
@@ -195,6 +201,41 @@ section.table{
   background-color: #F8F8F8;
   padding: 50px 0;
 }
+
+.api_modal .modal_top{
+  width: 100%;
+  height: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E8E8E8;
+  padding: 0 20px;
+  font-weight: 500;
+}
+.api_modal .api_content{
+  padding: 20px;
+}
+.api_modal .date_flex{
+  display: flex;
+  justify-items: start;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+.api_modal .date_flex span{
+  color: #B5B5B5;
+}
+.api_modal .href_link{
+  font-weight: 500;
+  padding-bottom: 10px;
+}
+.api_modal .href_link a{
+  display: inline-block;
+  color: #0081CF;
+}
+
+
+
 
 
 /* check on color */
@@ -229,7 +270,7 @@ section.table{
 .excel .tip{
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   gap: 10px;
   font-size: 1.025em;
   line-height: 1.4em;
@@ -237,6 +278,8 @@ section.table{
   padding-bottom: calc(var(--padding)*5);
 }
 .excel .tip img{
+  position: relative;
+  top: 2px;
   width: 18px;
   opacity: .3;
 }
