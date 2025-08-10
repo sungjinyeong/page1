@@ -59,7 +59,180 @@
     <main class="join">
       <form>
         <div class="auto_container">
-          <h2>사업자 회원가입</h2>
+          <section>
+            <h2>사업자 회원가입</h2>
+            <div class="inp_box d_f">
+              <div class="del">
+                <input type="radio" id="type_a" name="type" hidden value="" checked>
+                <label for="type_a" class="tem_lab">대행사</label>
+              </div>
+              <div class="sel">
+                <input type="radio" id="type_b" name="type" hidden value="">
+                <label for="type_b" class="tem_lab">직매체</label>
+              </div>
+              <div class="inp_tip">※ 선택해 주세요.</div>
+            </div>
+            <div class="inp_box">
+              <h3>아이디<span class="req">&#42;</span></h3>
+              <div class="rg_ton">
+                <div class="inp_line">
+                  <input class="" type="text" name="" value="" id="" minlength="1" placeholder="아이디">
+                </div>
+                <div class="rg_sel">중복확인</div>
+              </div>
+              <div class="inp_tip">※ 한글&#47;특수문자는 입력 불가합니다.</div>
+            </div>
+            <div class="inp_box">
+              <h3>비밀번호<span class="req">&#42;</span></h3>
+              <div class="passw">
+                <div class="inp_line">
+                  <input class="" type="password" name="" value="" id="" minlength="4" placeholder="비밀번호">
+                </div>
+                <div class="inp_line">
+                  <input class="" type="password" name="" value="" id="" minlength="4" placeholder="비밀번호 확인">
+                </div>
+              </div>
+              <div class="inp_tip">※ 4자 이상 입력해야 합니다.</div>
+            </div>
+            <div class="inp_box">
+              <h3>기업자명<span class="req">&#42;</span></h3>
+              <div class="inp_line">
+                <input class="" type="text" name="" value="" id="" minlength="1" placeholder="">
+              </div>
+            </div>
+            <div class="inp_box">
+              <h3>이메일<span class="req">&#42;</span></h3>
+              <div class="rg_ton">
+                <div class="inp_line">
+                  <input class="" type="text" name="" value="" id="" minlength="1" placeholder="">
+                </div>
+                <span class="dot">@</span>
+                <div class="email_select">
+                  <input class="" type="text" name="" value="" id="" placeholder="">
+                </div>
+              </div>
+            </div>
+            <div class="inp_box">
+              <h3>연락처<span class="req">&#42;</span></h3>
+              <div class="rg_ton">
+                <div class="inp_line">
+                  <input class="number" type="text" name="" value="" id="" minlength="3" maxlength="3" placeholder="">
+                </div>
+                <div class="inp_line">
+                  <input class="number" type="text" name="" value="" id="" minlength="3" maxlength="4" placeholder="">
+                </div>
+                <div class="inp_line">
+                  <input class="number" type="text" name="" value="" id="" minlength="4" maxlength="4" placeholder="">
+                </div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>사업자 정보</h2>
+            <div class="inp_box">
+              <h3>회사명<span class="req">&#42;</span></h3>
+              <div class="inp_line">
+                <input class="" type="text" name="" value="" id="" minlength="1" placeholder="">
+              </div>
+            </div>
+            <div class="inp_box">
+              <h3>대표자명<span class="req">&#42;</span></h3>
+              <div class="inp_line">
+                <input class="" type="text" name="" value="" id="" minlength="1" placeholder="">
+              </div>
+            </div>
+            <div class="inp_box">
+              <h3>사업자등록번호<span class="req">&#42;</span></h3>
+              <div class="inp_line passw">
+                <input class="number" type="text" name="" value="" id="" minlength="1" placeholder="">
+              </div>
+              <div class="inp_tip">※ '-'를 제외한 숫자만 입력하세요.</div>
+            </div>
+            <div class="inp_box">
+              <h3>사업자구분<span class="req">&#42;</span></h3>
+              <div class="inp_box d_f">
+                <div class="del">
+                  <input type="radio" id="type_c" name="test" hidden value="" checked>
+                  <label for="type_c" class="tem_lab">개인사업자</label>
+                </div>
+                <div class="sel">
+                  <input type="radio" id="type_d" name="test" hidden value="">
+                  <label for="type_d" class="tem_lab">법인사업자</label>
+                </div>
+                <div class="inp_tip">※ 선택해 주세요.</div>
+              </div>
+            </div>
+            <div class="inp_box">
+              <h3>사업자구분<span class="req">&#42;</span></h3>
+              <div class="rg_ton not_pd">
+                <div class="inp_line">
+                  <div class="file_bord">
+                    <input class="" type="file" name="" value="" id="upload1">
+                    <span>파일명</span>
+                  </div>
+                </div>
+                <label class="rg_sel" for="upload1">파일첨부</label>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>은행계좌정보</h2>
+            <div class="inp_box">
+              <h3>은행명<span class="req">&#42;</span></h3>
+              <div class="inp_line passw">
+                <input class="" type="text" name="" value="" id="" minlength="1" placeholder="">
+              </div>
+            </div>
+            <div class="inp_box">
+              <h3>예금주<span class="req">&#42;</span></h3>
+              <div class="inp_line passw">
+                <input class="" type="text" name="" value="" id="" minlength="1" placeholder="">
+              </div>
+            </div>
+            <div class="inp_box">
+              <h3>계좌번호<span class="req">&#42;</span></h3>
+              <div class="inp_line passw">
+                <input class="" type="text" name="" value="" id="" minlength="1" placeholder="">
+              </div>
+              <div class="inp_tip">※ '-'를 제외한 숫자만 입력하세요.</div>
+            </div>
+            <div class="inp_box">
+              <h3>통장사본 첨부<span class="req">&#42;</span></h3>
+              <div class="rg_ton not_pd">
+                <div class="inp_line">
+                  <div class="file_bord">
+                    <input class="" type="file" name="" value="" id="upload2">
+                    <span>파일명</span>
+                  </div>
+                </div>
+                <label class="rg_sel" for="upload2">파일첨부</label>
+              </div>
+            </div>
+          </section>
+
+          <script>
+            document.addEventListener('input', e => {
+              if (e.target.matches('.inp_box input[type="text"], .inp_box input[type="password"]')) {
+                e.target.classList.toggle('active', e.target.value.trim() !== '');
+              }
+            });
+
+            document.addEventListener('change', e => {
+              if (e.target.matches('.file_bord input[type="file"]')) {
+                e.target.parentElement.classList.toggle('active', e.target.files.length > 0);
+              }
+            });
+
+            document.addEventListener('input', e => {
+              if (e.target.classList.contains('number')) {
+                e.target.value = e.target.value.replace(/[^0-9]/g, '');
+              }
+            });
+          </script>
+
+
+
         </div>
       </form>
     </main>

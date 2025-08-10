@@ -136,7 +136,7 @@
   width: 100%;
   z-index: 100;
 }
-.join_guide{
+.join_guide, .join{
   padding-top: 50px;
   padding-bottom: 100px;
   min-height: calc(100vh - 80px - 216px);
@@ -187,6 +187,10 @@
   cursor: pointer;
 }
 [id^="term"]:checked + .tem_lab{
+  background:#F6F6F6;
+  border-color:#2B2B2B;
+}
+[id^="type"]:checked + .tem_lab{
   background:#F6F6F6;
   border-color:#2B2B2B;
 }
@@ -246,5 +250,127 @@
     font-size: 0.9em;
     padding: 15px 0;
     border-radius: 8px;
+  }
+}
+
+.join{
+  max-width: 500px;
+}
+.join section{
+  padding-bottom: 25px;
+}
+.join h2{
+  font-size: clamp(1.3em, 3.5vw, 1.45em);
+  line-height: 1em;
+  padding-bottom: 20px;
+  font-weight: 700;
+  border-bottom: 1px solid #4d4d4d;
+  margin-bottom: 25px;
+}
+.inp_box{
+  padding-bottom: 25px;
+}
+.inp_box h3{
+  font-size: clamp(1.1em, 2.5vw, 1.2em);
+  font-weight: 600;
+  padding-bottom: 12px;
+}
+.inp_box h3 span{
+  color: #D90000;
+}
+.inp_box.d_f{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.inp_box .tem_lab{
+  width: 100%;
+}
+.inp_box .rg_ton{
+  display: flex;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+.inp_box .rg_ton .dot{
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #949494;
+}
+.inp_box .rg_ton.not_pd{
+  padding: 0;
+}
+.inp_box .inp_line{
+  overflow: hidden;
+  width: 100%;
+  flex: 1;
+}
+.inp_box .passw{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+.inp_box .inp_tip{
+  font-size: 0.85em;
+  color: #949494;
+}
+.inp_box .rg_sel{
+  white-space: nowrap;
+  flex: 0 0 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #949494;
+  color: #fff;
+  cursor: pointer;
+}
+.inp_box .email_select{
+  width: 100%;
+  flex: 1.5;
+}
+.inp_box input[type="text"], .inp_box input[type="password"], .file_bord{
+  position: relative;
+  width:100%;
+  padding:20px;
+  box-sizing:border-box;
+  display:block;
+  background-color:var(--white);
+  font-size: clamp(.95em, 2vw, 1.1em);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  line-height: 1.1em;
+}
+.file_bord input{
+  visibility: hidden;
+  display: block;
+  cursor: pointer;
+}
+.file_bord span{
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: calc(90% - 20px);
+}
+.inp_box input[type="text"].active, .inp_box input[type="password"].active, .file_bord.active{
+  border-color: #2B2B2B;
+}
+@media screen and (max-width:768px){
+  .inp_box input[type="text"], .inp_box input[type="password"], .file_bord{
+    padding: 15px 20px;
+  }
+}
+@media screen and (max-width:400px){
+  .inp_box input[type="text"], .inp_box input[type="password"], .file_bord{
+    padding: 12px 15px;
+  }
+  .inp_box .rg_sel{
+    flex: 0 0 110px;
   }
 }
