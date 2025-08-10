@@ -112,6 +112,75 @@
                 </div>
               </div>
             </div>
+            <!-- 이메일 -->
+<div class="inp_box">
+  <h3>이메일<span class="req">&#42;</span></h3>
+  <div class="rg_ton">
+    <!-- 아이디 (local-part) -->
+    <div class="inp_line">
+      <input type="text" id="email_user" placeholder="아이디" autocomplete="off" inputmode="email">
+    </div>
+
+    <!-- 도메인 (직접입력/자동세팅) -->
+    <div class="inp_line">
+      <input type="text" id="email_domain" placeholder="직접입력" autocomplete="off" inputmode="email" readonly>
+    </div>
+
+    <!-- 도메인 셀렉트 -->
+    <select id="email_sel" aria-label="이메일 도메인 선택">
+      <option value="" selected>직접입력</option>
+      <option value="gmail.com">gmail.com</option>
+      <option value="naver.com">naver.com</option>
+      <option value="daum.net">daum.net</option>
+      <option value="kakao.com">kakao.com</option>
+      <option value="nate.com">nate.com</option>
+      <option value="hotmail.com">hotmail.com</option>
+      <option value="outlook.com">outlook.com</option>
+      <option value="yahoo.com">yahoo.com</option>
+    </select>
+  </div>
+  <!-- 최종 결합 값 -->
+  <input type="hidden" name="email" id="email_full">
+</div>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const user   = $('#email_user');
+  const domain = $('#email_domain');
+  const sel    = $('#email_sel');
+  const full   = $('#email_full');
+
+  function sync() {
+    const u = (user.value || '').trim();
+    const d = (domain.value || '').trim();
+    full.value = (u && d) ? `${u}@${d}` : '';
+  }
+
+  sel.addEventListener('change', () => {
+    if (sel.value === '') {
+      domain.readOnly = false;
+      domain.value = '';
+      domain.focus();
+    } else {
+      domain.readOnly = true;
+      domain.value = sel.value;
+    }
+    sync();
+  });
+
+  user.addEventListener('input', sync);
+  domain.addEventListener('input', sync);
+
+  // 초기 적용
+  if (sel.value) {
+    domain.readOnly = true;
+    domain.value = sel.value;
+  }
+  sync();
+})();
+</script>
+
             <div class="inp_box">
               <h3>연락처<span class="req">&#42;</span></h3>
               <div class="rg_ton">
