@@ -390,6 +390,7 @@
   text-align: center;
   transition: .2s;
   cursor: pointer;
+  margin-top: 40px;
 }
 .submit_btn:hover{
   background-color: #4d4d4d;
