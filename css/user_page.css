@@ -225,6 +225,7 @@
   width: 100%;
   border-radius: 10px;
   text-align: center;
+  transition: .2s;
 }
 .state_business .gro{
   background-color: #7F7F7F;
@@ -232,10 +233,17 @@
   width: 100%;
   border-radius: 10px;
   text-align: center;
+  transition: .2s;
 }
 .state_business a{
   display: block;
   padding: 20px 0;
+}
+.state_business .ind:hover{
+  background-color: #cfcfcf;
+}
+.state_business .gro:hover{
+  background-color: #5a5a5a;
 }
 @media screen and (max-width:768px){
   .opttion_header{
