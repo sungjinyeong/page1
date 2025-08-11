@@ -144,3 +144,35 @@ $(document).on('click', '.custom_email_select .options li', function (e) {
     $domain.prop('readOnly', true).val(value).addClass('active'); // ← 여기서 active 강제 추가
   }
 });
+
+
+
+// 파일 첨부 시 file_bord에 active 추가
+// 파일 첨부 시 file_bord에 active + span에 파일명 + text_cl 추가
+document.addEventListener('change', e => {
+  if (e.target.matches('.file_bord input[type="file"]')) {
+    const fileBord = e.target.closest('.file_bord');
+    if (fileBord) {
+      const span = fileBord.querySelector('span');
+
+      if (e.target.files.length > 0) {
+        fileBord.classList.add('active');
+
+        // 파일명 표시 + class 추가
+        const fileName = e.target.files[0].name;
+        if (span) {
+          span.textContent = fileName;
+          span.classList.add('text_cl');
+        }
+      } else {
+        fileBord.classList.remove('active');
+
+        // 기본 텍스트로 복원 + class 제거
+        if (span) {
+          span.textContent = '파일명';
+          span.classList.remove('text_cl');
+        }
+      }
+    }
+  }
+});

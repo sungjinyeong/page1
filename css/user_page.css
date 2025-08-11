@@ -377,6 +377,10 @@
   text-overflow: ellipsis;
   display: block;
   width: calc(90% - 20px);
+  color: #949494;
+}
+.file_bord span.text_cl{
+  color: #000;
 }
 .inp_box input[type="text"].active, .inp_box input[type="password"].active, .file_bord.active{
   border-color: #2B2B2B;
