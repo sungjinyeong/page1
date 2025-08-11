@@ -104,35 +104,43 @@ $(function () {
 
 
 
-// .rg_sel 형제 input에 입력 감지
 document.addEventListener('input', e => {
+  // 텍스트 / 패스워드 입력 처리
   if (e.target.matches('.inp_box input[type="text"], .inp_box input[type="password"]')) {
+    const hasValue = e.target.value.trim() !== '';
+    e.target.classList.toggle('active', hasValue);
+
+    // 같은 .rg_ton 안의 .rg_sel 버튼 active 처리
     const rgSel = e.target.closest('.rg_ton')?.querySelector('.rg_sel');
-    if (rgSel) {
-      if (e.target.value.trim() !== '') {
-        rgSel.classList.add('active');
-      } else {
-        rgSel.classList.remove('active');
-      }
-    }
+    if (rgSel) rgSel.classList.toggle('active', hasValue);
   }
-});
 
-// input Text = active 추가
-document.addEventListener('input', e => {
-  if (e.target.matches('.inp_box input[type="text"], .inp_box input[type="password"]')) {
-    e.target.classList.toggle('active', e.target.value.trim() !== '');
-  }
-});
-document.addEventListener('change', e => {
-  if (e.target.matches('.file_bord input[type="file"]')) {
-    e.target.parentElement.classList.toggle('active', e.target.files.length > 0);
-  }
-});
-
-// number class = 숫자만
-document.addEventListener('input', e => {
+  // 숫자만 입력 가능
   if (e.target.classList.contains('number')) {
     e.target.value = e.target.value.replace(/[^0-9]/g, '');
+  }
+});
+
+// 이메일 셀렉트 옵션 선택 시 value 반영 + active 처리
+$(document).on('click', '.custom_email_select .options li', function (e) {
+  e.stopPropagation();
+  const $li   = $(this);
+  const $wrap = $li.closest('.custom_email_select');
+  const value = $li.attr('data-value') ?? '';
+  const text  = $li.text();
+  const $domain = $('#email_domain');
+
+  // UI 반영
+  $wrap.find('.selected').text(text).attr('data-value', value);
+  $wrap.removeClass('active').find('.options').hide();
+
+  // 숨김 input 값 반영
+  $('#email_sel_value').val(value);
+
+  // 직접입력 여부
+  if (value === '') {
+    $domain.prop('readOnly', false).val('').removeClass('active');
+  } else {
+    $domain.prop('readOnly', true).val(value).addClass('active'); // ← 여기서 active 강제 추가
   }
 });

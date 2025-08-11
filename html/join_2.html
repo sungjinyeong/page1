@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 필수 OG 메타태그 -->
+    <meta property="og:title" content="ACE PLANET">
+    <meta property="og:description" content="온라인 모바일 통합 광고 플랫폼">
+    <!-- og,파비콘 경로 예시입니다 수정 필요해요 -->
+    <meta property="og:image" content="https://sungjinyeong.github.io/page1/images/og.jpg">
+    <meta property="og:url" content="https://sungjinyeong.github.io/page1/html/index.html">
+    <meta property="og:type" content="website">
+
+    <!-- 외부 리소스들 (reset, normalize, 아이콘 등) -->
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/2.7.94/css/materialdesignicons.min.css">
+		<link rel="stylesheet" type="text/css" href="https://unpkg.com/minibarjs@latest/dist/minibar.min.css">
+		<link rel="stylesheet" type="text/css" href="https://unpkg.com/rangeable@latest/dist/rangeable.min.css">
+    <!-- reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reseter.css/2.0.0/reseter.min.css" integrity="sha512-gCJkkUMGTe73+FMwog6gIBCVJIMXRoc21l6/IPCuzxCex/1sxvO8ctb6Zd4/WWs2UMqmtnDrAdhJht5pEY0LXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- normalize css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- swiper css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" />
+    <!-- Slick css -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="https://sungjinyeong.github.io/page1/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://sungjinyeong.github.io/page1/images/favicon.ico" type="image/x-icon">
+
+    <!-- jQurey -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.17/jquery.bxslider.min.js" integrity="sha512-LaBO0tZh1+6Ebk+EnHt/WsGM0UnmkCXfQ1rfhGmpa5MXUdslNuSSELBRcteHKz4k4ny+Op10Ax2fPoTNq+VcUg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- swiper js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js" integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Modernizr 최신 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/3.11.7/modernizr.min.js" referrerpolicy="no-referrer"></script>
+    <!-- GSAP 최신 버전 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <!-- Slick -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <!-- imagesLoaded -->
+    <script src="https://unpkg.com/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"></script>
+    <!-- (그 외 필요한 리소스들 생략) -->
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/user_page.css">
+
+    <script defer src="../js/join.js"></script>
+
+    <title>ACE PLANET</title>
+  </head>
+  <body>
+    <header class="opttion_header">
+      <div class="auto_container">
+        <h1><a href="/html/index.html"><img src="../images/mg_logo.svg" alt="optivize"></a></h1>
+      </div>
+    </header>
+    <main class="join">
+      <form>
+        <div class="auto_container">
+          <section>
+            <h2>개인 회원가입</h2>
+            <div class="inp_box d_f">
+              <div class="del">
+                <input type="radio" id="type_a" name="type" hidden value="" checked>
+                <label for="type_a" class="tem_lab">대행사</label>
+              </div>
+              <div class="sel">
+                <input type="radio" id="type_b" name="type" hidden value="">
+                <label for="type_b" class="tem_lab">직매체</label>
+              </div>
+              <div class="inp_tip">※ 선택해 주세요.</div>
+            </div>
+            <div class="inp_box">
+              <h3>아이디<span class="req">&#42;</span></h3>
+              <div class="rg_ton">
+                <div class="inp_line">
+                  <input class="" type="text" name="" value="" id="" minlength="1" placeholder="아이디">
+                </div>
+                <div class="rg_sel id_overlap">중복확인</div>
+              </div>
+              <div class="inp_tip">※ 한글&#47;특수문자는 입력 불가합니다.</div>
+              <div class="check_tip fall">※ 중복된 아이디 입니다. 사용할수 없는 아이디 입니다.</div>
+              <div class="check_tip true">※ 사용 가능한 아이디 입니다.</div>
+            </div>
+            <div class="inp_box">
+              <h3>비밀번호<span class="req">&#42;</span></h3>
+              <div class="passw">
+                <div class="inp_line">
+                  <input class="" type="password" name="" value="" id="" minlength="4" placeholder="비밀번호">
+                </div>
+                <div class="inp_line">
+                  <input class="" type="password" name="" value="" id="" minlength="4" placeholder="비밀번호 확인">
+                </div>
+              </div>
+              <div class="inp_tip">※ 4자 이상 입력해야 합니다.</div>
+              <div class="password check_tip fall active">※ 비밀번호가 다릅니다</div>
+              <div class="password check_tip true">※ 사용 가능한 비밀번호 입니다.</div>
+            </div>
+            <div class="inp_box">
+              <h3>담당자 이름<span class="req">&#42;</span></h3>
+              <div class="inp_line">
+                <input class="" type="text" name="" value="" id="" minlength="1" placeholder="">
+              </div>
+            </div>
+            <div class="inp_box">
+              <h3>이메일<span class="req">&#42;</span></h3>
+              <div class="rg_ton">
+                <div class="inp_line">
+                  <input type="text" id="email_user" placeholder="아이디" autocomplete="off" inputmode="email">
+                </div>
+                <span class="dot">@</span>
+                <div class="inp_line email_select">
+                  <input type="text" id="email_domain" placeholder="직접입력" autocomplete="off" inputmode="email" readonly>
+                </div>
+              </div>
+              <div class="custom_email_select" id="email_select_box">
+                <div class="selected" data-value="">직접입력</div>
+                <ul class="options">
+                  <li data-value="">직접입력</li>
+                  <li data-value="gmail.com">gmail.com</li>
+                  <li data-value="naver.com">naver.com</li>
+                  <li data-value="daum.net">daum.net</li>
+                  <li data-value="kakao.com">kakao.com</li>
+                  <li data-value="nate.com">nate.com</li>
+                  <li data-value="hotmail.com">hotmail.com</li>
+                  <li data-value="outlook.com">outlook.com</li>
+                  <li data-value="yahoo.com">yahoo.com</li>
+                </ul>
+              </div>
+              <input type="hidden" id="email_sel_value" name="email_sel_value">
+            </div>
+
+            <div class="inp_box">
+              <h3>연락처<span class="req">&#42;</span></h3>
+              <div class="rg_ton">
+                <div class="inp_line">
+                  <input class="number" type="text" name="" value="" id="" minlength="3" maxlength="3" placeholder="">
+                </div>
+                <div class="inp_line">
+                  <input class="number" type="text" name="" value="" id="" minlength="3" maxlength="4" placeholder="">
+                </div>
+                <div class="inp_line">
+                  <input class="number" type="text" name="" value="" id="" minlength="4" maxlength="4" placeholder="">
+                </div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>사이트 정보</h2>
+            <div class="inp_box">
+              <h3>사이트명<span class="req">&#42;</span></h3>
+              <div class="inp_line">
+                <input class="" type="text" name="" value="" id="" minlength="1" placeholder="">
+              </div>
+            </div>
+            <div class="inp_box">
+              <h3>사이트 URL<span class="req">&#42;</span></h3>
+              <div class="rg_ton">
+                <div class="inp_line">
+                  <input class="" type="text" name="" value="" id="" minlength="1" placeholder="">
+                </div>
+              </div>
+              <div class="inp_tip">※ 대표 광고타겟 도메인으로 사용되므로 정확히 입력해주세요.</div>
+            </div>
+          </section>
+          <section>
+            <h2>사업자 정보</h2>
+            <div class="inp_box">
+              <h3>회사명<span class="req">&#42;</span></h3>
+              <div class="inp_line">
+                <input class="" type="text" name="" value="" id="" minlength="1" placeholder="">
+              </div>
+            </div>
+            <div class="inp_box">
+              <h3>대표자명<span class="req">&#42;</span></h3>
+              <div class="inp_line">
+                <input class="" type="text" name="" value="" id="" minlength="1" placeholder="">
+              </div>
+            </div>
+            <div class="inp_box">
+              <h3>사업자등록번호<span class="req">&#42;</span></h3>
+              <div class="inp_line passw">
+                <input class="number" type="text" name="" value="" id="" minlength="1" placeholder="">
+              </div>
+              <div class="inp_tip">※ '-'를 제외한 숫자만 입력하세요.</div>
+            </div>
+            <div class="inp_box">
+              <h3>사업자구분<span class="req">&#42;</span></h3>
+              <div class="inp_box d_f">
+                <div class="del">
+                  <input type="radio" id="type_c" name="test" hidden value="" checked>
+                  <label for="type_c" class="tem_lab">개인사업자</label>
+                </div>
+                <div class="sel">
+                  <input type="radio" id="type_d" name="test" hidden value="">
+                  <label for="type_d" class="tem_lab">법인사업자</label>
+                </div>
+                <div class="inp_tip">※ 선택해 주세요.</div>
+              </div>
+            </div>
+            <div class="inp_box">
+              <h3>사업자등록증 첨부<span class="req">&#42;</span></h3>
+              <div class="rg_ton not_pd">
+                <div class="inp_line">
+                  <div class="file_bord">
+                    <input class="" type="file" name="" value="" id="upload1" hidden>
+                    <span>파일명</span>
+                  </div>
+                </div>
+                <label class="rg_sel" for="upload1">파일첨부</label>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>은행계좌정보</h2>
+            <div class="inp_box">
+              <h3>은행명<span class="req">&#42;</span></h3>
+              <div class="inp_line passw">
+                <input class="" type="text" name="" value="" id="" minlength="1" placeholder="">
+              </div>
+            </div>
+            <div class="inp_box">
+              <h3>예금주<span class="req">&#42;</span></h3>
+              <div class="inp_line passw">
+                <input class="" type="text" name="" value="" id="" minlength="1" placeholder="">
+              </div>
+            </div>
+            <div class="inp_box">
+              <h3>계좌번호<span class="req">&#42;</span></h3>
+              <div class="inp_line passw">
+                <input class="number" type="text" name="" value="" id="" minlength="1" placeholder="">
+              </div>
+              <div class="inp_tip">※ '-'를 제외한 숫자만 입력하세요.</div>
+            </div>
+            <div class="inp_box">
+              <h3>통장사본 첨부<span class="req">&#42;</span></h3>
+              <div class="rg_ton not_pd">
+                <div class="inp_line">
+                  <div class="file_bord">
+                    <input class="" type="file" name="" value="" id="upload2" hidden>
+                    <span>파일명</span>
+                  </div>
+                </div>
+                <label class="rg_sel" for="upload2">파일첨부</label>
+              </div>
+            </div>
+            <div class="submit_btn">가입완료</div>
+          </section>
+        </div>
+      </form>
+    </main>
+    <footer>
+      <div class="dummy_foonter">
+        <h1>
+          <a href="">
+            <img class="logo" src="../images/aceplanet_logo_white.png" alt="ACE PLANET">
+          </a>
+        </h1>
+        <ul class="company_info">
+          <li>서울 강남구 역삼로15길 3 에이빌딩</li>
+          <li>사업자등록번호 : 519-81-01569</li>
+          <li><a href="">02-6949-0070</a> / <a href="">bd@aceplanner.co.kr</a></li>
+          <li class="copy">Copyright &copy; ACE PLANET 2000-2025,All rights reserved.</li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
