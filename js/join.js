@@ -25,6 +25,14 @@ document.querySelectorAll('.id_overlap').forEach(btn => {
 
 // 이메일 셀렉트
 $(function () {
+  // 초기 로드 시 '직접입력' 상태면 readonly 해제
+  const $domain = $('#email_domain');
+  const $emailSelect = $('#email_select_box .selected');
+
+  if ($emailSelect.attr('data-value') === '' || !$emailSelect.attr('data-value')) {
+    $domain.prop('readOnly', false).val('');
+  }
+
   // 펼치기/접기
   $(document).on('click', '.custom_email_select .selected', function (e) {
     e.stopPropagation();
@@ -57,14 +65,13 @@ $(function () {
     // 이메일 전용 연동
     if ($wrap.is('#email_select_box')) {
       const $hidden = $('#email_sel_value');
-      const $domain = $('#email_domain');
 
       if ($hidden.length) $hidden.val(value);
 
       if ($domain.length) {
         if (value === '') {
           // 직접입력
-          $domain.prop('readOnly', false).val('').focus();
+          $domain.prop('readOnly', false).val('');
         } else {
           // 선택입력
           $domain.prop('readOnly', true).val(value);
@@ -93,6 +100,8 @@ $(function () {
     }
   });
 });
+
+
 
 
 // .rg_sel 형제 input에 입력 감지
