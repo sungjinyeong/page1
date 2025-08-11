@@ -48,6 +48,8 @@
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/user_page.css">
 
+    <script defer src="../js/join.js"></script>
+
     <title>ACE PLANET</title>
   </head>
   <body>
@@ -78,9 +80,11 @@
                 <div class="inp_line">
                   <input class="" type="text" name="" value="" id="" minlength="1" placeholder="아이디">
                 </div>
-                <div class="rg_sel">중복확인</div>
+                <div class="rg_sel id_overlap">중복확인</div>
               </div>
               <div class="inp_tip">※ 한글&#47;특수문자는 입력 불가합니다.</div>
+              <div class="check_tip fall">※ 중복된 아이디 입니다. 사용할수 없는 아이디 입니다.</div>
+              <div class="check_tip true">※ 사용 가능한 아이디 입니다.</div>
             </div>
             <div class="inp_box">
               <h3>비밀번호<span class="req">&#42;</span></h3>
@@ -93,6 +97,8 @@
                 </div>
               </div>
               <div class="inp_tip">※ 4자 이상 입력해야 합니다.</div>
+              <div class="password check_tip fall active">※ 비밀번호가 다릅니다</div>
+              <div class="password check_tip true">※ 사용 가능한 비밀번호 입니다.</div>
             </div>
             <div class="inp_box">
               <h3>기업자명<span class="req">&#42;</span></h3>
@@ -104,82 +110,29 @@
               <h3>이메일<span class="req">&#42;</span></h3>
               <div class="rg_ton">
                 <div class="inp_line">
-                  <input class="" type="text" name="" value="" id="" minlength="1" placeholder="">
+                  <input type="text" id="email_user" placeholder="아이디" autocomplete="off" inputmode="email">
                 </div>
                 <span class="dot">@</span>
-                <div class="email_select">
-                  <input class="" type="text" name="" value="" id="" placeholder="">
+                <div class="inp_line email_select">
+                  <input type="text" id="email_domain" placeholder="직접입력" autocomplete="off" inputmode="email" readonly>
                 </div>
               </div>
+              <div class="custom_email_select" id="email_select_box">
+                <div class="selected" data-value="">직접입력</div>
+                <ul class="options">
+                  <li data-value="">직접입력</li>
+                  <li data-value="gmail.com">gmail.com</li>
+                  <li data-value="naver.com">naver.com</li>
+                  <li data-value="daum.net">daum.net</li>
+                  <li data-value="kakao.com">kakao.com</li>
+                  <li data-value="nate.com">nate.com</li>
+                  <li data-value="hotmail.com">hotmail.com</li>
+                  <li data-value="outlook.com">outlook.com</li>
+                  <li data-value="yahoo.com">yahoo.com</li>
+                </ul>
+              </div>
+              <input type="hidden" id="email_sel_value" name="email_sel_value">
             </div>
-            <!-- 이메일 -->
-<div class="inp_box">
-  <h3>이메일<span class="req">&#42;</span></h3>
-  <div class="rg_ton">
-    <!-- 아이디 (local-part) -->
-    <div class="inp_line">
-      <input type="text" id="email_user" placeholder="아이디" autocomplete="off" inputmode="email">
-    </div>
-
-    <!-- 도메인 (직접입력/자동세팅) -->
-    <div class="inp_line">
-      <input type="text" id="email_domain" placeholder="직접입력" autocomplete="off" inputmode="email" readonly>
-    </div>
-
-    <!-- 도메인 셀렉트 -->
-    <select id="email_sel" aria-label="이메일 도메인 선택">
-      <option value="" selected>직접입력</option>
-      <option value="gmail.com">gmail.com</option>
-      <option value="naver.com">naver.com</option>
-      <option value="daum.net">daum.net</option>
-      <option value="kakao.com">kakao.com</option>
-      <option value="nate.com">nate.com</option>
-      <option value="hotmail.com">hotmail.com</option>
-      <option value="outlook.com">outlook.com</option>
-      <option value="yahoo.com">yahoo.com</option>
-    </select>
-  </div>
-  <!-- 최종 결합 값 -->
-  <input type="hidden" name="email" id="email_full">
-</div>
-
-<script>
-(() => {
-  const $ = s => document.querySelector(s);
-  const user   = $('#email_user');
-  const domain = $('#email_domain');
-  const sel    = $('#email_sel');
-  const full   = $('#email_full');
-
-  function sync() {
-    const u = (user.value || '').trim();
-    const d = (domain.value || '').trim();
-    full.value = (u && d) ? `${u}@${d}` : '';
-  }
-
-  sel.addEventListener('change', () => {
-    if (sel.value === '') {
-      domain.readOnly = false;
-      domain.value = '';
-      domain.focus();
-    } else {
-      domain.readOnly = true;
-      domain.value = sel.value;
-    }
-    sync();
-  });
-
-  user.addEventListener('input', sync);
-  domain.addEventListener('input', sync);
-
-  // 초기 적용
-  if (sel.value) {
-    domain.readOnly = true;
-    domain.value = sel.value;
-  }
-  sync();
-})();
-</script>
 
             <div class="inp_box">
               <h3>연락처<span class="req">&#42;</span></h3>
@@ -236,7 +189,7 @@
               <div class="rg_ton not_pd">
                 <div class="inp_line">
                   <div class="file_bord">
-                    <input class="" type="file" name="" value="" id="upload1">
+                    <input class="" type="file" name="" value="" id="upload1" hidden>
                     <span>파일명</span>
                   </div>
                 </div>
@@ -262,7 +215,7 @@
             <div class="inp_box">
               <h3>계좌번호<span class="req">&#42;</span></h3>
               <div class="inp_line passw">
-                <input class="" type="text" name="" value="" id="" minlength="1" placeholder="">
+                <input class="number" type="text" name="" value="" id="" minlength="1" placeholder="">
               </div>
               <div class="inp_tip">※ '-'를 제외한 숫자만 입력하세요.</div>
             </div>
@@ -271,7 +224,7 @@
               <div class="rg_ton not_pd">
                 <div class="inp_line">
                   <div class="file_bord">
-                    <input class="" type="file" name="" value="" id="upload2">
+                    <input class="" type="file" name="" value="" id="upload2" hidden>
                     <span>파일명</span>
                   </div>
                 </div>
@@ -279,31 +232,9 @@
               </div>
             </div>
           </section>
-
-          <script>
-            document.addEventListener('input', e => {
-              if (e.target.matches('.inp_box input[type="text"], .inp_box input[type="password"]')) {
-                e.target.classList.toggle('active', e.target.value.trim() !== '');
-              }
-            });
-
-            document.addEventListener('change', e => {
-              if (e.target.matches('.file_bord input[type="file"]')) {
-                e.target.parentElement.classList.toggle('active', e.target.files.length > 0);
-              }
-            });
-
-            document.addEventListener('input', e => {
-              if (e.target.classList.contains('number')) {
-                e.target.value = e.target.value.replace(/[^0-9]/g, '');
-              }
-            });
-          </script>
-
-
-
         </div>
       </form>
+      <div class="submit_btn">가입완료</div>
     </main>
     <footer>
       <div class="dummy_foonter">
