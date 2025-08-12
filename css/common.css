@@ -113,7 +113,6 @@ h1 a{display:block;}
 .header.user_header{
   font-family:"Pretendard","sans-serif";position:fixed;top:0;left:0;right:0;width:100%;z-index:100;
   padding:calc(var(--padding)*2) 0 calc(var(--padding)*.5);
-  background-color: #fff;
 }
 .header_container{width:94%;margin:auto;display:flex;justify-content:space-between;align-items:center;}
 .header h1{position:relative;max-width:210px;}
